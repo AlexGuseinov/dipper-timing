@@ -1,0 +1,32 @@
+==18208== Memcheck, a memory error detector
+==18208== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==18208== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==18208== Command: ./ct_check small ks
+==18208== 
+==18208== Use of uninitialised value of size 8
+==18208==    at 0x109CE8: dipper_expand_128 (dipper.c:100)
+==18208==    by 0x1093B3: main (ct_check.c:31)
+==18208==  Uninitialised value was created by a client request
+==18208==    at 0x1093A1: main (ct_check.c:30)
+==18208== 
+==18208== Use of uninitialised value of size 8
+==18208==    at 0x109D02: dipper_expand_128 (dipper.c:101)
+==18208==    by 0x1093B3: main (ct_check.c:31)
+==18208==  Uninitialised value was created by a client request
+==18208==    at 0x1093A1: main (ct_check.c:30)
+==18208== 
+==18208== Use of uninitialised value of size 8
+==18208==    at 0x109D18: dipper_expand_128 (dipper.c:102)
+==18208==    by 0x1093B3: main (ct_check.c:31)
+==18208==  Uninitialised value was created by a client request
+==18208==    at 0x1093A1: main (ct_check.c:30)
+==18208== 
+==18208== 
+==18208== HEAP SUMMARY:
+==18208==     in use at exit: 0 bytes in 0 blocks
+==18208==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==18208== 
+==18208== All heap blocks were freed -- no leaks are possible
+==18208== 
+==18208== For lists of detected and suppressed errors, rerun with: -s
+==18208== ERROR SUMMARY: 10 errors from 3 contexts (suppressed: 0 from 0)

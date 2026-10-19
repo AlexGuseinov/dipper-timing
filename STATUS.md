@@ -31,8 +31,26 @@
   - rpi-pico-2 / rpi-pico-7
 - NodeMCU-32S on the Mac: seed 1, Wi-Fi off. Next on this board: seed 2, then Wi-Fi on.
 
+**x86 done (19 Oct ~21:35 Baku)**: Contabo KVM guest, gcc 13.3 -O2, rdtsc+lfence, pinned to CPU 3 or CPU 6.
+- Ali stopped the AND-count queue so the server was free.
+- Static check (Valgrind 3.22 memcheck, ctgrind-style), `results/raw/ctgrind/SUMMARY.txt`:
+  - small, fast and fast_const are flagged for secret-indexed loads, in both the key schedule and encryption.
+  - leaky is flagged for a secret branch.
+  - **ct: 0 reports.**
+  - Limitation: memcheck treats a value loaded from a secret address as defined, so in `fast` the `PT[]` lookup after `SB2[]` is not reported separately.
+- Timing:
+  - Seeds 1 and 2 at N=10^6.
+  - Seeds 3 and 4 at N=10^7 (extra).
+  - Host recompute: 40/40 exact.
+  - leaky is detected in all 4 runs. The gate passed.
+  - At N=10^7: small and ct have max |t| ≤ 2.1. fast A gives 8.05 / 88.4 and fast B 5.35 / 20.7. fast_const A gives 9.20 / 33.8.
+
+**ESP32 (NodeMCU-32S), Wi-Fi off, seed 1 done**:
+- small, fast, fast_const and ct have max |t| ≤ 2.9. leaky gives 704.
+- Recompute: 10/10 exact.
+- Seed 2 is running.
+
 **Not started**
-- x86: waits until the AND-count queue on Contabo finishes (~22 Oct).
 - ESP32-C6 / LoPy4: Strasbourg. SSH host key not accepted yet; ESP-IDF builds are ready.
 - a8 / rpi3: not started.
 

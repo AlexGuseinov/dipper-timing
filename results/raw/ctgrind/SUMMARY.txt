@@ -1,0 +1,12 @@
+# valgrind-3.22.0, gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, -O2 -g
+variant     phase  errors  branch    addr  locations
+small       ks        10       0       3  (dipper.c:102)x1 (dipper.c:101)x1 (dipper.c:100)x1
+small       enc      448       0       1  (dipper.c:31)x1
+fast        ks        10       0       3  (dipper.c:102)x1 (dipper.c:101)x1 (dipper.c:100)x1
+fast        enc      224       0       1  (dipper_fast.c:49)x1
+fast_const  ks        10       0       3  (dipper.c:102)x1 (dipper.c:101)x1 (dipper.c:100)x1
+fast_const  enc      224       0       1  (dipper_fast_const.c:13)x1
+ct          ks         0       0       0  
+ct          enc        0       0       0  
+leaky       ks        10       0       3  (dipper.c:102)x1 (dipper.c:101)x1 (dipper.c:100)x1
+leaky       enc      449       1       1  (dipper_leaky.c:17)x1 (dipper.c:31)x1
