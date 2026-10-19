@@ -57,3 +57,17 @@
 **Notes**
 - Dev logs are kept in `results/dev/` and are not results.
 - IoT-LAB logs begin with a short tail of the run started by flashing, followed by the run started by the reset. Analysis uses the last `#BEGIN` block.
+
+## 2026-10-20 00:45 Baku
+- Finished, logs in `results/raw/`:
+  - IoT-LAB: m3, samr21, st-iotnode and rpi-pico, both seeds, 10/10 pairs.
+  - nrf52840dk: both seeds have 10/10 pairs. Its serial drops bytes and loses the `#END`/`#BEGIN` lines around `ztimer_sleep`; the first full block is complete.
+  - ESP32 Wi-Fi off: seeds 1 and 2.
+- Both IoT-LAB experiments (455668, 455669) stopped.
+- The ESP32 Wi-Fi-on run (seed 3) was stopped early because Ali unplugged the board for the night. The partial log is in `results/dev/`, and the run has to be redone.
+- Next:
+  - recompute all logs on the host;
+  - build the summary table (`RESULTS.md`);
+  - redo ESP32 Wi-Fi on;
+  - Strasbourg ESP32-C6 / LoPy4;
+  - a8 / rpi3.
