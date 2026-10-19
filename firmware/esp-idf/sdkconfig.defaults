@@ -1,0 +1,10 @@
+# -O2 for everything (same flags for all variants)
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+# long busy loop in our task: no task watchdog
+CONFIG_ESP_TASK_WDT_INIT=n
+CONFIG_ESP_TASK_WDT_EN=n
+# console on UART0 at 115200 (IoT-LAB requirement for ESP boards)
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
+CONFIG_LOG_DEFAULT_LEVEL_WARN=y
+CONFIG_FREERTOS_HZ=1000

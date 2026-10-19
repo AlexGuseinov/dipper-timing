@@ -1,0 +1,16 @@
+.venv/
+.pio/
+build/
+sdkconfig
+sdkconfig.old
+harness/posix/dudect_host
+harness/posix/dudect_host-*
+harness/posix/*.map
+harness/posix/*.tables.txt
+firmware/riot/RIOT/
+firmware/riot/bin*/
+__pycache__/
+*.o
+secrets.h
+firmware/esp-idf/sdkconfig.*
+!firmware/esp-idf/sdkconfig.defaults*
