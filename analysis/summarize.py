@@ -135,7 +135,7 @@ def main():
         for main_set in (True, False):
             if not main_set and not any(not k[1] for k in groups):
                 continue
-            md.append("\n### %s\n" % ("Main runs" if main_set else "Extra runs (x86, N = 10^7, seeds 3 and 4)"))
+            md.append("\n### %s\n" % ("Main runs" if main_set else "Extra runs (N = 10^7, seeds 3 and 4: x86 on CPUs 3/6, a8 on nodes a8-10/a8-40)"))
             md.append("| platform | test | " + " | ".join(VARIANTS) + " |")
             md.append("|---|---|" + "---|" * len(VARIANTS))
             for plat in ORDER:

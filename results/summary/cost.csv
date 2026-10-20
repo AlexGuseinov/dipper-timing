@@ -29,11 +29,11 @@ RP2040 (IoT-LAB rpi-pico),leaky,2,73785.6,2522.1
 "ESP32 NodeMCU-32S, Wi-Fi off",fast_const,2,18560.2,1967.2
 "ESP32 NodeMCU-32S, Wi-Fi off",ct,2,6180.2,4368.3
 "ESP32 NodeMCU-32S, Wi-Fi off",leaky,2,57741.7,1967.3
-"ESP32 NodeMCU-32S, Wi-Fi scan load",small,1,57532.3,1967.0
-"ESP32 NodeMCU-32S, Wi-Fi scan load",fast,1,18543.6,1967.0
-"ESP32 NodeMCU-32S, Wi-Fi scan load",fast_const,1,18560.1,1967.0
-"ESP32 NodeMCU-32S, Wi-Fi scan load",ct,1,6180.1,4368.0
-"ESP32 NodeMCU-32S, Wi-Fi scan load",leaky,1,57741.7,1967.0
+"ESP32 NodeMCU-32S, Wi-Fi scan load",small,2,57532.3,1967.0
+"ESP32 NodeMCU-32S, Wi-Fi scan load",fast,2,18543.6,1967.0
+"ESP32 NodeMCU-32S, Wi-Fi scan load",fast_const,2,18560.1,1967.0
+"ESP32 NodeMCU-32S, Wi-Fi scan load",ct,2,6180.1,4368.0
+"ESP32 NodeMCU-32S, Wi-Fi scan load",leaky,2,57741.7,1967.0
 ESP32 rev 1 (IoT-LAB lopy4),small,2,57532.3,1967.3
 ESP32 rev 1 (IoT-LAB lopy4),fast,2,18543.3,1967.2
 ESP32 rev 1 (IoT-LAB lopy4),fast_const,2,18560.2,1967.2
@@ -44,11 +44,11 @@ ESP32-C6 (IoT-LAB esp32-c6c1),fast,2,15479.7,1726.6
 ESP32-C6 (IoT-LAB esp32-c6c1),fast_const,2,16052.2,1726.6
 ESP32-C6 (IoT-LAB esp32-c6c1),ct,2,5992.2,3380.6
 ESP32-C6 (IoT-LAB esp32-c6c1),leaky,2,49502.5,1726.6
-"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",small,2,44668.3,1354.6
-"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast,2,17306.5,1353.4
-"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast_const,2,17180.3,1354.6
-"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",ct,2,5018.0,3322.1
-"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",leaky,2,44849.8,1354.6
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",small,4,44668.3,1354.6
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast,4,17306.5,1353.4
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast_const,4,17179.1,1353.4
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",ct,4,5018.0,3322.1
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",leaky,4,44849.8,1354.6
 "x86-64 (KVM guest, AMD EPYC Zen 1)",small,4,4821.3,391.0
 "x86-64 (KVM guest, AMD EPYC Zen 1)",fast,4,1809.4,374.4
 "x86-64 (KVM guest, AMD EPYC Zen 1)",fast_const,4,1907.6,326.7

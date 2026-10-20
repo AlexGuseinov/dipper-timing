@@ -57,7 +57,7 @@ def main_logs():
         if "N1e7" in p:
             continue
         b = os.path.basename(p)
-        seed = next((s for s in ("s1", "s2", "s3") if "_%s_" % s in b), "s1")
+        seed = next((s for s in ("s1", "s2", "s3", "s4") if "_%s_" % s in b), "s1")
         logs.setdefault(platform_of(p), {})[seed] = series(p)
     return logs
 
@@ -71,7 +71,8 @@ def fig_maxt(logs, test):
     for ax, plat in zip(axes, plats):
         for y, lab in ((4.5, "4.5"), (10, "10")):
             ax.axhline(y, color=INK2, lw=0.8, ls=(0, (2, 2)), zorder=1)
-        for seed, ls in (("s1", "-"), ("s2", "--"), ("s3", "-")):
+        seeds = sorted(logs[plat])                       # first run solid, second dashed
+        for seed, ls in zip(seeds, ("-", "--")):
             ser = logs[plat].get(seed)
             if not ser:
                 continue
@@ -84,9 +85,9 @@ def fig_maxt(logs, test):
                     continue
                 xs = [n for n, _ in pts]
                 ys = [max(t, FLOOR) for _, t in pts]
-                ax.plot(xs, ys, ls=ls, lw=1.4 if seed != "s2" else 1.0, color=COLOR[v], zorder=3,
-                        marker=MARK[v], markersize=3 if seed != "s2" else 0, markevery=[len(xs) - 1],
-                        label=v if seed in ("s1", "s3") else None)
+                ax.plot(xs, ys, ls=ls, lw=1.4 if ls == "-" else 1.0, color=COLOR[v], zorder=3,
+                        marker=MARK[v], markersize=3 if ls == "-" else 0, markevery=[len(xs) - 1],
+                        label=v if ls == "-" else None)
         ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e4, 1.3e6)
         ax.set_ylim(FLOOR * 0.8, 3e5)
         ax.grid(True, which="major", color=GRID, lw=0.6, zorder=0)
@@ -104,7 +105,7 @@ def fig_maxt(logs, test):
         ax.set_xlabel("measurements N")
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, loc="upper center", ncol=5, frameon=False, bbox_to_anchor=(0.5, 1.0))
-    fig.text(0.5, 0.005, "Test %s. Solid: seed 1, dashed: seed 2 (other node or CPU). Dotted lines: thresholds 4.5 and 10.\n"
+    fig.text(0.5, 0.005, "Test %s. Solid: first run, dashed: second run (new seed, other node or CPU; ESP32 Wi-Fi on: seeds 3/4 on the same board). Dotted lines: thresholds 4.5 and 10.\n"
              "Runs in which every sample had the same cycle count (zero variance) are drawn at %.2f." % (test, FLOOR),
              ha="center", fontsize=7, color=INK2)
     fig.tight_layout(rect=(0, 0.05, 1, 0.95))

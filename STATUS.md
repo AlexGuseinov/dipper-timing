@@ -91,3 +91,13 @@
   - second Wi-Fi-on run?
   - a8 at N=10^7 for the unclear `fast_const` B?
   - target journal (AMA Herald, Word; or JMTE, LaTeX)?
+
+## 2026-10-20 ~11:55 Baku: extra runs done
+- ESP32 Wi-Fi scan load, second run (seed 4). Both Wi-Fi runs are clean except `leaky`, which is now a repeated leak.
+- a8 at N = 10^7 (seeds 3 and 4, a8-10 and a8-40, exp 455738, stopped):
+  - `fast_const` gives a repeated leak in A (6.7 / 9.0) and B (13.8 / 9.6).
+  - `fast`, with the same tables in `.bss`, does not leak.
+  - `small` and `ct` are clean.
+- Host recompute: 260 runs. 240 bit-identical, 2 to 1e-3, 18 serial-damaged; 0 unexplained.
+- `RESULTS.md`, `ENVIRONMENT.md`, tables and figures updated.
+- Open for Ali: target journal (AMA Herald or JMTE), then the paper.

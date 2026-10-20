@@ -59,16 +59,16 @@ RP2040 (IoT-LAB rpi-pico),flash cache,leaky,B,2,10^6/10^6,986.35/1018.27,"leak, 
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,fast_const,B,2,10^6/10^6,1.14/0.64,no leak found at N=10^6
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,ct,B,2,10^6/10^6,2.21/1.13,no leak found at N=10^6
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,leaky,B,2,10^6/10^6,704.38/704.29,"leak, repeated (>10 in all runs)"
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,A,1,10^6,1.82,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,A,1,10^6,0.92,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,A,1,10^6,1.50,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,A,1,10^6,1.05,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,A,1,10^6,704.27,unclear
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,B,1,10^6,2.72,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,B,1,10^6,1.50,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,B,1,10^6,0.11,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,B,1,10^6,0.50,no leak found at N=10^6
-"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,B,1,10^6,704.99,unclear
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,A,2,10^6/10^6,1.82/1.31,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,A,2,10^6/10^6,0.92/1.40,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,A,2,10^6/10^6,1.50/0.32,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,A,2,10^6/10^6,1.05/0.69,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,A,2,10^6/10^6,704.27/704.39,"leak, repeated (>10 in all runs)"
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,B,2,10^6/10^6,2.72/1.16,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,B,2,10^6/10^6,1.50/0.94,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,B,2,10^6/10^6,0.11/1.93,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,B,2,10^6/10^6,0.50/1.10,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,B,2,10^6/10^6,704.99/706.43,"leak, repeated (>10 in all runs)"
 ESP32 rev 1 (IoT-LAB lopy4),flash cache,small,A,2,10^6/10^6,1.76/1.71,no leak found at N=10^6
 ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast,A,2,10^6/10^6,2.83/2.17,no leak found at N=10^6
 ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast_const,A,2,10^6/10^6,1.16/1.74,no leak found at N=10^6
@@ -109,6 +109,16 @@ ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,leaky,B,2,10^6/10^6,1594.31/1594.86,"l
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,fast_const,B,2,10^6/10^6,2.30/7.41,unclear
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,ct,B,2,10^6/10^6,0.92/1.14,no leak found at N=10^6
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,leaky,B,2,10^6/10^6,45.31/26.17,"leak, repeated (>10 in all runs)"
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,small,A,2,10^7/10^7,2.08/1.43,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast,A,2,10^7/10^7,1.93/3.13,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast_const,A,2,10^7/10^7,6.72/8.98,"leak, repeated (>4.5 in all runs)"
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,ct,A,2,10^7/10^7,1.25/1.85,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,leaky,A,2,10^7/10^7,2174.46/2145.77,"leak, repeated (>10 in all runs)"
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,small,B,2,10^7/10^7,1.47/1.32,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast,B,2,10^7/10^7,3.50/1.99,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast_const,B,2,10^7/10^7,13.76/9.55,"leak, repeated (>4.5 in all runs)"
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,ct,B,2,10^7/10^7,2.34/1.62,no leak found at N=10^7
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,leaky,B,2,10^7/10^7,1936.44/2123.73,"leak, repeated (>10 in all runs)"
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,small,A,2,10^7/10^7,2.05/1.81,no leak found at N=10^7
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,fast,A,2,10^7/10^7,8.05/88.38,"leak, repeated (>4.5 in all runs)"
 "x86-64 (KVM guest, AMD EPYC Zen 1)",CPU data caches,fast_const,A,2,10^7/10^7,9.20/33.78,"leak, repeated (>4.5 in all runs)"

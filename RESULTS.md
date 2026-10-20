@@ -28,8 +28,8 @@ Dipper-64/128 encryption, five C implementations, eleven platforms. The data was
 | RP2040 (IoT-LAB rpi-pico) | B | 1.7 / 0.7 | 1.0 / 0.4 | **6.2 / 6.5** | 1.0 / 0.9 | **986.4 / 1018.3** |
 | ESP32 NodeMCU-32S, Wi-Fi off | A | 1.8 / 1.7 | 2.8 / 2.2 | 1.2 / 1.7 | 1.9 / 2.7 | **703.7 / 705.2** |
 | ESP32 NodeMCU-32S, Wi-Fi off | B | 0.7 / 0.8 | 1.4 / 1.7 | 1.1 / 0.6 | 2.2 / 1.1 | **704.4 / 704.3** |
-| ESP32 NodeMCU-32S, Wi-Fi scan load | A | 1.8 | 0.9 | 1.5 | 1.0 | *704.3* |
-| ESP32 NodeMCU-32S, Wi-Fi scan load | B | 2.7 | 1.5 | 0.1 | 0.5 | *705.0* |
+| ESP32 NodeMCU-32S, Wi-Fi scan load | A | 1.8 / 1.3 | 0.9 / 1.4 | 1.5 / 0.3 | 1.0 / 0.7 | **704.3 / 704.4** |
+| ESP32 NodeMCU-32S, Wi-Fi scan load | B | 2.7 / 1.2 | 1.5 / 0.9 | 0.1 / 1.9 | 0.5 / 1.1 | **705.0 / 706.4** |
 | ESP32 rev 1 (IoT-LAB lopy4) | A | 1.8 / 1.7 | 2.8 / 2.2 | 1.2 / 1.7 | 1.9 / 2.7 | **703.7 / 705.2** |
 | ESP32 rev 1 (IoT-LAB lopy4) | B | 0.7 / 0.8 | 1.4 / 1.7 | 1.1 / 0.6 | 2.2 / 1.1 | **704.4 / 704.3** |
 | ESP32-C6 (IoT-LAB esp32-c6c1) | A | 1.8 / 1.7 | 1.2 / 0.8 | 1.6 / 1.4 | 0.6 / 1.7 | **1452.2 / 1453.3** |
@@ -39,10 +39,12 @@ Dipper-64/128 encryption, five C implementations, eleven platforms. The data was
 | x86-64 (KVM guest, AMD EPYC Zen 1) | A | 0.5 / 2.2 | **19.9 / 5.6** | **8.6 / 8.3** | 1.0 / 1.5 | **68.7 / 40.9** |
 | x86-64 (KVM guest, AMD EPYC Zen 1) | B | 1.6 / 1.6 | 1.8 / 3.6 | *2.3 / 7.4* | 0.9 / 1.1 | **45.3 / 26.2** |
 
-### Extra runs (x86, N = 10^7, seeds 3 and 4)
+### Extra runs (N = 10^7, seeds 3 and 4: x86 on CPUs 3/6, a8 on nodes a8-10/a8-40)
 
 | platform | test | small | fast | fast_const | ct | leaky |
 |---|---|---|---|---|---|---|
+| TI AM3505 Cortex-A8 (IoT-LAB a8, Linux) | A | 2.1 / 1.4 | 1.9 / 3.1 | **6.7 / 9.0** | 1.3 / 1.9 | **2174.5 / 2145.8** |
+| TI AM3505 Cortex-A8 (IoT-LAB a8, Linux) | B | 1.5 / 1.3 | 3.5 / 2.0 | **13.8 / 9.6** | 2.3 / 1.6 | **1936.4 / 2123.7** |
 | x86-64 (KVM guest, AMD EPYC Zen 1) | A | 2.1 / 1.8 | **8.1 / 88.4** | **9.2 / 33.8** | 1.3 / 1.3 | **1193.5 / 1419.9** |
 | x86-64 (KVM guest, AMD EPYC Zen 1) | B | 1.6 / 0.7 | **5.3 / 20.7** | 1.8 / 3.6 | 0.8 / 2.1 | **386.8 / 366.8** |
 
@@ -53,9 +55,12 @@ Cells: max |t| per run (seed 1 / seed 2 …). **bold** = leak, repeated (> 4.5 i
 Verdict per cell (platform × variant × test, with N and both max |t| values): `results/summary/leakage.csv`. Every run: `results/summary/runs.csv`.
 
 Notes on single cells:
-- **ESP32 NodeMCU, Wi-Fi scan load**: one run only (seed 3). By the rule, even `leaky` is "unclear" here, because nothing was repeated. A second Wi-Fi run is needed for a repeated verdict.
+- **ESP32 NodeMCU, Wi-Fi scan load**: two runs (seeds 3 and 4) on the same board, because only one NodeMCU was available.
 - **ESP32 rev 1 (lopy4)** gives max |t| identical to the NodeMCU (ESP32 rev 3) for the same seed, down to the last printed digit. In the one run with an undamaged dump (`ct`, Test B), all 131072 raw cycle counts are identical. With interrupts off, the cycle count on these ESP32 chips is a deterministic function of the inputs, across two chip revisions and two boards.
-- **x86 `fast_const` Test B** and **a8 `fast_const` Test B** are "unclear": 2.3 / 7.4 and 7.6 / 1.5.
+- **x86 `fast_const` Test B** is "unclear": 2.3 / 7.4 at N = 10^6, and 1.8 / 3.6 at N = 10^7.
+- **a8 `fast_const` Test B** was "unclear" at N = 10^6 (7.6 / 1.5). At N = 10^7 (two more seeds) it is a repeated leak in both tests:
+  - Test A: 6.7 / 9.0
+  - Test B: 13.8 / 9.6
 
 ## 2. What was seen, per memory group
 
@@ -84,7 +89,7 @@ Notes on single cells:
 
 **ESP family (32 KB flash cache): ESP32 NodeMCU, ESP32 rev 1 (lopy4), ESP32-C6.**
 - No variant other than `leaky` crossed 4.5 on any ESP board: max |t| ≤ 2.8 at N = 10^6, two runs each. The `fast_const` tables (2.5 KB) and `S[]` stay in the 32 KB cache after warm-up.
-- This holds with the Wi-Fi radio active (continuous scans on the other core), but only one run was made with Wi-Fi active.
+- This also holds with the Wi-Fi radio active (continuous scans on the other core), in two runs.
 - The ESP32 timing is not perfectly constant. `small` varies by up to 4 cycles (57545–57549), but this variation does not separate the fixed and random classes.
 
 **CPU data caches: x86-64 (KVM guest), Cortex-A8.**
@@ -95,8 +100,12 @@ Notes on single cells:
   - `small` and `ct` show no leak at N = 10^7 (≤ 2.1). `small`'s `S[]` lies inside one 64-byte line.
   - The host is a virtual machine on a shared server, so the noise level is high. The leak in `fast` only clearly separates at N = 10^7.
 - **Cortex-A8**:
-  - No variant other than `leaky` leaks at N = 10^6. `fast_const` B is unclear (7.6 / 1.5).
-  - The timer is `clock_gettime` with about 77 ns resolution and a syscall per read, so the test is much less sensitive here than with a cycle counter.
+  - At N = 10^6, no variant other than `leaky` leaks, and `fast_const` B is unclear (7.6 / 1.5).
+  - At N = 10^7 (two more seeds, on the same two nodes), `fast_const` leaks in both tests: A 6.7 / 9.0, B 13.8 / 9.6. That is above 4.5 in all runs, and above 10 once.
+  - `fast` uses the *same* tables and the same code with the tables in `.bss`, and does not leak: A 1.9 / 3.1, B 3.5 / 2.0.
+  - On Linux both copies are in RAM. They differ only in placement: `.rodata` at 0x4188, close to the code, against `.bss` at 0x21de0. That could mean different L1 set conflicts in the 16 KB 4-way L1D, but the mechanism was not identified here.
+  - `small` and `ct` show no leak at N = 10^7 (≤ 2.3).
+  - The timer is `clock_gettime` with about 77 ns resolution and a syscall per read, so the test needs a larger N here than with a cycle counter.
 
 **`ct` (constant-time version).**
 - No leak found on any platform, and zero variance on m3 and SAMR21.
@@ -122,10 +131,10 @@ Known limitation: memcheck treats a value loaded from a secret address as define
 
 ## 4. Host recompute of the device statistics
 
-For every run the first 131072 raw cycle counts were dumped over serial and the full statistic was recomputed on the host. Out of 230 runs:
-- **211 are bit-identical** to the device value (same IEEE-754 double).
+For every run the first 131072 raw cycle counts were dumped over serial and the full statistic was recomputed on the host. Out of 260 runs:
+- **240 are bit-identical** to the device value (same IEEE-754 double).
 - **2 agree to 1e-3** (lopy4-5).
-- **17 could not be compared**, because the dump was damaged on the serial link: lost bytes, merged lines, or a digit lost inside a word, which gives an impossible cycle count below half the calibration minimum. All 17 are on ESP32 boards: 16 on the two IoT-LAB LoPy4 nodes, 1 on the own board during the Wi-Fi run. The ESP32-C6 dumps were undamaged.
+- **18 could not be compared**, because the dump was damaged on the serial link: lost bytes, merged lines, or a digit lost inside a word, which gives an impossible cycle count below half the calibration minimum. All 18 are on ESP32 boards: 16 on the two IoT-LAB LoPy4 nodes and 2 on the own board during the Wi-Fi runs. The ESP32-C6 dumps were undamaged.
 - **No unexplained mismatch.**
 
 Details: `results/summary/recompute.txt`. The verdicts use the device values, which are computed before the serial link and are not affected by it.
@@ -213,12 +222,12 @@ Source: `results/summary/footprint_riot_raw.txt`.
 - **Calibration batch**: 8000 samples on m3 and 2500 on samr21, instead of 10^4, because of RAM.
 - **x86** is a KVM virtual machine on a shared host (Contabo VPS), not bare metal. No system settings were changed.
 - **a8** has no cycle counter in user space: `perf_event_open` gives ENOSYS, so `clock_gettime` is used at about 77 ns resolution. This is under the brief's 100 ns limit, but each read costs about 2.8 µs.
-- **ESP32 Wi-Fi-on**: a single run, so it gives no repeated verdict. The load is continuous active scanning, because no access point credentials were used.
+- **ESP32 Wi-Fi-on**: both runs are on the same board, with different seeds. The load is continuous active scanning, because no access point credentials were used.
 - **nRF52840 and ESP serial links** lose bytes. On the nRF52840 the `#END`/`#BEGIN` lines around the 1 s sleep were lost. The analysis takes the first complete block and checks the dumps.
 - **One LoPy4 run** (seed 2) was restarted from scratch, after an accidental power cycle caused by an operator error. Only the complete rerun is used; the partial log is in `results/dev/`.
 - The test is first-order and second-order Welch t-tests with cropping. Other leakage forms (multivariate, frequency-domain) were not tested.
 
 ## 7. Figures
 
-- `figures/maxt_vs_N_testA.png`, `figures/maxt_vs_N_testB.png`: max |t| against N, one panel per platform.
+- `figures/maxt_vs_N_testA.png`, `figures/maxt_vs_N_testB.png`: max |t| against N, one panel per platform, for the N = 10^6 runs.
 - `figures/cost_relative.png`: encryption cost relative to `small`.
