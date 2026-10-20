@@ -12,6 +12,8 @@
 \usepackage{lscape}
 \usepackage{float}
 \usepackage{lineno,hyperref}
+\hypersetup{hidelinks}
+\usepackage{orcidlink}
 \usepackage{caption}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[linesnumbered,boxed,lined,ruled,vlined]{algorithm2e}
@@ -53,7 +55,7 @@
 
 \vspace*{6mm}
 
-\noindent{\bf Ali Huseynli$^{1}$, Yadigar Imamverdiyev$^{1}$, Jalal Alizadeh$^{1}$}\\
+\noindent{\bf \orcidlink{0009-0003-4959-2887}\,Ali Huseynli$^{1*}$, \orcidlink{0000-0002-3710-1046}\,Yadigar Imamverdiyev$^{1}$, \orcidlink{0009-0003-6410-3711}\,Jalal Alizadeh$^{1}$}\\
 \noindent{$^{1}$Azerbaijan Technical University, Baku, Azerbaijan}\\
 
 \hrule \vspace{0.2cm} \noindent {\footnotesize{\bf Abstract.}
@@ -63,7 +65,7 @@ Table lookups indexed by secret data are a classic source of timing leakage, but
 \vspace{0.2cm}
 \noindent{\footnotesize{\textbf{Keywords}: timing side channel, constant-time implementation, lightweight block cipher, IoT microcontroller, flash cache, leakage assessment.}}\\
 {\footnotesize{\textbf{AMS Subject Classification:} 94A60, 68M20.}}\\
-{\footnotesize{\textbf{Corresponding author:} Ali Huseynli, Azerbaijan Technical University, H. Javid ave. 25, AZ1073, Baku, Azerbaijan, Phone: [to be completed], {\color{blue}\em e-mail: ali.huseynli@student.aztu.edu.az}}}\\
+{\footnotesize{\textbf{Corresponding author:} Ali Huseynli, Azerbaijan Technical University, H. Javid ave. 25, AZ1073, Baku, Azerbaijan, {\color{blue}\em e-mail: ali.huseynli@student.aztu.edu.az}}}\\
 {\footnotesize{\emph{Received: \,\,\,\,\, \hspace{0.1cm}Revised:
 \,\,\,\,\, \hspace{0.1cm} Accepted: \,\,\,\,\,
 \hspace{0.1cm}Published: \,\,\,\,\,}}} \vspace{0.2cm} \hrule
@@ -160,7 +162,7 @@ As in dudect, the test is applied to the uncropped samples, to the samples below
 \caption{Platforms. Memory features are taken from the vendor documentation. The cycle counter is DWT\_CYCCNT on Cortex-M3/M4, the 24-bit SysTick on Cortex-M0+, CCOUNT on Xtensa, the \texttt{mpccr} counter on the ESP32-C6, \texttt{rdtsc} on x86-64, and \texttt{clock\_gettime} (77\,ns steps) on the Cortex-A8, where no user-space cycle counter is available.}
 \label{tab:platforms}
 \small
-\begin{tabular}{lllp{6.2cm}}
+\begin{tabular}{p{4.1cm}p{2.3cm}lp{5.4cm}}
 \hline
 Platform & Core & Clock & Memory between core and constant tables\\
 \hline
@@ -169,7 +171,7 @@ nRF52840 & Cortex-M4F & 64\,MHz & cache on the instruction bus only \citep{nrf52
 SAMR21G18A & Cortex-M0+ & 48\,MHz & NVM cache, 8 lines $\times$ 64 bit \citep{samr21}\\
 STM32L475VG (st-iotnode) & Cortex-M4F & 80\,MHz & ART accelerator, data cache 256\,B \citep{rm0351}\\
 RP2040 (rpi-pico) & Cortex-M0+ & 125\,MHz & XIP cache 16\,KB, 2-way \citep{rp2040}\\
-ESP32 (own NodeMCU-32S, rev 3; LoPy4, rev 1) & Xtensa LX6 & 240\,MHz & flash cache 32\,KB, 2-way \citep{esp32trm}\\
+ESP32: own NodeMCU-32S (rev 3), IoT-LAB LoPy4 (rev 1) & Xtensa LX6 & 240\,MHz & flash cache 32\,KB, 2-way \citep{esp32trm}\\
 ESP32-C6 & RISC-V & 160\,MHz & flash cache 32\,KB, 4-way \citep{esp32c6trm}\\
 TI AM3505 (IoT-LAB a8), Linux & Cortex-A8 & 600\,MHz & L1D 16\,KB, L2 256\,KB \citep{am3505}\\
 x86-64 server (KVM guest), Linux & AMD EPYC (Zen 1) & -- & L1D 32\,KB, L2 512\,KB, L3 8\,MB\\
@@ -229,8 +231,8 @@ Table~\ref{tab:cost} and Figure~\ref{fig:cost} give the cost. \tct{} is the fast
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/cost_relative.pdf}
-\caption{Encryption time of \tfa{}, \tfc{} and \tct{} relative to \tsm{} on the same platform.}
+\includegraphics[width=0.9\textwidth]{figures/paper_fig2_cost.pdf}
+\caption{Encryption time of \tfa{}, \tfc{} and \tct{} relative to \tsm{} on the same platform (median cycles per block; ns on the Cortex-A8, TSC ticks on x86-64). The second ESP32 board and the runs with Wi-Fi load give the same values as the ESP32 shown.}
 \label{fig:cost}
 \end{figure}
 

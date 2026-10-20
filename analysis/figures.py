@@ -148,16 +148,55 @@ def fig_cost(fmt="png"):
     return out
 
 
+def fig_cost_paper():
+    """Compact, white-background version for the paper: one row per distinct
+    platform (the second ESP32 board and the Wi-Fi runs give the same cycle
+    counts as the NodeMCU and are left out)."""
+    import csv
+    rows = list(csv.DictReader(open(os.path.join(ROOT, "results", "summary", "cost.csv"))))
+    cost = {(r["platform"], r["variant"]): float(r["enc_cycles_per_block"]) for r in rows}
+    plats = [("STM32F103 (IoT-LAB m3)", "STM32F103"), ("nRF52840 (IoT-LAB nrf52840dk)", "nRF52840"),
+             ("SAMR21G18A (IoT-LAB samr21)", "SAMR21"), ("STM32L475VG (IoT-LAB st-iotnode)", "STM32L475"),
+             ("RP2040 (IoT-LAB rpi-pico)", "RP2040"), ("ESP32 NodeMCU-32S, Wi-Fi off", "ESP32"),
+             ("ESP32-C6 (IoT-LAB esp32-c6c1)", "ESP32-C6"), ("TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)", "Cortex-A8"),
+             ("x86-64 (KVM guest, AMD EPYC Zen 1)", "x86-64")]
+    vs = ["fast", "fast_const", "ct"]
+    with plt.rc_context({"axes.facecolor": "white", "figure.facecolor": "white", "savefig.facecolor": "white"}):
+        fig, ax = plt.subplots(figsize=(6.3, 3.6))
+        bar = 0.25
+        for i, v in enumerate(vs):
+            ys = [k + (i - 1) * bar for k in range(len(plats))]
+            xs = [cost[(p, v)] / cost[(p, "small")] for p, _ in plats]
+            ax.barh(ys, xs, height=bar * 0.9, color=COLOR[v], label=v, zorder=3)
+            for y, x in zip(ys, xs):
+                ax.text(x + 0.008, y, "%.2f" % x, va="center", fontsize=5.5, color=INK2)
+        ax.set_yticks(range(len(plats)))
+        ax.set_yticklabels([s for _, s in plats], fontsize=7.5)
+        ax.invert_yaxis()
+        ax.axvline(1.0, color=INK2, lw=0.8, ls=(0, (2, 2)))
+        ax.text(0.99, -0.75, "small = 1", ha="right", va="bottom", fontsize=6.5, color=INK2)
+        ax.set_xlim(0, 1.05)
+        ax.set_xlabel("encryption time relative to small (median cycles per block)", fontsize=7.5)
+        ax.grid(True, axis="x", color=GRID, lw=0.6, zorder=0)
+        ax.legend(loc="lower right", frameon=False, ncol=3, fontsize=7)
+        fig.tight_layout()
+        out = os.path.join(FIG, "paper_fig2_cost.pdf")
+        fig.savefig(out)
+        plt.close(fig)
+    return out
+
+
 def main():
     os.makedirs(FIG, exist_ok=True)
     logs = main_logs()
     for t in "AB":
         print(fig_maxt(logs, t))
     print(fig_cost())
-    # paper versions (vector): six representative platforms, Test A
+    # paper versions (vector, white background): six representative platforms, Test A
+    plt.rcParams.update({"axes.facecolor": "white", "figure.facecolor": "white", "savefig.facecolor": "white"})
     print(fig_maxt(logs, "A", only=["m3", "nrf52840dk", "samr21", "st-iotnode", "esp32", "x86"], cols=3,
                    name="paper_fig1_maxt_testA", fmt="pdf", note=False))
-    print(fig_cost(fmt="pdf"))
+    print(fig_cost_paper())
 
 
 if __name__ == "__main__":

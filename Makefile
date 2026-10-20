@@ -11,7 +11,7 @@ analysis:
 	$(PY) analysis/footprint.py > /dev/null
 	$(PYPLOT) analysis/figures.py
 	$(PY) analysis/paper_tables.py > /dev/null
-	cp figures/paper_fig1_maxt_testA.pdf figures/cost_relative.pdf paper/figures/
+	rm -f paper/figures/*.pdf && cp figures/paper_fig1_maxt_testA.pdf figures/paper_fig2_cost.pdf paper/figures/
 
 host:
 	$(MAKE) -C harness/posix
