@@ -1,0 +1,14 @@
+\begin{tabular}{llrrrrr}
+\hline
+Platform & Setting & \multicolumn{3}{c}{Flash: pair latency (cycles)} & RAM & \\
+ & & same block & other block & block size & & \\
+\hline
+STM32F103 & none & 11 & 11 & -- & 9 & \\
+nRF52840 & I-cache on (default) & 8 & 11 & 16\,B & 5 & \\
+nRF52840 & I-cache off & 8 & 11 & 16\,B & 5 & \\
+nRF52840 & cipher code in RAM & 8 & 11 & 16\,B & 5 & \\
+SAMR21 & NVM cache 64\,B & 10 & 12 & 8\,B & 9 & \\
+STM32L475 & ART D-cache 256\,B & 9 & 13 & 8\,B & 5 & \\
+RP2040 & XIP cache 16\,KB & 8 & 8 & -- & 8 & \\
+\hline
+\end{tabular}

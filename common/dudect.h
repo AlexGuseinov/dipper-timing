@@ -51,6 +51,7 @@ typedef struct {
     uint32_t nraw;        /* raw samples dumped per (variant, test) */
     uint32_t variants;    /* bit mask over dipper_variants[] */
     uint32_t tests;       /* bit 0 = Test A, bit 1 = Test B */
+    uint32_t microbench;  /* placement build only: run the lookup microbenchmark */
 } dudect_cfg_t;
 
 /* Runs selftest, cost measurement and all selected (variant, test) pairs,

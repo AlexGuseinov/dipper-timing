@@ -2,6 +2,7 @@
 #include <string.h>
 #include "variants.h"
 
+#ifndef VARIANT_SET_PLACEMENT
 /* fast and fast_const have no key schedule of their own: they use the small
  * profile's dipper_expand_* (as in the upstream repository). */
 const dipper_variant_t dipper_variants[] = {
@@ -11,6 +12,27 @@ const dipper_variant_t dipper_variants[] = {
     { "ct",         dipper_expand_96_ct, dipper_expand_128_ct, dipper_encrypt_block_ct    },
     { "leaky",      dipper_expand_96,    dipper_expand_128,    dipper_encrypt_block_leaky },
 };
+#else
+/* controlled placement experiment (impl/dipper_placement.c): identical code,
+ * tables passed as a flash or a RAM address. expand96 is only used by the
+ * 96-bit test vectors and is not timed. */
+void     pl_ks_flash(const uint16_t k[8], uint64_t rk[DIPPER_ROUNDS]);
+void     pl_ks_ram(const uint16_t k[8], uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_small_flash(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_small_ram(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_fast_flash(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_fast_ram(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_leaky1(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+uint64_t pl_leaky32(uint64_t p, const uint64_t rk[DIPPER_ROUNDS]);
+const dipper_variant_t dipper_variants[] = {
+    { "small_flash", dipper_expand_96, pl_ks_flash, pl_small_flash },
+    { "small_ram",   dipper_expand_96, pl_ks_ram,   pl_small_ram   },
+    { "fast_flash",  dipper_expand_96, pl_ks_flash, pl_fast_flash  },
+    { "fast_ram",    dipper_expand_96, pl_ks_ram,   pl_fast_ram    },
+    { "leaky1",      dipper_expand_96, pl_ks_ram,   pl_leaky1      },
+    { "leaky32",     dipper_expand_96, pl_ks_ram,   pl_leaky32     },
+};
+#endif
 const int dipper_n_variants = (int)(sizeof(dipper_variants) / sizeof(dipper_variants[0]));
 
 static void k96(uint32_t hi32, uint64_t lo64, uint16_t k[6]){

@@ -45,8 +45,14 @@ double dudect_welch(const welch_t *w){
     if (w->n[0] < 2 || w->n[1] < 2) return 0.0;
     double v0 = w->m2[0] / (w->n[0] - 1), v1 = w->m2[1] / (w->n[1] - 1);
     double den = sqrt(v0 / w->n[0] + v1 / w->n[1]);
-    if (den == 0.0) return 0.0;
-    return (w->mean[0] - w->mean[1]) / den;
+    double num = w->mean[0] - w->mean[1];
+    if (den == 0.0) {
+        /* both classes have zero variance: equal means -> no difference (0);
+         * different means -> perfectly separable classes (+/- infinity) */
+        if (num == 0.0) return 0.0;
+        return num > 0 ? INFINITY : -INFINITY;
+    }
+    return num / den;
 }
 
 static int cmp_u32(const void *a, const void *b){
@@ -100,6 +106,7 @@ static char *fmt_d(char *buf, double v, int dec){
     if (v != v) { strcpy(buf, "nan"); return buf; }
     int neg = v < 0; if (neg) v = -v;
     unsigned long sc = 1; for (int i = 0; i < dec; i++) sc *= 10;
+    if (v == INFINITY) { strcpy(buf, neg ? "-inf" : "inf"); return buf; }
     if (v >= 4.0e9) { strcpy(buf, neg ? "-big" : "big"); return buf; }
     unsigned long ip = (unsigned long)v;
     unsigned long fp = (unsigned long)((v - (double)ip) * (double)sc + 0.5);
@@ -295,6 +302,19 @@ int dudect_run_all(const dudect_cfg_t *cfg){
     plat_print("#BEGIN");
     snprintf(line, sizeof line, "#meta platform=%s timer=%s build=%s", PLAT_NAME, PLAT_TIMER, BUILD_INFO);
     plat_print(line);
+#ifdef VARIANT_SET_PLACEMENT
+    {   /* placement experiment: RAM copies, addresses, lookup microbenchmark */
+        extern void placement_init(void);
+        extern const void *pl_addr_s_flash(void), *pl_addr_s_ram(void), *pl_addr_pt_flash(void),
+                          *pl_addr_pt_ram(void), *pl_addr_code(void);
+        extern void microbench_run(void);
+        placement_init();
+        snprintf(line, sizeof line, "#addr S_flash=%p S_ram=%p PT_flash=%p PT_ram=%p code=%p",
+                 pl_addr_s_flash(), pl_addr_s_ram(), pl_addr_pt_flash(), pl_addr_pt_ram(), pl_addr_code());
+        plat_print(line);
+        if (cfg->microbench) microbench_run();
+    }
+#endif
     int fail = dipper_selftest(1000, plat_print);
     if (fail) { plat_print("#END"); return 1; }
     for (int vi = 0; vi < dipper_n_variants; vi++)

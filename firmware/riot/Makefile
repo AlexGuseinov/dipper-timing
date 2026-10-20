@@ -11,13 +11,25 @@ NRAW ?= 131072
 VARIANTS ?= 0x1F
 TESTS ?= 3
 
+# controlled placement experiment:  make SET=placement [ICACHE_OFF=1] [RAMFUNC=1]
+ifeq ($(SET),placement)
+  CFLAGS += -DVARIANT_SET_PLACEMENT -DCFG_MICROBENCH=1
+  VARIANTS = 0x3F
+  ifeq ($(ICACHE_OFF),1)
+    CFLAGS += -DPLAT_ICACHE_OFF
+  endif
+  ifeq ($(RAMFUNC),1)
+    CFLAGS += -DPLACEMENT_RAMFUNC
+  endif
+endif
+
 # same optimisation for every variant
 CFLAGS_OPT = -O2
 CFLAGS += -ffp-contract=off
 CFLAGS += -I$(APPDIR)/../../common -I$(APPDIR)/../../impl -I$(APPDIR)
 CFLAGS += -DCFG_SEED=$(SEED) -DCFG_N=$(N) -DCFG_NRAW=$(NRAW) -DCFG_VARIANTS=$(VARIANTS) -DCFG_TESTS=$(TESTS)
 CFLAGS += -DTHREAD_STACKSIZE_MAIN=4096
-CFLAGS += -DBUILD_INFO=\"riot-$(BOARD)-O2-seed$(SEED)\"
+CFLAGS += -DBUILD_INFO=\"riot-$(BOARD)-O2-seed$(SEED)-set$(SET)$(if $(ICACHE_OFF),-icacheoff)$(if $(RAMFUNC),-ramfunc)\"
 
 # RAM-limited boards: smaller calibration batch and measurement batch
 ifneq (,$(filter samr21-xpro,$(BOARD)))

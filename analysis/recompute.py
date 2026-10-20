@@ -40,7 +40,11 @@ class Welch:
         v0 = self.m2[0] / (self.n[0] - 1)
         v1 = self.m2[1] / (self.n[1] - 1)
         den = math.sqrt(v0 / self.n[0] + v1 / self.n[1])
-        return 0.0 if den == 0.0 else (self.mean[0] - self.mean[1]) / den
+        num = self.mean[0] - self.mean[1]
+        if den == 0.0:
+            # zero variance in both classes: equal means -> 0, else separable
+            return 0.0 if num == 0.0 else math.copysign(math.inf, num)
+        return num / den
 
 
 def max_t(tests):
@@ -157,7 +161,11 @@ def check(run):
         return False, "no device status at N=%d" % nraw
     host_hex = "%016x" % struct.unpack(">Q", struct.pack(">d", m))[0]
     exact = host_hex == dev["hex"]
-    close = abs(m - float(dev["maxt"])) < 1e-3 and which == int(dev["at"])
+    try:
+        devt = float(dev["maxt"])
+    except ValueError:
+        devt = math.inf
+    close = (m == devt) or (abs(m - devt) < 1e-3 and which == int(dev["at"]))
     verdict = "exact" if exact else ("match to 1e-3" if close else "MISMATCH")
     if not (exact or close) and "cal" in run:
         # a sample below half the calibration minimum is physically impossible
