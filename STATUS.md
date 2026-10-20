@@ -71,3 +71,23 @@
   - redo ESP32 Wi-Fi on;
   - Strasbourg ESP32-C6 / LoPy4;
   - a8 / rpi3.
+
+## 2026-10-20 ~10:40 Baku: all planned runs finished
+- Added since last entry:
+  - ESP32 NodeMCU Wi-Fi scan load (seed 3, single run).
+  - ESP32-C6: esp32-c6c1-1 s1, -3 s2.
+  - LoPy4: lopy4-17 s1, lopy4-5 s2 (rerun after an accidental power cycle).
+  - a8: a8-10 s1, a8-40 s2.
+- rpi3 could not be run: deployment failed three times on all four nodes, and power-cycle commands failed too.
+- All IoT-LAB experiments stopped: 455668, 455669, 455731, 455732, 455733, 455734, 455735.
+- Host recompute over 230 runs: 211 bit-identical, 2 agree to 1e-3, 17 not comparable (serial damage on ESP32 links), 0 unexplained.
+- Written:
+  - `RESULTS.md` (verdicts and group paragraphs) and `ENVIRONMENT.md`;
+  - `docs/ct_asm_review.md` (6 ISAs);
+  - footprint and stack use;
+  - figures in `figures/`.
+- Raw logs are committed as `.log.xz` (19 MB); the uncompressed `.log` files stay local and git-ignored.
+- Open for Ali:
+  - second Wi-Fi-on run?
+  - a8 at N=10^7 for the unclear `fast_const` B?
+  - target journal (AMA Herald, Word; or JMTE, LaTeX)?

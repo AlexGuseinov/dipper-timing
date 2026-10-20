@@ -1,3 +1,23 @@
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=small t=A N=131072 host maxt=2.3634 at=7 | device maxt=2.3634 at=7 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=fast t=A N=131072 host maxt=1.2168 at=0 | device maxt=1.2168 at=0 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=fast_const t=A N=131072 host maxt=1.3853 at=8 | device maxt=1.3853 at=8 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=ct t=A N=131072 host maxt=1.5564 at=0 | device maxt=1.5564 at=0 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=leaky t=A N=131072 host maxt=251.0382 at=7 | device maxt=251.0382 at=7 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=small t=B N=131072 host maxt=1.4311 at=5 | device maxt=1.4311 at=5 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=fast t=B N=131072 host maxt=2.5301 at=7 | device maxt=2.5301 at=7 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=fast_const t=B N=131072 host maxt=1.5256 at=5 | device maxt=1.5256 at=5 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=ct t=B N=131072 host maxt=1.7184 at=11 | device maxt=1.7184 at=11 | exact
+results/raw/a8_s1_a8-10.grenoble_20261020T045947Z.log v=leaky t=B N=131072 host maxt=230.6621 at=5 | device maxt=230.6621 at=5 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=small t=A N=131072 host maxt=2.2779 at=7 | device maxt=2.2779 at=7 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=fast t=A N=131072 host maxt=2.6856 at=0 | device maxt=2.6856 at=0 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=fast_const t=A N=131072 host maxt=3.2307 at=7 | device maxt=3.2307 at=7 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=ct t=A N=131072 host maxt=1.1434 at=10 | device maxt=1.1434 at=10 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=leaky t=A N=131072 host maxt=249.8077 at=7 | device maxt=249.8077 at=7 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=small t=B N=131072 host maxt=2.7752 at=10 | device maxt=2.7752 at=10 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=fast t=B N=131072 host maxt=1.6022 at=10 | device maxt=1.6022 at=10 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=fast_const t=B N=131072 host maxt=2.4136 at=9 | device maxt=2.4136 at=9 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=ct t=B N=131072 host maxt=1.7804 at=6 | device maxt=1.7804 at=6 | exact
+results/raw/a8_s2_a8-40.grenoble_20261020T050009Z.log v=leaky t=B N=131072 host maxt=241.2804 at=7 | device maxt=241.2804 at=7 | exact
 results/raw/esp32_s1_nodemcu32s-wifioff_20261019T164612Z.log v=small t=A N=131072 host maxt=0.8657 at=11 | device maxt=0.8657 at=11 | exact
 results/raw/esp32_s1_nodemcu32s-wifioff_20261019T164612Z.log v=fast t=A N=131072 host maxt=1.5039 at=6 | device maxt=1.5039 at=6 | exact
 results/raw/esp32_s1_nodemcu32s-wifioff_20261019T164612Z.log v=fast_const t=A N=131072 host maxt=0.4826 at=7 | device maxt=0.4826 at=7 | exact
@@ -18,6 +38,56 @@ results/raw/esp32_s2_nodemcu32s-wifioff_20261019T173519Z.log v=fast t=B N=131072
 results/raw/esp32_s2_nodemcu32s-wifioff_20261019T173519Z.log v=fast_const t=B N=131072 host maxt=1.7223 at=7 | device maxt=1.7223 at=7 | exact
 results/raw/esp32_s2_nodemcu32s-wifioff_20261019T173519Z.log v=ct t=B N=131072 host maxt=1.3288 at=0 | device maxt=1.3288 at=0 | exact
 results/raw/esp32_s2_nodemcu32s-wifioff_20261019T173519Z.log v=leaky t=B N=131072 host maxt=254.0982 at=10 | device maxt=254.0982 at=10 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=small t=A N=131072 host maxt=1.3458 at=8 | device maxt=1.3458 at=8 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=fast t=A N=131072 host maxt=2.0527 at=9 | device maxt=2.0527 at=9 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=fast_const t=A N=131072 host maxt=1.4369 at=0 | device maxt=1.4369 at=0 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=ct t=A N=131072 host maxt=1.2110 at=0 | device maxt=1.2110 at=0 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=leaky t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=small t=B N=131072 host maxt=1.3879 at=6 | device maxt=1.3879 at=6 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=fast t=B N=131072 host maxt=1.1773 at=11 | device maxt=1.1773 at=11 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=fast_const t=B N=131072 host maxt=0.1774 at=11 | device maxt=0.1774 at=11 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=ct t=B N=131072 host maxt=0.3462 at=11 | device maxt=0.3462 at=11 | exact
+results/raw/esp32_s3_nodemcu32s-wifion_20261020T044433Z.log v=leaky t=B N=131072 host maxt=253.9826 at=10 | device maxt=253.9826 at=10 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=small t=A N=131072 host maxt=1.4753 at=2 | device maxt=1.4753 at=2 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=fast t=A N=131072 host maxt=2.0483 at=0 | device maxt=2.0483 at=0 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=fast_const t=A N=131072 host maxt=1.8673 at=0 | device maxt=1.8673 at=0 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=ct t=A N=131072 host maxt=2.5581 at=0 | device maxt=2.5581 at=0 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=leaky t=A N=131072 host maxt=507.7838 at=11 | device maxt=507.7838 at=11 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=small t=B N=131072 host maxt=1.4677 at=2 | device maxt=1.4677 at=2 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=fast t=B N=131072 host maxt=1.9828 at=11 | device maxt=1.9828 at=11 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=fast_const t=B N=131072 host maxt=1.6494 at=1 | device maxt=1.6494 at=1 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=ct t=B N=131072 host maxt=2.0650 at=4 | device maxt=2.0650 at=4 | exact
+results/raw/esp32c6_s1_esp32-c6c1-1.strasbourg_20261020T045231Z.log v=leaky t=B N=131072 host maxt=558.9372 at=11 | device maxt=558.9372 at=11 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=small t=A N=131072 host maxt=1.3133 at=1 | device maxt=1.3133 at=1 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=fast t=A N=131072 host maxt=0.9687 at=3 | device maxt=0.9687 at=3 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=fast_const t=A N=131072 host maxt=1.8248 at=0 | device maxt=1.8248 at=0 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=ct t=A N=131072 host maxt=1.4662 at=5 | device maxt=1.4662 at=5 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=leaky t=A N=131072 host maxt=508.2719 at=11 | device maxt=508.2719 at=11 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=small t=B N=131072 host maxt=1.8104 at=1 | device maxt=1.8104 at=1 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=fast t=B N=131072 host maxt=2.3875 at=3 | device maxt=2.3875 at=3 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=fast_const t=B N=131072 host maxt=0.8352 at=11 | device maxt=0.8352 at=11 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=ct t=B N=131072 host maxt=2.3782 at=11 | device maxt=2.3782 at=11 | exact
+results/raw/esp32c6_s2_esp32-c6c1-3.strasbourg_20261020T045328Z.log v=leaky t=B N=131072 host maxt=556.3263 at=11 | device maxt=556.3263 at=11 | exact
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=small t=A transport damage: 2 damaged dump lines, 131056 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=fast t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=fast_const t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=ct t=A transport damage: 6 damaged dump lines, 131016 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=leaky t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=small t=B transport damage: 2 damaged dump lines, 131056 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=fast t=B transport damage: 2 damaged dump lines, 131048 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=fast_const t=B transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=ct t=B N=131072 host maxt=1.0581 at=8 | device maxt=1.0581 at=8 | exact
+results/raw/lopy4_s1_lopy4-17.strasbourg_20261020T045350Z.log v=leaky t=B transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=small t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=fast t=A transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=fast_const t=A N=131072 host maxt=1.2958 | device maxt=1.4482 | transport damage: 1 impossible sample(s) 0000088d (< cal min/2)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=ct t=A transport damage: 6 damaged dump lines, 131016 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=leaky t=A transport damage: 2 damaged dump lines, 131056 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=small t=B transport damage: 1 damaged dump lines, 131064 of 131072 samples readable (not comparable)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=fast t=B N=131072 host maxt=1.0722 at=4 | device maxt=1.0717 at=4 | match to 1e-3
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=fast_const t=B N=131072 host maxt=1.0312 | device maxt=1.7223 | transport damage: 1 impossible sample(s) 00000034 (< cal min/2)
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=ct t=B N=131072 host maxt=1.3288 at=0 | device maxt=1.3288 at=0 | exact
+results/raw/lopy4_s2_lopy4-5.strasbourg_20261020T053140Z.log v=leaky t=B N=131072 host maxt=254.0982 at=10 | device maxt=254.0982 at=10 | match to 1e-3
 results/raw/m3_s1_m3-4.grenoble_20261019T163928Z.log v=small t=A N=131072 host maxt=0.0000 at=0 | device maxt=0.0000 at=0 | exact
 results/raw/m3_s1_m3-4.grenoble_20261019T163928Z.log v=fast t=A N=131072 host maxt=0.0000 at=0 | device maxt=0.0000 at=0 | exact
 results/raw/m3_s1_m3-4.grenoble_20261019T163928Z.log v=fast_const t=A N=131072 host maxt=0.0000 at=0 | device maxt=0.0000 at=0 | exact
@@ -158,3 +228,4 @@ results/raw/x86_s4_kvm-cpu6_N1e7_20261019T173249Z.log v=fast t=B N=131072 host m
 results/raw/x86_s4_kvm-cpu6_N1e7_20261019T173249Z.log v=fast_const t=B N=131072 host maxt=1.1553 at=0 | device maxt=1.1553 at=0 | exact
 results/raw/x86_s4_kvm-cpu6_N1e7_20261019T173249Z.log v=ct t=B N=131072 host maxt=1.3804 at=1 | device maxt=1.3804 at=1 | exact
 results/raw/x86_s4_kvm-cpu6_N1e7_20261019T173249Z.log v=leaky t=B N=131072 host maxt=56.8649 at=2 | device maxt=56.8649 at=2 | exact
+# summary: 0 mismatches, 17 runs not comparable (transport damage or no dump)

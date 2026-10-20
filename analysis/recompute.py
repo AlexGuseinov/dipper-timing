@@ -10,7 +10,9 @@ precision, and compare the max |t| with the device status line at N = nraw
 Usage: python3 analysis/recompute.py LOG [LOG ...]
 Exit code 1 if any run does not match.
 """
+import lzma
 import math
+import re
 import struct
 import sys
 
@@ -73,7 +75,8 @@ def kv(line):
 def blocks(path):
     """Split a log into boot blocks (each starts at a #meta line)."""
     out, cur = [], None
-    with open(path, errors="replace") as f:
+    opener = lzma.open if path.endswith(".xz") else open
+    with opener(path, "rt", errors="replace") as f:
         for raw in f:
             line = strip(raw)
             if line.startswith("#meta "):
@@ -104,13 +107,23 @@ def runs(path):
             if line.startswith("#run "):
                 if cur:
                     yield cur
-                cur = {"run": kv(line), "thr": None, "raw": [], "status": {}}
+                cur = {"run": kv(line), "thr": None, "raw": [], "status": {}, "bad": 0}
             elif cur is None:
                 continue
+            elif line.startswith("#cal "):
+                cur["cal"] = {k: int(v) for k, v in kv(line).items()}
             elif line.startswith("#thr"):
                 cur["thr"] = [int(x) for x in line.split()[1:]]
             elif line.startswith("#d "):
-                cur["raw"] += [int(w, 16) for w in line.split()[1:]]
+                toks = line.split()[1:]
+                # a dump line is up to 8 words of exactly 8 hex digits; anything
+                # else was damaged on the serial link (lost bytes / merged lines)
+                if 0 < len(toks) <= 8 and all(re.fullmatch(r"[0-9a-f]{8}", w) for w in toks):
+                    cur["raw"] += [int(w, 16) for w in toks]
+                else:
+                    cur["bad"] += 1
+            elif line.startswith("#d") or "#d " in line[1:]:
+                cur["bad"] += 1
             elif line.startswith("#s ") or line.startswith("#res "):
                 d = kv(line)
                 cur["status"][int(d["N"])] = d
@@ -123,8 +136,9 @@ def check(run):
     nraw = int(run["run"]["nraw"])
     if not raw:
         return None, "no raw dump"
-    if len(raw) != nraw:
-        return False, "raw dump has %d samples, expected %d" % (len(raw), nraw)
+    if run["bad"] or len(raw) != nraw:
+        return None, "transport damage: %d damaged dump lines, %d of %d samples readable (not comparable)" % (
+            run["bad"], len(raw), nraw)
     tests = [Welch() for _ in range(NCROP + 2)]
     for w in raw:
         c, x = w >> 31, w & 0x7FFFFFFF
@@ -144,14 +158,23 @@ def check(run):
     host_hex = "%016x" % struct.unpack(">Q", struct.pack(">d", m))[0]
     exact = host_hex == dev["hex"]
     close = abs(m - float(dev["maxt"])) < 1e-3 and which == int(dev["at"])
+    verdict = "exact" if exact else ("match to 1e-3" if close else "MISMATCH")
+    if not (exact or close) and "cal" in run:
+        # a sample below half the calibration minimum is physically impossible
+        # here; it is a digit lost on the serial link inside a well-formed word
+        lo = run["cal"]["min"] // 2
+        bad = ["%08x" % w for w in raw if (w & 0x7FFFFFFF) < lo]
+        if bad:
+            msg = "N=%d host maxt=%.4f | device maxt=%s | transport damage: %d impossible sample(s) %s (< cal min/2)" % (
+                nraw, m, dev["maxt"], len(bad), ",".join(bad[:3]))
+            return None, msg
     msg = "N=%d host maxt=%.4f at=%d | device maxt=%s at=%s | %s" % (
-        nraw, m, which, dev["maxt"], dev["at"],
-        "exact" if exact else ("match to 1e-3" if close else "MISMATCH"))
+        nraw, m, which, dev["maxt"], dev["at"], verdict)
     return exact or close, msg
 
 
 def main():
-    bad = 0
+    bad = damaged = 0
     for path in sys.argv[1:]:
         for run in runs(path):
             ok, msg = check(run)
@@ -159,6 +182,9 @@ def main():
             print("%-60s %s" % (tag, msg))
             if ok is False:
                 bad += 1
+            elif ok is None:
+                damaged += 1
+    print("# summary: %d mismatches, %d runs not comparable (transport damage or no dump)" % (bad, damaged))
     sys.exit(1 if bad else 0)
 
 

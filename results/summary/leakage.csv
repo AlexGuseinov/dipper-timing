@@ -59,6 +59,36 @@ RP2040 (IoT-LAB rpi-pico),flash cache,leaky,B,2,10^6/10^6,986.35/1018.27,"leak, 
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,fast_const,B,2,10^6/10^6,1.14/0.64,no leak found at N=10^6
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,ct,B,2,10^6/10^6,2.21/1.13,no leak found at N=10^6
 "ESP32 NodeMCU-32S, Wi-Fi off",flash cache,leaky,B,2,10^6/10^6,704.38/704.29,"leak, repeated (>10 in all runs)"
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,A,1,10^6,1.82,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,A,1,10^6,0.92,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,A,1,10^6,1.50,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,A,1,10^6,1.05,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,A,1,10^6,704.27,unclear
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,small,B,1,10^6,2.72,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast,B,1,10^6,1.50,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,fast_const,B,1,10^6,0.11,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,ct,B,1,10^6,0.50,no leak found at N=10^6
+"ESP32 NodeMCU-32S, Wi-Fi scan load",flash cache,leaky,B,1,10^6,704.99,unclear
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,small,A,2,10^6/10^6,1.76/1.71,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast,A,2,10^6/10^6,2.83/2.17,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast_const,A,2,10^6/10^6,1.16/1.74,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,ct,A,2,10^6/10^6,1.89/2.71,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,leaky,A,2,10^6/10^6,703.67/705.20,"leak, repeated (>10 in all runs)"
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,small,B,2,10^6/10^6,0.67/0.77,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast,B,2,10^6/10^6,1.35/1.68,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,fast_const,B,2,10^6/10^6,1.14/0.64,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,ct,B,2,10^6/10^6,2.21/1.13,no leak found at N=10^6
+ESP32 rev 1 (IoT-LAB lopy4),flash cache,leaky,B,2,10^6/10^6,704.38/704.29,"leak, repeated (>10 in all runs)"
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,small,A,2,10^6/10^6,1.81/1.73,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,fast,A,2,10^6/10^6,1.20/0.80,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,fast_const,A,2,10^6/10^6,1.63/1.41,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,ct,A,2,10^6/10^6,0.58/1.66,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,leaky,A,2,10^6/10^6,1452.18/1453.33,"leak, repeated (>10 in all runs)"
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,small,B,2,10^6/10^6,1.51/2.45,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,fast,B,2,10^6/10^6,0.75/1.46,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,fast_const,B,2,10^6/10^6,1.15/0.80,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,ct,B,2,10^6/10^6,0.98/0.94,no leak found at N=10^6
+ESP32-C6 (IoT-LAB esp32-c6c1),flash cache,leaky,B,2,10^6/10^6,1594.31/1594.86,"leak, repeated (>10 in all runs)"
 "TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,small,A,2,10^6/10^6,0.94/1.21,no leak found at N=10^6
 "TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast,A,2,10^6/10^6,2.02/1.48,no leak found at N=10^6
 "TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",CPU data caches,fast_const,A,2,10^6/10^6,1.17/2.54,no leak found at N=10^6

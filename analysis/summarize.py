@@ -46,6 +46,13 @@ PLATFORMS = {
 ORDER = ["m3", "nrf52840dk", "samr21", "st-iotnode", "rpi-pico", "esp32", "esp32wifi", "lopy4", "esp32c6", "a8", "x86"]
 
 
+def raw_logs():
+    """results/raw/*.log, or the committed .log.xz copy when the .log is absent."""
+    d = os.path.join(ROOT, "results", "raw")
+    logs = {p[:-3] if p.endswith(".xz") else p for p in glob.glob(os.path.join(d, "*.log")) + glob.glob(os.path.join(d, "*.log.xz"))}
+    return [p if os.path.exists(p) else p + ".xz" for p in logs]
+
+
 def platform_of(name):
     b = os.path.basename(name)
     if b.startswith("esp32") and "wifion" in b:
@@ -96,7 +103,7 @@ def fmt_n(n):
 
 
 def main():
-    paths = sys.argv[1:] or sorted(glob.glob(os.path.join(ROOT, "results", "raw", "*.log")))
+    paths = sys.argv[1:] or sorted(raw_logs())
     os.makedirs(OUT, exist_ok=True)
     allrows, costs, groups = [], defaultdict(list), defaultdict(list)
     for p in paths:
