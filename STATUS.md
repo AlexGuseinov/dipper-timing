@@ -108,3 +108,8 @@
 - Placement experiment (exp 455791 and 455792, stopped) and lookup microbenchmark done.
 - Effect sizes added.
 - Paper rewritten. `RESULTS.md` §8–10 added.
+
+## 2026-10-20 19:59 Baku: submitted
+- Submitted to the Journal of Modern Technology and Engineering (Jomard Publishing), manuscript ID 1967, status "Awaiting approval".
+- Title: "Timing-Leakage Assessment of Dipper Software Implementations".
+- Authors: Huseynli (corresponding), Imamverdiyev, Alizadeh.
