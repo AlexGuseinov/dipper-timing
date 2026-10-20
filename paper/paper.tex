@@ -194,7 +194,7 @@ Table~\ref{tab:results} summarises all 26 runs and Figure~\ref{fig:maxt} shows h
 
 \begin{table}[H]
 \centering
-\caption{Verdicts. sm = \tsm{}, fa = \tfa{}, fc = \tfc{}, lk = \tlk{}. $\blacksquare$: leak, $|t|>10$ in both runs; $\blacktriangle$: leak, $|t|>4.5$ in both runs; ?: unclear; $\circ$: no leak found; $=$: constant (every measurement equal). $N=10^6$ per run unless stated; the two ESP32 Wi-Fi runs used the same board.}
+\caption{Maximum $|t|$ per implementation and test. Each cell gives the \emph{smaller} of the two values from the two independent runs, so a \textbf{bold} value means that the leak appeared in both runs ($|t|>4.5$ in each). Plain: no leak found. $^{\dagger}$: unclear (only one run above 4.5). $=$: every measurement had the same cycle count. sm = \tsm{}, fa = \tfa{}, fc = \tfc{}, lk = \tlk{} (positive control). Cache: memory between the core and the constant tables (Table~\ref{tab:platforms}). $N=10^6$ per run unless stated; the two ESP32 Wi-Fi runs used the same board.}
 \label{tab:results}
 \footnotesize
 \resizebox{\textwidth}{!}{\input{tables/results.tex}}

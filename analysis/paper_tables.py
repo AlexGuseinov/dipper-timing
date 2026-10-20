@@ -8,13 +8,16 @@ Usage: python3 analysis/paper_tables.py   (after summarize.py and footprint.py)
 """
 import csv
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUM = os.path.join(ROOT, "results", "summary")
 OUT = os.path.join(ROOT, "paper", "tables")
 VARIANTS = ["small", "fast", "fast_const", "ct", "leaky"]
 
-# display order and short names in the paper
+# short names for the cost table
 ROWS = [
     ("STM32F103 (IoT-LAB m3)", True, "STM32F103 (M3)", "none"),
     ("nRF52840 (IoT-LAB nrf52840dk)", True, "nRF52840 (M4F)", "I-cache only"),
@@ -32,39 +35,71 @@ ROWS = [
 ]
 
 
-def symbol(verdict, ts):
-    if verdict.startswith("constant"):
+GROUPS = [
+    ("No data cache (vendor documentation)", [
+        ("STM32F103 (IoT-LAB m3)", True, "STM32F103", "none"),
+        ("nRF52840 (IoT-LAB nrf52840dk)", True, "nRF52840", "I-cache only")]),
+    ("Small flash cache", [
+        ("SAMR21G18A (IoT-LAB samr21)", True, "SAMR21", "64\\,B"),
+        ("STM32L475VG (IoT-LAB st-iotnode)", True, "STM32L475", "256\\,B"),
+        ("RP2040 (IoT-LAB rpi-pico)", True, "RP2040", "16\\,KB")]),
+    ("ESP32 family (32\\,KB flash cache)", [
+        ("ESP32 NodeMCU-32S, Wi-Fi off", True, "ESP32 (NodeMCU)", "32\\,KB"),
+        ("ESP32 NodeMCU-32S, Wi-Fi scan load", True, "ESP32 (NodeMCU), Wi-Fi", "32\\,KB"),
+        ("ESP32 rev 1 (IoT-LAB lopy4)", True, "ESP32 rev\\,1 (LoPy4)", "32\\,KB"),
+        ("ESP32-C6 (IoT-LAB esp32-c6c1)", True, "ESP32-C6", "32\\,KB")]),
+    ("CPU data caches", [
+        ("TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)", True, "Cortex-A8", "L1D 16\\,KB"),
+        ("TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)", False, "Cortex-A8, $N=10^7$", "L1D 16\\,KB"),
+        ("x86-64 (KVM guest, AMD EPYC Zen 1)", True, "x86-64", "L1D 32\\,KB"),
+        ("x86-64 (KVM guest, AMD EPYC Zen 1)", False, "x86-64, $N=10^7$", "L1D 32\\,KB")]),
+]
+
+
+def fmt_t(x):
+    if x >= 1000:
+        s = "%d" % round(x)
+        return s[:-3] + "\\," + s[-3:]
+    if x >= 100:
+        return "%d" % round(x)
+    return "%.1f" % x
+
+
+def cell(runs):
+    """Smaller of the two max |t| values: above 4.5 means the leak repeated."""
+    if not runs:
+        return "--"
+    if all(r["constant"] == "True" for r in runs):
         return "$=$"
-    if verdict.startswith("leak, repeated (>10"):
-        return "$\\blacksquare$"
-    if verdict.startswith("leak, repeated"):
-        return "$\\blacktriangle$"
-    if verdict == "unclear":
-        return "?"
-    return "$\\circ$"
+    ts = [float(r["max_abs_t"]) for r in runs]
+    lo, hi = min(ts), max(ts)
+    if len(ts) >= 2 and lo > 4.5:
+        return "\\textbf{%s}" % fmt_t(lo)
+    if hi > 4.5:
+        return "%s$^{\\dagger}$" % fmt_t(lo)
+    return fmt_t(lo)
 
 
 def results_table():
-    rows = list(csv.DictReader(open(os.path.join(SUM, "leakage.csv"))))
-    big = {}
-    for r in rows:
-        n = r["N"].split("/")[0]
-        main = n == "10^6"
-        big[(r["platform"], main, r["variant"], r["test"])] = (r["verdict"], r["max_abs_t_per_run"])
+    runs = list(csv.DictReader(open(os.path.join(SUM, "runs.csv"))))
+    from summarize import PLATFORMS  # display names used in runs.csv rows
+    name = {k: v[0] for k, v in PLATFORMS.items()}
+    by = {}
+    for r in runs:
+        main = "N1e7" not in r["log"]
+        by.setdefault((name[r["platform"]], main, r["variant"], r["test"]), []).append(r)
     lines = [
-        "\\begin{tabular}{llccccc|ccccc}",
+        "\\begin{tabular}{llrrrrr|rrrrr}",
         "\\hline",
-        " & & \\multicolumn{5}{c|}{Test A (fixed vs random plaintext)} & \\multicolumn{5}{c}{Test B (fixed vs random key)}\\\\",
-        "Platform & Memory feature & sm & fa & fc & ct & lk & sm & fa & fc & ct & lk\\\\",
+        " & & \\multicolumn{5}{c|}{Test A: fixed vs random plaintext} & \\multicolumn{5}{c}{Test B: fixed vs random key}\\\\",
+        "Platform & Cache & sm & fa & fc & ct & lk & sm & fa & fc & ct & lk\\\\",
         "\\hline",
     ]
-    for plat, main, short, mem in ROWS:
-        cells = []
-        for t in "AB":
-            for v in VARIANTS:
-                vd = big.get((plat, main, v, t))
-                cells.append(symbol(*vd) if vd else "--")
-        lines.append("%s & %s & %s\\\\" % (short, mem, " & ".join(cells)))
+    for gname, rows in GROUPS:
+        lines.append("\\multicolumn{12}{l}{\\emph{%s}}\\\\" % gname)
+        for plat, main, short, mem in rows:
+            cells = [cell(by.get((plat, main, v, t), [])) for t in "AB" for v in VARIANTS]
+            lines.append("%s & %s & %s\\\\" % (short, mem, " & ".join(cells)))
     lines += ["\\hline", "\\end{tabular}"]
     return "\n".join(lines) + "\n"
 

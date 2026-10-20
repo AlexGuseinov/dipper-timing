@@ -1,20 +1,24 @@
-\begin{tabular}{llccccc|ccccc}
+\begin{tabular}{llrrrrr|rrrrr}
 \hline
- & & \multicolumn{5}{c|}{Test A (fixed vs random plaintext)} & \multicolumn{5}{c}{Test B (fixed vs random key)}\\
-Platform & Memory feature & sm & fa & fc & ct & lk & sm & fa & fc & ct & lk\\
+ & & \multicolumn{5}{c|}{Test A: fixed vs random plaintext} & \multicolumn{5}{c}{Test B: fixed vs random key}\\
+Platform & Cache & sm & fa & fc & ct & lk & sm & fa & fc & ct & lk\\
 \hline
-STM32F103 (M3) & none & $=$ & $=$ & $=$ & $=$ & $\blacksquare$ & $=$ & $=$ & $=$ & $=$ & $\blacksquare$\\
-nRF52840 (M4F) & I-cache only & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\circ$ & $\blacksquare$\\
-SAMR21 (M0+) & NVM cache 64\,B & $\blacksquare$ & $=$ & $\blacksquare$ & $=$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $=$ & $\blacksquare$\\
-STM32L475 (M4F) & ART, D-cache 256\,B & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$\\
-RP2040 (M0+) & XIP cache 16\,KB & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$\\
-ESP32 NodeMCU & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
-ESP32 NodeMCU, Wi-Fi & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
-ESP32 rev\,1 (LoPy4) & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
-ESP32-C6 & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
-Cortex-A8 (Linux) & L1D 16\,KB, L2 & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & ? & $\circ$ & $\blacksquare$\\
-Cortex-A8, $N=10^7$ & L1D 16\,KB, L2 & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$\\
-x86-64 (KVM) & L1D 32\,KB, L2, L3 & $\circ$ & $\blacktriangle$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & ? & $\circ$ & $\blacksquare$\\
-x86-64, $N=10^7$ & L1D 32\,KB, L2, L3 & $\circ$ & $\blacktriangle$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\circ$ & $\blacksquare$\\
+\multicolumn{12}{l}{\emph{No data cache (vendor documentation)}}\\
+STM32F103 & none & $=$ & $=$ & $=$ & $=$ & \textbf{116\,790} & $=$ & $=$ & $=$ & $=$ & \textbf{132\,885}\\
+nRF52840 & I-cache only & \textbf{453} & 0.7 & \textbf{346} & 0.6 & \textbf{1\,405} & \textbf{768} & \textbf{1\,334} & \textbf{1\,233} & 0.5 & \textbf{1\,252}\\
+\multicolumn{12}{l}{\emph{Small flash cache}}\\
+SAMR21 & 64\,B & \textbf{827} & $=$ & \textbf{804} & $=$ & \textbf{6\,445} & \textbf{868} & \textbf{725} & \textbf{812} & $=$ & \textbf{6\,115}\\
+STM32L475 & 256\,B & 0.2 & 0.7 & \textbf{1\,129} & 0.2 & \textbf{5\,150} & 0.3 & 0.6 & \textbf{1\,078} & 0.6 & \textbf{2\,710}\\
+RP2040 & 16\,KB & 1.2 & 0.6 & \textbf{10.1} & 1.0 & \textbf{1\,337} & 0.7 & 0.4 & \textbf{6.2} & 0.9 & \textbf{986}\\
+\multicolumn{12}{l}{\emph{ESP32 family (32\,KB flash cache)}}\\
+ESP32 (NodeMCU) & 32\,KB & 1.7 & 2.2 & 1.2 & 1.9 & \textbf{704} & 0.7 & 1.4 & 0.6 & 1.1 & \textbf{704}\\
+ESP32 (NodeMCU), Wi-Fi & 32\,KB & 1.3 & 0.9 & 0.3 & 0.7 & \textbf{704} & 1.2 & 0.9 & 0.1 & 0.5 & \textbf{705}\\
+ESP32 rev\,1 (LoPy4) & 32\,KB & 1.7 & 2.2 & 1.2 & 1.9 & \textbf{704} & 0.7 & 1.4 & 0.6 & 1.1 & \textbf{704}\\
+ESP32-C6 & 32\,KB & 1.7 & 0.8 & 1.4 & 0.6 & \textbf{1\,452} & 1.5 & 0.7 & 0.8 & 0.9 & \textbf{1\,594}\\
+\multicolumn{12}{l}{\emph{CPU data caches}}\\
+Cortex-A8 & L1D 16\,KB & 0.9 & 1.5 & 1.2 & 1.1 & \textbf{684} & 2.0 & 1.6 & 1.5$^{\dagger}$ & 1.3 & \textbf{610}\\
+Cortex-A8, $N=10^7$ & L1D 16\,KB & 1.4 & 1.9 & \textbf{6.7} & 1.3 & \textbf{2\,146} & 1.3 & 2.0 & \textbf{9.6} & 1.6 & \textbf{1\,936}\\
+x86-64 & L1D 32\,KB & 0.5 & \textbf{5.6} & \textbf{8.3} & 1.0 & \textbf{40.9} & 1.6 & 1.8 & 2.3$^{\dagger}$ & 0.9 & \textbf{26.2}\\
+x86-64, $N=10^7$ & L1D 32\,KB & 1.8 & \textbf{8.1} & \textbf{9.2} & 1.3 & \textbf{1\,193} & 0.7 & \textbf{5.3} & 1.8 & 0.8 & \textbf{367}\\
 \hline
 \end{tabular}
