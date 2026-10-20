@@ -1,0 +1,385 @@
+### xtensa dipper_encrypt_block_ct
+400d2f2c <dipper_encrypt_block_ct>:
+400d2f2c:	entry	a1, 32
+400d2f2f:	l32r	a14, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2f32:	l32r	a6, 400d023c <_stext+0x21c> (400001 <UserFrameTotalSize+0x3fff01>)
+400d2f35:	mov.n	a9, a2
+400d2f37:	mov.n	a8, a3
+400d2f39:	movi	a7, 28
+400d2f3c:	l32i.n	a11, a4, 0
+400d2f3e:	l32i.n	a10, a4, 4
+400d2f40:	xor	a9, a11, a9
+400d2f43:	xor	a8, a10, a8
+400d2f46:	ssai	2
+400d2f49:	src	a12, a8, a9
+400d2f4c:	srli	a11, a8, 2
+400d2f4f:	and	a15, a9, a14
+400d2f52:	and	a13, a8, a14
+400d2f55:	ssai	1
+400d2f58:	src	a2, a8, a9
+400d2f5b:	and	a12, a12, a14
+400d2f5e:	and	a11, a11, a14
+400d2f61:	srli	a3, a8, 1
+400d2f64:	and	a10, a15, a12
+400d2f67:	and	a5, a13, a11
+400d2f6a:	and	a2, a2, a14
+400d2f6d:	and	a3, a3, a14
+400d2f70:	ssai	3
+400d2f73:	src	a9, a8, a9
+400d2f76:	srli	a8, a8, 3
+400d2f79:	xor	a10, a10, a2
+400d2f7c:	xor	a5, a5, a3
+400d2f7f:	and	a9, a9, a14
+400d2f82:	and	a8, a8, a14
+400d2f85:	and	a2, a9, a10
+400d2f88:	and	a3, a8, a5
+400d2f8b:	xor	a15, a2, a15
+400d2f8e:	xor	a13, a3, a13
+400d2f91:	or	a2, a10, a15
+400d2f94:	or	a3, a5, a13
+400d2f97:	xor	a12, a2, a12
+400d2f9a:	xor	a11, a3, a11
+400d2f9d:	xor	a9, a9, a12
+400d2fa0:	xor	a8, a8, a11
+400d2fa3:	xor	a2, a10, a9
+400d2fa6:	xor	a5, a5, a8
+400d2fa9:	ssai	29
+400d2fac:	src	a10, a13, a15
+400d2faf:	and	a3, a15, a2
+400d2fb2:	xor	a8, a8, a14
+400d2fb5:	and	a13, a13, a5
+400d2fb8:	xor	a3, a3, a12
+400d2fbb:	ssai	31
+400d2fbe:	src	a5, a5, a2
+400d2fc1:	or	a10, a8, a10
+400d2fc4:	xor	a13, a13, a11
+400d2fc7:	or	a8, a10, a5
+400d2fca:	ssai	30
+400d2fcd:	src	a13, a13, a3
+400d2fd0:	slli	a15, a15, 3
+400d2fd3:	xor	a9, a9, a14
+400d2fd6:	or	a8, a8, a13
+400d2fd9:	add.n	a10, a2, a2
+400d2fdb:	or	a9, a9, a15
+400d2fde:	or	a9, a9, a10
+400d2fe1:	slli	a3, a3, 2
+400d2fe4:	slli	a10, a8, 4
+400d2fe7:	extui	a12, a8, 12, 4
+400d2fea:	or	a9, a9, a3
+400d2fed:	add.n	a12, a12, a10
+400d2fef:	extui	a11, a8, 16, 16
+400d2ff2:	slli	a13, a9, 11
+400d2ff5:	extui	a12, a12, 0, 16
+400d2ff8:	extui	a10, a9, 5, 11
+400d2ffb:	ssai	31
+400d2ffe:	src	a11, a11, a8
+400d3001:	add.n	a10, a10, a13
+400d3003:	add.n	a11, a12, a11
+400d3005:	ssai	16
+400d3008:	src	a8, a8, a9
+400d300b:	slli	a11, a11, 16
+400d300e:	extui	a10, a10, 0, 16
+400d3011:	ssai	25
+400d3014:	src	a8, a8, a9
+400d3017:	or	a12, a11, a12
+400d301a:	add.n	a8, a10, a8
+400d301c:	slli	a8, a8, 16
+400d301f:	extui	a5, a11, 31, 1
+400d3022:	extui	a9, a12, 26, 1
+400d3025:	or	a10, a10, a8
+400d3028:	slli	a9, a9, 14
+400d302b:	slli	a5, a5, 15
+400d302e:	or	a5, a5, a9
+400d3031:	extui	a15, a11, 29, 1
+400d3034:	extui	a9, a12, 21, 1
+400d3037:	and	a11, a10, a6
+400d303a:	or	a11, a5, a11
+400d303d:	slli	a9, a9, 13
+400d3040:	or	a11, a11, a9
+400d3043:	l32r	a8, 400d0240 <_stext+0x220> (40000100 <_heap_end+0x100>)
+400d3046:	l32r	a9, 400d0264 <_stext+0x244> (4200 <UserFrameTotalSize+0x4100>)
+400d3049:	srli	a13, a12, 4
+400d304c:	and	a8, a12, a8
+400d304f:	slli	a15, a15, 13
+400d3052:	extui	a2, a12, 24, 1
+400d3055:	extui	a3, a13, 11, 2
+400d3058:	and	a13, a13, a9
+400d305b:	l32r	a9, 400d0244 <_stext+0x224> (10000400 <UserFrameTotalSize+0x10000300>)
+400d305e:	or	a8, a8, a15
+400d3061:	slli	a2, a2, 12
+400d3064:	extui	a15, a12, 23, 1
+400d3067:	slli	a3, a3, 11
+400d306a:	or	a11, a11, a3
+400d306d:	or	a8, a8, a2
+400d3070:	slli	a15, a15, 15
+400d3073:	and	a9, a12, a9
+400d3076:	or	a8, a8, a15
+400d3079:	or	a9, a11, a9
+400d307c:	l32r	a11, 400d0248 <_stext+0x228> (80000200 <_rtc_slow_reserved_end+0x2fffe200>)
+400d307f:	ssai	28
+400d3082:	src	a5, a12, a10
+400d3085:	or	a8, a8, a13
+400d3088:	l32r	a13, 400d026c <_stext+0x24c> (20000800 <UserFrameTotalSize+0x20000700>)
+400d308b:	and	a3, a5, a11
+400d308e:	l32r	a11, 400d0270 <_stext+0x250> (10000420 <UserFrameTotalSize+0x10000320>)
+400d3091:	ssai	24
+400d3094:	src	a15, a12, a10
+400d3097:	and	a2, a5, a13
+400d309a:	and	a11, a15, a11
+400d309d:	or	a9, a9, a3
+400d30a0:	or	a8, a8, a2
+400d30a3:	l32r	a3, 400d024c <_stext+0x22c> (40000180 <_heap_end+0x180>)
+400d30a6:	or	a8, a8, a11
+400d30a9:	l32r	a11, 400d0274 <_stext+0x254> (84000010 <_rtc_slow_reserved_end+0x33ffe010>)
+400d30ac:	ssai	20
+400d30af:	src	a13, a12, a10
+400d30b2:	and	a3, a15, a3
+400d30b5:	and	a11, a13, a11
+400d30b8:	or	a9, a9, a3
+400d30bb:	l32r	a3, 400d0250 <_stext+0x230> (21000040 <UserFrameTotalSize+0x20ffff40>)
+400d30be:	or	a8, a8, a11
+400d30c1:	l32r	a11, 400d0278 <_stext+0x258> (2000080 <UserFrameTotalSize+0x1ffff80>)
+400d30c4:	ssai	16
+400d30c7:	src	a5, a12, a10
+400d30ca:	and	a3, a13, a3
+400d30cd:	and	a11, a5, a11
+400d30d0:	or	a9, a9, a3
+400d30d3:	l32r	a3, 400d0254 <_stext+0x234> (8000020 <UserFrameTotalSize+0x7ffff20>)
+400d30d6:	or	a8, a8, a11
+400d30d9:	l32r	a11, 400d027c <_stext+0x25c> (1000042 <UserFrameTotalSize+0xffff42>)
+400d30dc:	ssai	12
+400d30df:	src	a15, a12, a10
+400d30e2:	and	a5, a5, a3
+400d30e5:	and	a11, a15, a11
+400d30e8:	or	a9, a9, a5
+400d30eb:	l32r	a5, 400d0258 <_stext+0x238> (4000018 <UserFrameTotalSize+0x3ffff18>)
+400d30ee:	or	a8, a8, a11
+400d30f1:	l32r	a11, 400d0280 <_stext+0x260> (8400001 <UserFrameTotalSize+0x83fff01>)
+400d30f4:	ssai	8
+400d30f7:	src	a13, a12, a10
+400d30fa:	and	a15, a15, a5
+400d30fd:	and	a11, a13, a11
+400d3100:	or	a9, a9, a15
+400d3103:	l32r	a15, 400d025c <_stext+0x23c> (2100004 <UserFrameTotalSize+0x20fff04>)
+400d3106:	or	a8, a8, a11
+400d3109:	l32r	a11, 400d0284 <_stext+0x264> (200008 <UserFrameTotalSize+0x1fff08>)
+400d310c:	ssai	4
+400d310f:	src	a12, a12, a10
+400d3112:	and	a13, a13, a15
+400d3115:	and	a11, a12, a11
+400d3118:	or	a9, a9, a13
+400d311b:	l32r	a13, 400d0260 <_stext+0x240> (800002 <UserFrameTotalSize+0x7fff02>)
+400d311e:	or	a8, a8, a11
+400d3121:	l32r	a11, 400d0288 <_stext+0x268> (100004 <UserFrameTotalSize+0xfff04>)
+400d3124:	and	a12, a12, a13
+400d3127:	and	a5, a10, a11
+400d312a:	or	a9, a9, a12
+400d312d:	l32r	a11, 400d0268 <_stext+0x248> (210000 <UserFrameTotalSize+0x20ff00>)
+400d3130:	l32r	a12, 400d028c <_stext+0x26c> (840000 <UserFrameTotalSize+0x83ff00>)
+400d3133:	slli	a15, a10, 4
+400d3136:	and	a13, a15, a11
+400d3139:	and	a12, a15, a12
+400d313c:	extui	a11, a10, 11, 1
+400d313f:	extui	a15, a10, 9, 1
+400d3142:	or	a8, a8, a5
+400d3145:	or	a9, a9, a13
+400d3148:	slli	a11, a11, 19
+400d314b:	extui	a13, a10, 6, 1
+400d314e:	or	a8, a8, a12
+400d3151:	slli	a15, a15, 17
+400d3154:	extui	a12, a10, 4, 1
+400d3157:	or	a9, a9, a11
+400d315a:	slli	a13, a13, 18
+400d315d:	extui	a11, a10, 1, 1
+400d3160:	or	a8, a8, a15
+400d3163:	slli	a12, a12, 16
+400d3166:	extui	a10, a10, 3, 1
+400d3169:	or	a9, a9, a13
+400d316c:	slli	a11, a11, 17
+400d316f:	or	a8, a8, a12
+400d3172:	slli	a10, a10, 19
+400d3175:	or	a9, a9, a11
+400d3178:	or	a8, a8, a10
+400d317b:	addi.n	a4, a4, 8
+400d317d:	addi.n	a7, a7, -1
+400d317f:	bnez	a7, 400d2f3c <dipper_encrypt_block_ct+0x10>
+400d3182:	mov.n	a2, a9
+400d3184:	mov.n	a3, a8
+400d3186:	retw.n
+### xtensa dipper_expand_128_ct
+400d2d54 <dipper_expand_128_ct>:
+400d2d54:	entry	a1, 96
+400d2d57:	mov.n	a11, a2
+400d2d59:	movi.n	a12, 16
+400d2d5b:	or	a10, a1, a1
+400d2d5e:	l32r	a8, 400d0024 <_stext+0x4> (4000c2c8 <memcpy>)
+400d2d61:	callx8	a8
+400d2d64:	l16ui	a8, a1, 14
+400d2d67:	l16ui	a9, a1, 0
+400d2d6a:	s32i.n	a8, a1, 52
+400d2d6c:	l16ui	a8, a1, 12
+400d2d6f:	s32i.n	a9, a1, 40
+400d2d71:	s32i.n	a8, a1, 48
+400d2d73:	l16ui	a8, a1, 10
+400d2d76:	movi	a9, 224
+400d2d79:	s32i.n	a8, a1, 20
+400d2d7b:	l16ui	a8, a1, 8
+400d2d7e:	add.n	a9, a3, a9
+400d2d80:	s32i.n	a8, a1, 24
+400d2d82:	l16ui	a8, a1, 6
+400d2d85:	s32i.n	a9, a1, 56
+400d2d87:	s32i.n	a8, a1, 16
+400d2d89:	l16ui	a8, a1, 4
+400d2d8c:	movi.n	a9, 1
+400d2d8e:	s32i.n	a8, a1, 44
+400d2d90:	s32i.n	a3, a1, 32
+400d2d92:	l16ui	a8, a1, 2
+400d2d95:	s32i.n	a9, a1, 36
+400d2d97:	j	400d2d9e <dipper_expand_128_ct+0x4a>
+400d2d9a:	s32i.n	a5, a1, 24
+400d2d9c:	s32i.n	a9, a1, 52
+400d2d9e:	srli	a9, a8, 2
+400d2da1:	slli	a8, a8, 14
+400d2da4:	add.n	a8, a9, a8
+400d2da6:	l32i.n	a9, a1, 20
+400d2da8:	extui	a14, a8, 12, 4
+400d2dab:	srli	a7, a9, 12
+400d2dae:	l32r	a9, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2db1:	l32r	a11, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2db4:	l32i.n	a12, a1, 16
+400d2db6:	s32i.n	a8, a1, 28
+400d2db8:	srli	a4, a14, 2
+400d2dbb:	srli	a8, a7, 2
+400d2dbe:	and	a2, a7, a9
+400d2dc1:	and	a10, a8, a9
+400d2dc4:	and	a6, a14, a9
+400d2dc7:	and	a4, a4, a9
+400d2dca:	srli	a8, a14, 1
+400d2dcd:	srli	a9, a7, 1
+400d2dd0:	srli	a13, a12, 12
+400d2dd3:	mov.n	a15, a10
+400d2dd5:	and	a9, a9, a11
+400d2dd8:	and	a12, a2, a10
+400d2ddb:	and	a8, a8, a11
+400d2dde:	mov.n	a10, a11
+400d2de0:	and	a11, a6, a4
+400d2de3:	xor	a11, a11, a8
+400d2de6:	srli	a14, a14, 3
+400d2de9:	and	a8, a14, a11
+400d2dec:	xor	a8, a8, a6
+400d2def:	srli	a5, a13, 2
+400d2df2:	l32r	a6, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2df5:	and	a3, a13, a10
+400d2df8:	xor	a12, a12, a9
+400d2dfb:	and	a5, a5, a10
+400d2dfe:	srli	a9, a13, 1
+400d2e01:	and	a9, a9, a6
+400d2e04:	and	a6, a3, a5
+400d2e07:	xor	a9, a6, a9
+400d2e0a:	srli	a7, a7, 3
+400d2e0d:	or	a6, a11, a8
+400d2e10:	srli	a13, a13, 3
+400d2e13:	xor	a6, a6, a4
+400d2e16:	and	a10, a7, a12
+400d2e19:	and	a4, a13, a9
+400d2e1c:	xor	a10, a10, a2
+400d2e1f:	xor	a4, a4, a3
+400d2e22:	or	a3, a9, a4
+400d2e25:	or	a2, a12, a10
+400d2e28:	xor	a2, a2, a15
+400d2e2b:	xor	a15, a3, a5
+400d2e2e:	l32r	a3, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2e31:	xor	a14, a14, a6
+400d2e34:	l32r	a5, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2e37:	xor	a7, a7, a2
+400d2e3a:	xor	a11, a11, a14
+400d2e3d:	xor	a14, a14, a3
+400d2e40:	slli	a3, a8, 3
+400d2e43:	xor	a12, a12, a7
+400d2e46:	or	a3, a14, a3
+400d2e49:	and	a8, a8, a11
+400d2e4c:	l32r	a14, 400d0238 <_stext+0x218> (11111111 <UserFrameTotalSize+0x11111011>)
+400d2e4f:	xor	a7, a7, a5
+400d2e52:	xor	a13, a13, a15
+400d2e55:	slli	a5, a10, 3
+400d2e58:	xor	a8, a8, a6
+400d2e5b:	and	a10, a10, a12
+400d2e5e:	add.n	a11, a11, a11
+400d2e60:	or	a5, a7, a5
+400d2e63:	xor	a9, a9, a13
+400d2e66:	or	a11, a3, a11
+400d2e69:	xor	a13, a13, a14
+400d2e6c:	xor	a10, a10, a2
+400d2e6f:	slli	a7, a4, 3
+400d2e72:	add.n	a12, a12, a12
+400d2e74:	slli	a8, a8, 2
+400d2e77:	l32i.n	a6, a1, 40
+400d2e79:	or	a12, a5, a12
+400d2e7c:	or	a7, a13, a7
+400d2e7f:	or	a8, a11, a8
+400d2e82:	l32i.n	a13, a1, 28
+400d2e84:	l32i.n	a11, a1, 20
+400d2e86:	slli	a10, a10, 2
+400d2e89:	l32i.n	a2, a1, 36
+400d2e8b:	and	a4, a4, a9
+400d2e8e:	or	a10, a12, a10
+400d2e91:	srli	a14, a6, 12
+400d2e94:	slli	a12, a6, 4
+400d2e97:	extui	a11, a11, 0, 12
+400d2e9a:	l32i.n	a6, a1, 24
+400d2e9c:	xor	a4, a4, a15
+400d2e9f:	extui	a13, a13, 0, 12
+400d2ea2:	l32i.n	a15, a1, 16
+400d2ea4:	add.n	a9, a9, a9
+400d2ea6:	slli	a10, a10, 12
+400d2ea9:	slli	a8, a8, 12
+400d2eac:	add.n	a14, a14, a12
+400d2eae:	or	a10, a10, a11
+400d2eb1:	or	a8, a8, a13
+400d2eb4:	srli	a5, a2, 4
+400d2eb7:	or	a9, a7, a9
+400d2eba:	slli	a4, a4, 2
+400d2ebd:	extui	a11, a2, 1, 1
+400d2ec0:	slli	a3, a8, 16
+400d2ec3:	or	a9, a9, a4
+400d2ec6:	add.n	a7, a2, a2
+400d2ec8:	extui	a4, a6, 0, 16
+400d2ecb:	xor	a11, a11, a5
+400d2ece:	extui	a6, a15, 0, 12
+400d2ed1:	extui	a13, a14, 0, 16
+400d2ed4:	l32i.n	a15, a1, 48
+400d2ed6:	or	a13, a13, a3
+400d2ed9:	slli	a12, a10, 16
+400d2edc:	or	a11, a11, a7
+400d2edf:	extui	a10, a10, 0, 16
+400d2ee2:	xor	a5, a2, a15
+400d2ee5:	s32i.n	a10, a1, 16
+400d2ee7:	l32i.n	a15, a1, 32
+400d2ee9:	l32i.n	a2, a1, 0
+400d2eeb:	extui	a10, a11, 0, 5
+400d2eee:	s32i.n	a13, a1, 0
+400d2ef0:	l32i.n	a13, a1, 44
+400d2ef2:	l32i.n	a3, a1, 4
+400d2ef4:	or	a12, a4, a12
+400d2ef7:	s32i.n	a10, a1, 36
+400d2ef9:	slli	a9, a9, 12
+400d2efc:	l32i.n	a10, a1, 52
+400d2efe:	or	a9, a9, a6
+400d2f01:	s32i.n	a12, a1, 4
+400d2f03:	s32i.n	a13, a1, 48
+400d2f05:	l32i.n	a6, a1, 24
+400d2f07:	addi.n	a12, a15, 8
+400d2f09:	extui	a13, a14, 0, 16
+400d2f0c:	s32i.n	a10, a1, 20
+400d2f0e:	s32i.n	a2, a15, 0
+400d2f10:	s32i.n	a3, a15, 4
+400d2f12:	s32i.n	a12, a1, 32
+400d2f14:	s32i.n	a13, a1, 40
+400d2f16:	s32i.n	a6, a1, 44
+400d2f18:	l32i.n	a10, a1, 56
+400d2f1a:	extui	a9, a9, 0, 16
+400d2f1d:	extui	a8, a8, 0, 16
+400d2f20:	extui	a5, a5, 0, 16
+400d2f23:	beq	a10, a12, 400d2f29 <dipper_expand_128_ct+0x1d5>
+400d2f26:	j	400d2d9a <dipper_expand_128_ct+0x46>
+400d2f29:	retw.n

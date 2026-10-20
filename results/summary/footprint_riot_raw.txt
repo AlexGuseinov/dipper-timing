@@ -1,0 +1,25 @@
+iotlab-m3 dipper 1128 0 132 | dipper_expand_128=72 dipper_encrypt_block=48 
+iotlab-m3 dipper_fast 948 0 5124 | dipper_encrypt_block_fast=40 
+iotlab-m3 dipper_fast_const 5640 0 0 | dipper_encrypt_block_fastc=36 
+iotlab-m3 dipper_ct 1668 0 0 | dipper_expand_128_ct=88 dipper_encrypt_block_ct=36 
+iotlab-m3 dipper_leaky 48 0 0 | dipper_encrypt_block_leaky=24 
+samr21-xpro dipper 1308 0 132 | dipper_expand_128=64 dipper_encrypt_block=48 
+samr21-xpro dipper_fast 1144 0 5124 | dipper_encrypt_block_fast=48 
+samr21-xpro dipper_fast_const 5764 0 0 | dipper_encrypt_block_fastc=48 
+samr21-xpro dipper_ct 1960 0 0 | dipper_expand_128_ct=112 dipper_encrypt_block_ct=72 
+samr21-xpro dipper_leaky 36 0 0 | dipper_encrypt_block_leaky=16 
+b-l475e-iot01a dipper 1140 0 132 | dipper_expand_128=72 dipper_encrypt_block=48 
+b-l475e-iot01a dipper_fast 928 0 5124 | dipper_encrypt_block_fast=40 
+b-l475e-iot01a dipper_fast_const 5624 0 0 | dipper_encrypt_block_fastc=36 
+b-l475e-iot01a dipper_ct 1696 0 0 | dipper_expand_128_ct=88 dipper_encrypt_block_ct=48 
+b-l475e-iot01a dipper_leaky 44 0 0 | dipper_encrypt_block_leaky=16 
+nrf52840dk dipper 1140 0 132 | dipper_expand_128=72 dipper_encrypt_block=48 
+nrf52840dk dipper_fast 928 0 5124 | dipper_encrypt_block_fast=40 
+nrf52840dk dipper_fast_const 5624 0 0 | dipper_encrypt_block_fastc=36 
+nrf52840dk dipper_ct 1696 0 0 | dipper_expand_128_ct=88 dipper_encrypt_block_ct=48 
+nrf52840dk dipper_leaky 44 0 0 | dipper_encrypt_block_leaky=16 
+rpi-pico dipper 1308 0 132 | dipper_expand_128=64 dipper_encrypt_block=48 
+rpi-pico dipper_fast 1144 0 5124 | dipper_encrypt_block_fast=48 
+rpi-pico dipper_fast_const 5764 0 0 | dipper_encrypt_block_fastc=48 
+rpi-pico dipper_ct 1960 0 0 | dipper_expand_128_ct=112 dipper_encrypt_block_ct=72 
+rpi-pico dipper_leaky 36 0 0 | dipper_encrypt_block_leaky=16 

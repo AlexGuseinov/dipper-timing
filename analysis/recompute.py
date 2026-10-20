@@ -70,11 +70,37 @@ def kv(line):
     return out
 
 
-def runs(path):
-    cur = None
+def blocks(path):
+    """Split a log into boot blocks (each starts at a #meta line)."""
+    out, cur = [], None
     with open(path, errors="replace") as f:
         for raw in f:
             line = strip(raw)
+            if line.startswith("#meta "):
+                cur = []
+                out.append(cur)
+            if cur is not None:
+                cur.append(line)
+    return out
+
+
+def complete_block(path):
+    """First boot block in which every started run has its #res line.
+    IoT-LAB logs start with the tail of the run started by flashing, and the
+    firmware repeats forever, so later blocks may be partial."""
+    for b in blocks(path):
+        nrun = sum(1 for l in b if l.startswith("#run "))
+        nres = sum(1 for l in b if l.startswith("#res "))
+        if nrun and nrun == nres:
+            return b
+    return None
+
+
+def runs(path):
+    cur = None
+    block = complete_block(path) or []
+    for line in block:
+        if True:
             if line.startswith("#run "):
                 if cur:
                     yield cur

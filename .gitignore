@@ -14,3 +14,4 @@ __pycache__/
 secrets.h
 firmware/esp-idf/sdkconfig.*
 !firmware/esp-idf/sdkconfig.defaults*
+firmware/esp-idf/merged/

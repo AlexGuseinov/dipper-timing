@@ -1,0 +1,123 @@
+         U abort@@GLIBC_2.4
+         U clock_gettime@@GLIBC_2.17
+         w __cxa_finalize@@GLIBC_2.4
+         U fflush@@GLIBC_2.4
+         U fputs@@GLIBC_2.4
+         U fwrite@@GLIBC_2.4
+         U getopt@@GLIBC_2.4
+         w __gmon_start__
+         U ioctl@@GLIBC_2.4
+         w _ITM_deregisterTMCloneTable
+         w _ITM_registerTMCloneTable
+         U __libc_start_main@@GLIBC_2.4
+         U memcmp@@GLIBC_2.4
+         U memcpy@@GLIBC_2.4
+         U memset@@GLIBC_2.4
+         U optarg@@GLIBC_2.4
+         U perror@@GLIBC_2.4
+         U qsort@@GLIBC_2.4
+         U read@@GLIBC_2.4
+         U sched_setaffinity@@GLIBC_2.4
+         U snprintf@@GLIBC_2.4
+         U sprintf@@GLIBC_2.4
+         U sqrt@@GLIBC_2.4
+         U stderr@@GLIBC_2.4
+         U stdout@@GLIBC_2.4
+         U strcpy@@GLIBC_2.4
+         U strtoul@@GLIBC_2.4
+         U syscall@@GLIBC_2.4
+         U uname@@GLIBC_2.4
+000007a4 t _init
+000008e8 00000174 T main
+00000a5c T _start
+00000ab4 t call_weak_fn
+00000ad8 t deregister_tm_clones
+00000b1c t register_tm_clones
+00000b6c t __do_global_dtors_aux
+00000bd4 t frame_dummy
+00000bd8 00000010 T plat_name
+00000be8 0000004c T plat_print
+00000c34 00000068 T plat_now_slow
+00000c9c 00000198 T plat_setup
+00000e38 0000001c t cmp_u32
+00000e54 000001a0 t prepare
+00000ff4 00000130 t fmt_d
+00001124 00000154 t measure.isra.0
+00001278 0000001c t cmp_u32b
+00001294 000000c4 T dudect_welch
+00001358 00000094 T dudect_init
+000013ec 00000114 T dudect_push
+00001500 00000098 T dudect_max_t
+00001598 000000f4 t print_status
+0000168c 00000ad8 T dudect_run_all
+00002168 000006c8 T dipper_selftest
+00002830 0000005c t init_tables.part.0
+0000288c 00000120 T dipper_expand_96
+000029ac 00000134 T dipper_expand_128
+00002ae0 0000012c T dipper_encrypt_block
+00002c0c 0000014c T dipper_decrypt_block
+00002d58 000001e8 t init_fast.part.0
+00002f40 00000140 T dipper_encrypt_block_fast
+00003080 00000150 T dipper_decrypt_block_fast
+000031d0 00000110 T dipper_encrypt_block_fastc
+000032e0 00000128 T dipper_decrypt_block_fastc
+00003408 000002ec T dipper_expand_96_ct
+000036f4 0000025c T dipper_expand_128_ct
+00003950 0000037c T dipper_encrypt_block_ct
+00003ccc 00000064 T dipper_ct_sbox_nibble
+00003d30 00000050 T dipper_encrypt_block_leaky
+00003d80 00000064 T __libc_csu_init
+00003de4 00000004 T __libc_csu_fini
+00003de8 T _fini
+00003df0 00000004 R _IO_stdin_used
+00004060 00000010 r FIXED_KEY
+00004130 00000010 r S.6279
+00004140 00000004 R dipper_n_variants
+00004144 00000010 r S
+00004154 00000010 r SI
+00004164 00000010 r S
+00004174 00000010 r SI
+00004188 00000200 r SB2C
+00004388 00000800 r PTC
+00004b88 00000800 r PTIC
+00005388 00000200 r SB2IC
+00005590 r __FRAME_END__
+00015eb0 d __frame_dummy_init_array_entry
+00015eb0 d __init_array_start
+00015eb4 d __do_global_dtors_aux_fini_array_entry
+00015eb4 d __init_array_end
+00015eb8 00000050 D dipper_variants
+00015f08 a _DYNAMIC
+00016000 a _GLOBAL_OFFSET_TABLE_
+000160ac D __data_start
+000160ac W data_start
+000160b0 D __dso_handle
+000160b4 00000080 d name_buf
+00016134 00000004 D plat_perf_fd
+00016138 00000004 D plat_timer_name
+0001613c B __bss_start
+0001613c B __bss_start__
+0001613c D _edata
+0001613c D __TMC_END__
+00016140 00000001 b completed.11467
+00016148 00000100 b b_cls
+00016248 00000800 b b_pt
+00016a48 00000400 b b_d
+00016e48 00000008 b sink
+00016e50 00000278 b st
+000170c8 00000004 b rn.8177
+000170cc 0000004c b raw.8176
+00017118 00009c40 b cal_buf
+00020d58 00001000 b b_key
+00021d58 00000040 b P
+00021d98 00000040 b PI
+00021dd8 00000004 b tables_ready
+00021de0 00000200 b SB2
+00021fe0 00000200 b SB2I
+000221e0 00000800 b PTI
+000229e0 00000800 b PT
+000231e0 00000004 b ready
+000231e4 B __bss_end__
+000231e4 B _bss_end__
+000231e4 B __end__
+000231e4 B _end

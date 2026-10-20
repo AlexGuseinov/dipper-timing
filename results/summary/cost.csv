@@ -1,0 +1,41 @@
+platform,variant,runs,enc_cycles_per_block,keysched_cycles
+STM32F103 (IoT-LAB m3),small,2,77616.1,2284.1
+STM32F103 (IoT-LAB m3),fast,2,21209.1,2284.1
+STM32F103 (IoT-LAB m3),fast_const,2,26223.1,2284.1
+STM32F103 (IoT-LAB m3),ct,2,8937.1,4455.1
+STM32F103 (IoT-LAB m3),leaky,2,77808.6,2284.1
+nRF52840 (IoT-LAB nrf52840dk),small,2,54577.1,1636.2
+nRF52840 (IoT-LAB nrf52840dk),fast,2,15202.2,1636.2
+nRF52840 (IoT-LAB nrf52840dk),fast_const,2,17264.1,1636.2
+nRF52840 (IoT-LAB nrf52840dk),ct,2,6531.2,3264.2
+nRF52840 (IoT-LAB nrf52840dk),leaky,2,54727.9,1636.2
+SAMR21G18A (IoT-LAB samr21),small,2,80246.8,3120.1
+SAMR21G18A (IoT-LAB samr21),fast,2,21199.1,3120.1
+SAMR21G18A (IoT-LAB samr21),fast_const,2,22606.1,3120.1
+SAMR21G18A (IoT-LAB samr21),ct,2,13527.1,8032.1
+SAMR21G18A (IoT-LAB samr21),leaky,2,80424.1,3120.1
+STM32L475VG (IoT-LAB st-iotnode),small,2,53772.3,1534.2
+STM32L475VG (IoT-LAB st-iotnode),fast,2,15196.3,1534.3
+STM32L475VG (IoT-LAB st-iotnode),fast_const,2,17826.1,1534.4
+STM32L475VG (IoT-LAB st-iotnode),ct,2,5694.1,3266.0
+STM32L475VG (IoT-LAB st-iotnode),leaky,2,53927.7,1534.2
+RP2040 (IoT-LAB rpi-pico),small,2,73613.1,2522.1
+RP2040 (IoT-LAB rpi-pico),fast,2,20176.1,2522.1
+RP2040 (IoT-LAB rpi-pico),fast_const,2,20164.1,2522.1
+RP2040 (IoT-LAB rpi-pico),ct,2,10356.1,6664.1
+RP2040 (IoT-LAB rpi-pico),leaky,2,73785.6,2522.1
+"ESP32 NodeMCU-32S, Wi-Fi off",small,2,57532.3,1967.3
+"ESP32 NodeMCU-32S, Wi-Fi off",fast,2,18543.3,1967.2
+"ESP32 NodeMCU-32S, Wi-Fi off",fast_const,2,18560.2,1967.2
+"ESP32 NodeMCU-32S, Wi-Fi off",ct,2,6180.2,4368.3
+"ESP32 NodeMCU-32S, Wi-Fi off",leaky,2,57741.7,1967.3
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",small,2,44668.3,1354.6
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast,2,17306.5,1353.4
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",fast_const,2,17180.3,1354.6
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",ct,2,5018.0,3322.1
+"TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)",leaky,2,44849.8,1354.6
+"x86-64 (KVM guest, AMD EPYC Zen 1)",small,4,4821.3,391.0
+"x86-64 (KVM guest, AMD EPYC Zen 1)",fast,4,1809.4,374.4
+"x86-64 (KVM guest, AMD EPYC Zen 1)",fast_const,4,1907.6,326.7
+"x86-64 (KVM guest, AMD EPYC Zen 1)",ct,4,1387.8,1002.9
+"x86-64 (KVM guest, AMD EPYC Zen 1)",leaky,4,4673.8,372.2

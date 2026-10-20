@@ -1,0 +1,380 @@
+### a8 dipper_encrypt_block_ct
+00003950 <dipper_encrypt_block_ct>:
+    3950:	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    3954:	movw	ip, #4369	; 0x1111
+    3958:	sub	sp, sp, #44	; 0x2c
+    395c:	movt	ip, #4369	; 0x1111
+    3960:	sub	r3, r2, #8
+    3964:	str	r3, [sp]
+    3968:	add	r3, r2, #216	; 0xd8
+    396c:	mov	r2, #1024	; 0x400
+    3970:	str	r3, [sp, #4]
+    3974:	movt	r2, #4096	; 0x1000
+    3978:	mov	r3, #1
+    397c:	str	r2, [sp, #16]
+    3980:	movt	r3, #64	; 0x40
+    3984:	mov	r2, #384	; 0x180
+    3988:	str	r3, [sp, #8]
+    398c:	movt	r2, #16384	; 0x4000
+    3990:	mov	r3, #256	; 0x100
+    3994:	str	r2, [sp, #24]
+    3998:	movt	r3, #16384	; 0x4000
+    399c:	mov	r2, #32
+    39a0:	str	r3, [sp, #12]
+    39a4:	movt	r2, #2048	; 0x800
+    39a8:	mov	r3, #512	; 0x200
+    39ac:	str	r2, [sp, #32]
+    39b0:	movt	r3, #32768	; 0x8000
+    39b4:	str	r3, [sp, #20]
+    39b8:	mov	r3, #64	; 0x40
+    39bc:	movt	r3, #8448	; 0x2100
+    39c0:	str	r3, [sp, #28]
+    39c4:	mov	r3, #24
+    39c8:	movt	r3, #1024	; 0x400
+    39cc:	str	r3, [sp, #36]	; 0x24
+    39d0:	ldr	r2, [sp]
+    39d4:	mov	lr, #2048	; 0x800
+    39d8:	movt	lr, #8192	; 0x2000
+    39dc:	mov	r7, #4
+    39e0:	movt	r7, #528	; 0x210
+    39e4:	mov	r6, #2
+    39e8:	ldr	r3, [r2, #8]!
+    39ec:	movt	r6, #128	; 0x80
+    39f0:	eor	r3, r3, r0
+    39f4:	ldr	r0, [r2, #4]
+    39f8:	and	sl, r3, ip
+    39fc:	lsr	r4, r3, #2
+    3a00:	str	r2, [sp]
+    3a04:	eor	r1, r1, r0
+    3a08:	lsr	r2, r3, #1
+    3a0c:	lsr	r3, r3, #3
+    3a10:	and	r9, r1, ip
+    3a14:	orr	r4, r4, r1, lsl #30
+    3a18:	orr	r2, r2, r1, lsl #31
+    3a1c:	and	r4, r4, ip
+    3a20:	and	r8, ip, r1, lsr #2
+    3a24:	and	r0, sl, r4
+    3a28:	orr	r3, r3, r1, lsl #29
+    3a2c:	and	r2, r2, ip
+    3a30:	and	fp, r9, r8
+    3a34:	eor	r2, r2, r0
+    3a38:	and	r3, r3, ip
+    3a3c:	and	r0, ip, r1, lsr #1
+    3a40:	and	r5, r3, r2
+    3a44:	eor	r0, r0, fp
+    3a48:	and	r1, ip, r1, lsr #3
+    3a4c:	eor	r5, r5, sl
+    3a50:	and	sl, r1, r0
+    3a54:	orr	fp, r2, r5
+    3a58:	eor	r9, r9, sl
+    3a5c:	orr	sl, r0, r9
+    3a60:	eor	r4, r4, fp
+    3a64:	eor	r3, r3, r4
+    3a68:	eor	r8, r8, sl
+    3a6c:	eor	r2, r2, r3
+    3a70:	eor	r1, r1, r8
+    3a74:	and	fp, r5, r2
+    3a78:	eor	r0, r0, r1
+    3a7c:	adds	r2, r2, r2
+    3a80:	eor	r4, r4, fp
+    3a84:	and	fp, r9, r0
+    3a88:	eor	r1, r1, ip
+    3a8c:	adc	r0, r0, r0
+    3a90:	eor	r8, r8, fp
+    3a94:	adds	r4, r4, r4
+    3a98:	orr	r1, r1, r9, lsl #3
+    3a9c:	adc	r8, r8, r8
+    3aa0:	adds	r4, r4, r4
+    3aa4:	orr	r0, r1, r0
+    3aa8:	adc	r8, r8, r8
+    3aac:	eor	r3, r3, ip
+    3ab0:	orr	r8, r0, r8
+    3ab4:	orr	r3, r3, r5, lsl #3
+    3ab8:	orr	r2, r3, r2
+    3abc:	lsr	r5, r8, #16
+    3ac0:	orr	r4, r2, r4
+    3ac4:	ubfx	r2, r8, #12, #4
+    3ac8:	orr	r2, r2, r8, lsl #4
+    3acc:	lsr	r1, r8, #31
+    3ad0:	lsr	fp, r4, #16
+    3ad4:	orr	r1, r1, r5, lsl #1
+    3ad8:	uxtah	r1, r1, r2
+    3adc:	orr	fp, fp, r8, lsl #16
+    3ae0:	ubfx	r3, r4, #5, #11
+    3ae4:	ubfx	r9, fp, #9, #7
+    3ae8:	orr	r3, r3, r4, lsl #11
+    3aec:	uxth	r2, r2
+    3af0:	orr	r2, r2, r1, lsl #16
+    3af4:	orr	r9, r9, fp, lsl #7
+    3af8:	uxtah	r9, r9, r3
+    3afc:	and	r8, r1, #32768	; 0x8000
+    3b00:	lsr	r4, r2, #12
+    3b04:	and	r5, r1, #8192	; 0x2000
+    3b08:	uxth	r3, r3
+    3b0c:	ldr	r1, [sp, #8]
+    3b10:	orr	r3, r3, r9, lsl #16
+    3b14:	and	r0, r4, #16384	; 0x4000
+    3b18:	orr	r0, r8, r0
+    3b1c:	and	r8, r3, r1
+    3b20:	ldr	r1, [sp, #12]
+    3b24:	lsr	sl, r2, #8
+    3b28:	lsr	r9, r2, #4
+    3b2c:	and	r4, r4, #4096	; 0x1000
+    3b30:	and	r1, r2, r1
+    3b34:	orr	r0, r0, r8
+    3b38:	orr	r1, r1, r5
+    3b3c:	and	r5, sl, #8192	; 0x2000
+    3b40:	orr	r1, r1, r4
+    3b44:	orr	r0, r0, r5
+    3b48:	and	r4, r9, #6144	; 0x1800
+    3b4c:	and	sl, sl, #32768	; 0x8000
+    3b50:	orr	r0, r0, r4
+    3b54:	ldr	r4, [sp, #16]
+    3b58:	lsr	r8, r3, #28
+    3b5c:	and	r9, r9, #16896	; 0x4200
+    3b60:	orr	r8, r8, r2, lsl #4
+    3b64:	orr	r1, r1, sl
+    3b68:	and	sl, r2, r4
+    3b6c:	orr	r1, r1, r9
+    3b70:	and	lr, lr, r8
+    3b74:	orr	r0, r0, sl
+    3b78:	ldr	sl, [sp, #20]
+    3b7c:	lsr	r5, r3, #24
+    3b80:	orr	lr, r1, lr
+    3b84:	ldr	r1, [sp, #24]
+    3b88:	orr	r5, r5, r2, lsl #8
+    3b8c:	and	r8, r8, sl
+    3b90:	mov	r9, #1056	; 0x420
+    3b94:	movt	r9, #4096	; 0x1000
+    3b98:	and	r9, r9, r5
+    3b9c:	orr	r0, r0, r8
+    3ba0:	and	r5, r5, r1
+    3ba4:	lsr	r4, r3, #20
+    3ba8:	orr	r0, r0, r5
+    3bac:	ldr	r5, [sp, #28]
+    3bb0:	orr	r4, r4, r2, lsl #12
+    3bb4:	lsr	fp, r3, #16
+    3bb8:	mov	sl, #16
+    3bbc:	movt	sl, #33792	; 0x8400
+    3bc0:	orr	fp, fp, r2, lsl #16
+    3bc4:	and	sl, sl, r4
+    3bc8:	orr	lr, lr, r9
+    3bcc:	and	r4, r4, r5
+    3bd0:	mov	r8, #128	; 0x80
+    3bd4:	movt	r8, #512	; 0x200
+    3bd8:	and	r8, r8, fp
+    3bdc:	lsr	r1, r3, #12
+    3be0:	orr	lr, lr, sl
+    3be4:	orr	r0, r0, r4
+    3be8:	ldr	r4, [sp, #32]
+    3bec:	orr	r1, r1, r2, lsl #20
+    3bf0:	lsr	r9, r3, #8
+    3bf4:	orr	lr, lr, r8
+    3bf8:	mov	r5, #66	; 0x42
+    3bfc:	ldr	r8, [sp, #36]	; 0x24
+    3c00:	movt	r5, #256	; 0x100
+    3c04:	orr	r9, r9, r2, lsl #24
+    3c08:	and	fp, fp, r4
+    3c0c:	and	r5, r5, r1
+    3c10:	lsr	sl, r3, #4
+    3c14:	mov	r4, #1
+    3c18:	movt	r4, #2112	; 0x840
+    3c1c:	orr	sl, sl, r2, lsl #28
+    3c20:	and	r1, r1, r8
+    3c24:	and	r4, r4, r9
+    3c28:	orr	r0, r0, fp
+    3c2c:	orr	lr, lr, r5
+    3c30:	mov	r2, #8
+    3c34:	movt	r2, #32
+    3c38:	and	r7, r7, r9
+    3c3c:	and	r2, r2, sl
+    3c40:	orr	r0, r0, r1
+    3c44:	orr	lr, lr, r4
+    3c48:	mov	r8, #4
+    3c4c:	movt	r8, #16
+    3c50:	and	r6, r6, sl
+    3c54:	lsl	fp, r3, #4
+    3c58:	orr	r0, r0, r7
+    3c5c:	orr	lr, lr, r2
+    3c60:	and	r8, r8, r3
+    3c64:	lsl	r5, r3, #8
+    3c68:	orr	r0, r0, r6
+    3c6c:	and	r9, fp, #2162688	; 0x210000
+    3c70:	ldm	sp, {r2, r6}
+    3c74:	and	fp, fp, #8650752	; 0x840000
+    3c78:	orr	lr, lr, r8
+    3c7c:	lsl	r1, r3, #12
+    3c80:	and	r4, r5, #524288	; 0x80000
+    3c84:	orr	r0, r0, r9
+    3c88:	and	r5, r5, #131072	; 0x20000
+    3c8c:	orr	lr, lr, fp
+    3c90:	and	sl, r1, #262144	; 0x40000
+    3c94:	lsl	r3, r3, #16
+    3c98:	cmp	r6, r2
+    3c9c:	orr	r0, r0, r4
+    3ca0:	and	r1, r1, #65536	; 0x10000
+    3ca4:	orr	lr, lr, r5
+    3ca8:	orr	r0, r0, sl
+    3cac:	and	r7, r3, #131072	; 0x20000
+    3cb0:	and	r6, r3, #524288	; 0x80000
+    3cb4:	orr	r1, lr, r1
+    3cb8:	orr	r0, r0, r7
+    3cbc:	orr	r1, r1, r6
+    3cc0:	bne	39d0 <dipper_encrypt_block_ct+0x80>
+    3cc4:	add	sp, sp, #44	; 0x2c
+    3cc8:	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+### a8 dipper_expand_128_ct
+000036f4 <dipper_expand_128_ct>:
+    36f4:	mov	r3, r0
+    36f8:	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    36fc:	mov	lr, r1
+    3700:	sub	sp, sp, #76	; 0x4c
+    3704:	ldr	r0, [r0]
+    3708:	ldr	r1, [r3, #4]
+    370c:	add	ip, sp, #56	; 0x38
+    3710:	ldr	r2, [r3, #8]
+    3714:	movw	r7, #4369	; 0x1111
+    3718:	ldr	r3, [r3, #12]
+    371c:	movt	r7, #4369	; 0x1111
+    3720:	sub	r4, lr, #8
+    3724:	add	lr, lr, #216	; 0xd8
+    3728:	str	r4, [sp, #40]	; 0x28
+    372c:	stmia	ip!, {r0, r1, r2, r3}
+    3730:	ldrh	r3, [sp, #70]	; 0x46
+    3734:	ldrh	ip, [sp, #58]	; 0x3a
+    3738:	ldrh	r5, [sp, #68]	; 0x44
+    373c:	str	r3, [sp, #24]
+    3740:	ldrh	r3, [sp, #66]	; 0x42
+    3744:	mov	r0, ip
+    3748:	str	lr, [sp, #52]	; 0x34
+    374c:	mov	lr, #1
+    3750:	str	lr, [sp, #12]
+    3754:	str	r3, [sp, #4]
+    3758:	ldrh	r3, [sp, #64]	; 0x40
+    375c:	str	r3, [sp, #36]	; 0x24
+    3760:	ldrh	r3, [sp, #62]	; 0x3e
+    3764:	str	r3, [sp, #8]
+    3768:	ldrh	r3, [sp, #60]	; 0x3c
+    376c:	str	r3, [sp, #28]
+    3770:	ldrh	r3, [sp, #56]	; 0x38
+    3774:	str	r3, [sp, #32]
+    3778:	ldr	r2, [sp, #4]
+    377c:	lsl	r3, r0, #14
+    3780:	orr	r1, r3, r0, lsr #2
+    3784:	ldr	lr, [sp, #8]
+    3788:	ubfx	r0, r1, #12, #4
+    378c:	str	r1, [sp, #44]	; 0x2c
+    3790:	lsr	r2, r2, #12
+    3794:	and	r1, r0, r7
+    3798:	and	fp, r7, r0, lsr #2
+    379c:	lsr	r3, lr, #12
+    37a0:	uxth	r8, r2
+    37a4:	ldr	r2, [sp, #12]
+    37a8:	and	lr, r1, fp
+    37ac:	and	ip, r7, r0, lsr #1
+    37b0:	mov	r9, #0
+    37b4:	strd	r8, [sp, #16]
+    37b8:	eor	r4, r5, r2
+    37bc:	eor	lr, lr, ip
+    37c0:	ldr	r2, [sp, #16]
+    37c4:	lsr	r0, r0, #3
+    37c8:	and	ip, r0, lr
+    37cc:	and	sl, r8, r7
+    37d0:	eor	r1, r1, ip
+    37d4:	and	r8, r7, r8, lsr #2
+    37d8:	and	r5, sl, r8
+    37dc:	and	r9, r3, r7
+    37e0:	and	r6, r7, r3, lsr #2
+    37e4:	and	ip, r7, r2, lsr #1
+    37e8:	str	r4, [sp, #48]	; 0x30
+    37ec:	orr	r4, lr, r1
+    37f0:	eor	ip, ip, r5
+    37f4:	eor	r4, r4, fp
+    37f8:	and	r5, r9, r6
+    37fc:	and	fp, r7, r3, lsr #1
+    3800:	lsr	r2, r2, #3
+    3804:	eor	r5, r5, fp
+    3808:	lsr	r3, r3, #3
+    380c:	and	fp, r2, ip
+    3810:	eor	sl, sl, fp
+    3814:	and	fp, r3, r5
+    3818:	eor	r9, r9, fp
+    381c:	orr	fp, ip, sl
+    3820:	eor	r8, r8, fp
+    3824:	orr	fp, r5, r9
+    3828:	eor	r6, r6, fp
+    382c:	eor	r2, r2, r8
+    3830:	eor	r3, r3, r6
+    3834:	eor	ip, ip, r2
+    3838:	eor	r0, r0, r4
+    383c:	eor	r5, r5, r3
+    3840:	eor	r2, r2, r7
+    3844:	eor	r3, r3, r7
+    3848:	eor	lr, lr, r0
+    384c:	orr	r3, r3, r9, lsl #3
+    3850:	orr	r2, r2, sl, lsl #3
+    3854:	and	r9, r9, r5
+    3858:	and	sl, sl, ip
+    385c:	eor	r0, r0, r7
+    3860:	orr	r0, r0, r1, lsl #3
+    3864:	eor	r9, r9, r6
+    3868:	and	r1, r1, lr
+    386c:	eor	sl, sl, r8
+    3870:	eor	r4, r4, r1
+    3874:	adds	r9, r9, r9
+    3878:	adds	sl, sl, sl
+    387c:	orr	r2, r2, ip, lsl #1
+    3880:	adds	r4, r4, r4
+    3884:	ldr	ip, [sp, #12]
+    3888:	orr	r5, r3, r5, lsl #1
+    388c:	orr	r0, r0, lr, lsl #1
+    3890:	orr	sl, r2, sl, lsl #1
+    3894:	ldr	lr, [sp, #40]	; 0x28
+    3898:	ldrd	r2, [sp, #56]	; 0x38
+    389c:	orr	r0, r0, r4, lsl #1
+    38a0:	orr	r9, r5, r9, lsl #1
+    38a4:	ldr	r4, [sp, #32]
+    38a8:	ldr	r5, [sp, #52]	; 0x34
+    38ac:	ubfx	r1, ip, #1, #1
+    38b0:	strd	r2, [lr, #8]!
+    38b4:	eor	r1, r1, ip, lsr #4
+    38b8:	ldr	r3, [sp, #4]
+    38bc:	cmp	r5, lr
+    38c0:	str	lr, [sp, #40]	; 0x28
+    38c4:	mov	lr, ip
+    38c8:	ldr	ip, [sp, #44]	; 0x2c
+    38cc:	lsr	r6, r4, #12
+    38d0:	orr	r2, r6, r4, lsl #4
+    38d4:	and	r9, r9, #15
+    38d8:	ubfx	r4, ip, #0, #12
+    38dc:	ubfx	ip, r3, #0, #12
+    38e0:	ldr	r3, [sp, #8]
+    38e4:	orr	r1, r1, lr, lsl #1
+    38e8:	ldr	r6, [sp, #24]
+    38ec:	and	r0, r0, #15
+    38f0:	ubfx	r3, r3, #0, #12
+    38f4:	ldrh	lr, [sp, #48]	; 0x30
+    38f8:	orr	r9, r3, r9, lsl #12
+    38fc:	ldr	r3, [sp, #36]	; 0x24
+    3900:	and	sl, sl, #15
+    3904:	ldr	r5, [sp, #28]
+    3908:	orr	r0, r4, r0, lsl #12
+    390c:	str	r6, [sp, #4]
+    3910:	orr	ip, ip, sl, lsl #12
+    3914:	str	r3, [sp, #28]
+    3918:	strh	r3, [sp, #60]	; 0x3c
+    391c:	uxth	r3, r2
+    3920:	str	ip, [sp, #8]
+    3924:	and	r2, r1, #31
+    3928:	strh	r0, [sp, #58]	; 0x3a
+    392c:	str	r9, [sp, #24]
+    3930:	strh	ip, [sp, #62]	; 0x3e
+    3934:	str	lr, [sp, #36]	; 0x24
+    3938:	str	r3, [sp, #32]
+    393c:	str	r2, [sp, #12]
+    3940:	strh	r3, [sp, #56]	; 0x38
+    3944:	bne	3778 <dipper_expand_128_ct+0x84>
+    3948:	add	sp, sp, #76	; 0x4c
+    394c:	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+

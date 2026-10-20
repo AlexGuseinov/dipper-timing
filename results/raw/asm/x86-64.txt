@@ -1,0 +1,374 @@
+### x86-64 dipper_encrypt_block_ct
+0000000000004120 <dipper_encrypt_block_ct>:
+    4120:      	endbr64
+    4124:      	movabsq	$0x1111111111111111, %rcx # imm = 0x1111111111111111
+    412e:      	pushq	%r15
+    4130:      	movq	%rdi, %rax
+    4133:      	movabsq	$0x420000800002, %r11   # imm = 0x420000800002
+    413d:      	movabsq	$0x2000080000210000, %r10 # imm = 0x2000080000210000
+    4147:      	pushq	%r14
+    4149:      	movabsq	$0x1000042000080000, %r9 # imm = 0x1000042000080000
+    4153:      	movabsq	$-0x7bffffeffffc0000, %r8 # imm = 0x8400001000040000
+    415d:      	pushq	%r13
+    415f:      	leaq	0xe0(%rsi), %r13
+    4166:      	pushq	%r12
+    4168:      	movabsq	$0x200008000020, %r12   # imm = 0x200008000020
+    4172:      	pushq	%rbp
+    4173:      	movabsq	$0x100004000018, %rbp   # imm = 0x100004000018
+    417d:      	pushq	%rbx
+    417e:      	movabsq	$0x800002100004, %rbx   # imm = 0x800002100004
+    4188:      	nopl	(%rax,%rax)
+    4190:      	xorq	(%rsi), %rax
+    4193:      	movq	%rax, %r14
+    4196:      	movq	%rax, %rdx
+    4199:      	movq	%rax, %rdi
+    419c:      	shrq	$0x3, %rax
+    41a0:      	shrq	$0x2, %rdx
+    41a4:      	andq	%rcx, %r14
+    41a7:      	shrq	%rdi
+    41aa:      	andq	%rcx, %rax
+    41ad:      	andq	%rcx, %rdx
+    41b0:      	movq	%r14, %r15
+    41b3:      	andq	%rcx, %rdi
+    41b6:      	andq	%rdx, %r15
+    41b9:      	xorq	%rdi, %r15
+    41bc:      	movq	%rax, %rdi
+    41bf:      	andq	%r15, %rdi
+    41c2:      	xorq	%r14, %rdi
+    41c5:      	movq	%r15, %r14
+    41c8:      	orq	%rdi, %r14
+    41cb:      	xorq	%rdx, %r14
+    41ce:      	leaq	(,%rdi,8), %rdx
+    41d6:      	xorq	%r14, %rax
+    41d9:      	xorq	%rax, %r15
+    41dc:      	xorq	%rcx, %rax
+    41df:      	andq	%r15, %rdi
+    41e2:      	orq	%rax, %rdx
+    41e5:      	leaq	(%r15,%r15), %rax
+    41e9:      	xorq	%r14, %rdi
+    41ec:      	orq	%rax, %rdx
+    41ef:      	leaq	(,%rdi,4), %rax
+    41f7:      	orq	%rdx, %rax
+    41fa:      	movq	%rax, %rdx
+    41fd:      	movq	%rax, %rdi
+    4200:      	movl	%eax, %r14d
+    4203:      	shrq	$0x20, %rdx
+    4207:      	shrq	$0x30, %rdi
+    420b:      	rolw	$0x4, %dx
+    420f:      	rolw	%di
+    4212:      	rorw	$0x5, %r14w
+    4217:      	addl	%edx, %edi
+    4219:      	movzwl	%dx, %edx
+    421c:      	shlq	$0x20, %rdx
+    4220:      	movzwl	%r14w, %r15d
+    4224:      	shlq	$0x30, %rdi
+    4228:      	orq	%r15, %rdx
+    422b:      	movabsq	$0x200008000020000, %r15 # imm = 0x200008000020000
+    4235:      	orq	%rdx, %rdi
+    4238:      	shrq	$0x10, %rax
+    423c:      	movq	%rax, %rdx
+    423f:      	movq	%rdi, %rax
+    4242:      	rolw	$0x7, %dx
+    4246:      	shrq	$0x30, %rax
+    424a:      	addl	%r14d, %edx
+    424d:      	andl	$0x8000, %eax           # imm = 0x8000
+    4252:      	movabsq	$0x100004200000000, %r14 # imm = 0x100004200000000
+    425c:      	movzwl	%dx, %edx
+    425f:      	shlq	$0x10, %rdx
+    4263:      	orq	%rdi, %rdx
+    4266:      	shrq	$0x2c, %rdi
+    426a:      	andl	$0x4000, %edi           # imm = 0x4000
+    4270:      	orq	%rdi, %rax
+    4273:      	movabsq	$0x4000010000400001, %rdi # imm = 0x4000010000400001
+    427d:      	andq	%rdx, %rdi
+    4280:      	orq	%rdi, %rax
+    4283:      	movq	%rdx, %rdi
+    4286:      	shrq	$0x28, %rdi
+    428a:      	andl	$0x2000, %edi           # imm = 0x2000
+    4290:      	orq	%rdi, %rax
+    4293:      	movq	%rdx, %rdi
+    4296:      	shrq	$0x24, %rdi
+    429a:      	andl	$0x1800, %edi           # imm = 0x1800
+    42a0:      	orq	%rdi, %rax
+    42a3:      	movq	%rdx, %rdi
+    42a6:      	shrq	$0x20, %rdi
+    42aa:      	andl	$0x10000400, %edi       # imm = 0x10000400
+    42b0:      	orq	%rdi, %rax
+    42b3:      	movq	%rdx, %rdi
+    42b6:      	shrq	$0x1c, %rdi
+    42ba:      	andl	$0x80000200, %edi       # imm = 0x80000200
+    42c0:      	orq	%rdi, %rax
+    42c3:      	movq	%rdx, %rdi
+    42c6:      	shrq	$0x18, %rdi
+    42ca:      	andl	$0x40000180, %edi       # imm = 0x40000180
+    42d0:      	orq	%rdi, %rax
+    42d3:      	movq	%rdx, %rdi
+    42d6:      	shrq	$0x14, %rdi
+    42da:      	andl	$0x21000040, %edi       # imm = 0x21000040
+    42e0:      	orq	%rdi, %rax
+    42e3:      	movq	%rdx, %rdi
+    42e6:      	shrq	$0x10, %rdi
+    42ea:      	andq	%r12, %rdi
+    42ed:      	orq	%rdi, %rax
+    42f0:      	movq	%rdx, %rdi
+    42f3:      	shrq	$0xc, %rdi
+    42f7:      	andq	%rbp, %rdi
+    42fa:      	orq	%rdi, %rax
+    42fd:      	movq	%rdx, %rdi
+    4300:      	shrq	$0x8, %rdi
+    4304:      	andq	%rbx, %rdi
+    4307:      	orq	%rdi, %rax
+    430a:      	movq	%rdx, %rdi
+    430d:      	shrq	$0x4, %rdi
+    4311:      	andq	%r11, %rdi
+    4314:      	orq	%rdi, %rax
+    4317:      	movq	%rdx, %rdi
+    431a:      	shlq	$0x4, %rdi
+    431e:      	andq	%r10, %rdi
+    4321:      	orq	%rdi, %rax
+    4324:      	movq	%rdx, %rdi
+    4327:      	shlq	$0x8, %rdi
+    432b:      	andq	%r9, %rdi
+    432e:      	orq	%rdi, %rax
+    4331:      	movq	%rdx, %rdi
+    4334:      	shlq	$0xc, %rdi
+    4338:      	andq	%r8, %rdi
+    433b:      	orq	%rdi, %rax
+    433e:      	movq	%rdx, %rdi
+    4341:      	shlq	$0x10, %rdi
+    4345:      	andq	%r15, %rdi
+    4348:      	orq	%rdi, %rax
+    434b:      	movq	%rdx, %rdi
+    434e:      	shlq	$0x14, %rdi
+    4352:      	andq	%r14, %rdi
+    4355:      	movabsq	$0x840000100000000, %r14 # imm = 0x840000100000000
+    435f:      	orq	%rdi, %rax
+    4362:      	movq	%rdx, %rdi
+    4365:      	shlq	$0x18, %rdi
+    4369:      	andq	%r14, %rdi
+    436c:      	movabsq	$0x20000800000000, %r14 # imm = 0x20000800000000
+    4376:      	orq	%rdi, %rax
+    4379:      	movq	%rdx, %rdi
+    437c:      	shlq	$0x1c, %rdi
+    4380:      	andq	%r14, %rdi
+    4383:      	movabsq	$0x10000400000000, %r14 # imm = 0x10000400000000
+    438d:      	orq	%rdi, %rax
+    4390:      	movq	%rdx, %rdi
+    4393:      	shlq	$0x20, %rdi
+    4397:      	andq	%r14, %rdi
+    439a:      	addq	$0x8, %rsi
+    439e:      	movabsq	$0x84000000000000, %r14 # imm = 0x84000000000000
+    43a8:      	orq	%rdi, %rax
+    43ab:      	movq	%rdx, %rdi
+    43ae:      	shlq	$0x24, %rdi
+    43b2:      	andq	%r14, %rdi
+    43b5:      	movabsq	$0x2000000000000, %r14  # imm = 0x2000000000000
+    43bf:      	orq	%rdi, %rax
+    43c2:      	movq	%rdx, %rdi
+    43c5:      	shlq	$0x28, %rdi
+    43c9:      	andq	%r14, %rdi
+    43cc:      	movabsq	$0x1000000000000, %r14  # imm = 0x1000000000000
+    43d6:      	orq	%rdi, %rax
+    43d9:      	movq	%rdx, %rdi
+    43dc:      	shlq	$0x30, %rdx
+    43e0:      	shlq	$0x2c, %rdi
+    43e4:      	andq	%r14, %rdi
+    43e7:      	orq	%rdi, %rax
+    43ea:      	movabsq	$0x8000000000000, %rdi  # imm = 0x8000000000000
+    43f4:      	andq	%rdi, %rdx
+    43f7:      	orq	%rdx, %rax
+    43fa:      	cmpq	%r13, %rsi
+    43fd:      	jne	0x4190 <dipper_encrypt_block_ct+0x70>
+    4403:      	popq	%rbx
+    4404:      	popq	%rbp
+    4405:      	popq	%r12
+    4407:      	popq	%r13
+    4409:      	popq	%r14
+    440b:      	popq	%r15
+    440d:      	retq
+    440e:      	nop
+### x86-64 dipper_expand_128_ct
+0000000000003eb0 <dipper_expand_128_ct>:
+    3eb0:      	endbr64
+    3eb4:      	pushq	%r15
+    3eb6:      	movq	%rsi, %r9
+    3eb9:      	addq	$0xe0, %rsi
+    3ec0:      	pushq	%r14
+    3ec2:      	pushq	%r13
+    3ec4:      	pushq	%r12
+    3ec6:      	pushq	%rbp
+    3ec7:      	pushq	%rbx
+    3ec8:      	movq	0x8(%rdi), %r10
+    3ecc:      	movq	(%rdi), %rcx
+    3ecf:      	movabsq	$0x1111111111111111, %rdi # imm = 0x1111111111111111
+    3ed9:      	movq	%r10, %rax
+    3edc:      	movq	%r10, %r13
+    3edf:      	shrq	$0x30, %rax
+    3ee3:      	movq	%rcx, %rdx
+    3ee6:      	movq	%rcx, %rbx
+    3ee9:      	movq	%rsi, -0x10(%rsp)
+    3eee:      	movq	%rax, %rbp
+    3ef1:      	movq	%r10, %rax
+    3ef4:      	shrq	$0x10, %rdx
+    3ef8:      	movl	%ecx, %r11d
+    3efb:      	shrq	$0x20, %rax
+    3eff:      	movq	%rcx, %r8
+    3f02:      	shrq	$0x10, %r13
+    3f06:      	movl	$0x1, %esi
+    3f0b:      	movw	%ax, -0x12(%rsp)
+    3f10:      	movq	%rcx, %rax
+    3f13:      	shrq	$0x20, %rbx
+    3f17:      	movl	%edx, %ecx
+    3f19:      	shrq	$0x30, %rax
+    3f1d:      	jmp	0x3f26 <dipper_expand_128_ct+0x76>
+    3f1f:      	nop
+    3f20:      	movl	%edx, %r10d
+    3f23:      	movl	%r12d, %ebp
+    3f26:      	movq	%r8, (%r9)
+    3f29:      	movl	%eax, %r8d
+    3f2c:      	movl	%ecx, %edx
+    3f2e:      	andw	$0xfff, %ax             # imm = 0xFFF
+    3f32:      	shrw	$0xc, %r8w
+    3f37:      	rorw	$0x2, %dx
+    3f3b:      	movzwl	%r8w, %r8d
+    3f3f:      	rolw	$0x4, %r11w
+    3f44:      	movq	%r8, %r15
+    3f47:      	movq	%r8, %r12
+    3f4a:      	movq	%r8, %rcx
+    3f4d:      	shrq	$0x3, %r8
+    3f51:      	shrq	$0x2, %r12
+    3f55:      	andq	%rdi, %r15
+    3f58:      	shrq	%rcx
+    3f5b:      	andq	%rdi, %r12
+    3f5e:      	movq	%r15, %r14
+    3f61:      	andq	%rdi, %rcx
+    3f64:      	andq	%r12, %r14
+    3f67:      	xorq	%rcx, %r14
+    3f6a:      	movq	%r8, %rcx
+    3f6d:      	andq	%r14, %rcx
+    3f70:      	xorq	%r15, %rcx
+    3f73:      	movq	%r14, %r15
+    3f76:      	orq	%rcx, %r15
+    3f79:      	xorq	%r12, %r15
+    3f7c:      	xorq	%r15, %r8
+    3f7f:      	xorq	%r8, %r14
+    3f82:      	xorq	%rdi, %r8
+    3f85:      	movq	%r8, %r12
+    3f88:      	leaq	(,%rcx,8), %r8
+    3f90:      	andq	%r14, %rcx
+    3f93:      	xorq	%r15, %rcx
+    3f96:      	orq	%r12, %r8
+    3f99:      	leaq	(%r14,%r14), %r12
+    3f9d:      	orq	%r12, %r8
+    3fa0:      	leaq	(,%rcx,4), %r12
+    3fa8:      	orq	%r12, %r8
+    3fab:      	movl	%r8d, %r12d
+    3fae:      	shll	$0xc, %r12d
+    3fb2:      	orl	%eax, %r12d
+    3fb5:      	movl	%r13d, %eax
+    3fb8:      	shrw	$0xc, %ax
+    3fbc:      	movzwl	%ax, %eax
+    3fbf:      	movq	%rax, %r15
+    3fc2:      	movq	%rax, %r8
+    3fc5:      	movq	%rax, %rcx
+    3fc8:      	shrq	$0x2, %r8
+    3fcc:      	andq	%rdi, %r15
+    3fcf:      	shrq	%rcx
+    3fd2:      	andq	%rdi, %r8
+    3fd5:      	movq	%r15, %r14
+    3fd8:      	andq	%rdi, %rcx
+    3fdb:      	shrq	$0x3, %rax
+    3fdf:      	andq	%r8, %r14
+    3fe2:      	andw	$0xfff, %r13w           # imm = 0xFFF
+    3fe8:      	xorq	%rcx, %r14
+    3feb:      	movq	%rax, %rcx
+    3fee:      	andq	%r14, %rcx
+    3ff1:      	xorq	%r15, %rcx
+    3ff4:      	movq	%r14, %r15
+    3ff7:      	orq	%rcx, %r15
+    3ffa:      	xorq	%r8, %r15
+    3ffd:      	leaq	(,%rcx,8), %r8
+    4005:      	xorq	%r15, %rax
+    4008:      	xorq	%rax, %r14
+    400b:      	xorq	%rdi, %rax
+    400e:      	andq	%r14, %rcx
+    4011:      	orq	%rax, %r8
+    4014:      	leaq	(%r14,%r14), %rax
+    4018:      	xorq	%r15, %rcx
+    401b:      	orq	%rax, %r8
+    401e:      	leaq	(,%rcx,4), %rax
+    4026:      	movl	%edx, %ecx
+    4028:      	shrw	$0xc, %cx
+    402c:      	orq	%rax, %r8
+    402f:      	movzwl	%cx, %ecx
+    4032:      	movl	%r8d, %eax
+    4035:      	movq	%rcx, %r14
+    4038:      	movq	%rcx, %r15
+    403b:      	shll	$0xc, %eax
+    403e:      	movq	%rcx, %r8
+    4041:      	shrq	$0x2, %r15
+    4045:      	andq	%rdi, %r14
+    4048:      	orl	%r13d, %eax
+    404b:      	shrq	%r8
+    404e:      	andq	%rdi, %r15
+    4051:      	movq	%r14, %r13
+    4054:      	andq	%rdi, %r8
+    4057:      	shrq	$0x3, %rcx
+    405b:      	andq	%r15, %r13
+    405e:      	xorq	%r8, %r13
+    4061:      	movq	%rcx, %r8
+    4064:      	andq	%r13, %r8
+    4067:      	xorq	%r14, %r8
+    406a:      	movq	%r13, %r14
+    406d:      	orq	%r8, %r14
+    4070:      	xorq	%r15, %r14
+    4073:      	xorq	%r14, %rcx
+    4076:      	xorq	%rcx, %r13
+    4079:      	xorq	%rdi, %rcx
+    407c:      	andw	$0xfff, %dx             # imm = 0xFFF
+    4081:      	addq	$0x8, %r9
+    4085:      	movq	%rcx, %r15
+    4088:      	leaq	(,%r8,8), %rcx
+    4090:      	andq	%r13, %r8
+    4093:      	orq	%r15, %rcx
+    4096:      	xorq	%r14, %r8
+    4099:      	leaq	(%r13,%r13), %r15
+    409e:      	movl	%esi, %r14d
+    40a1:      	shlq	$0x2, %r8
+    40a5:      	orq	%r15, %rcx
+    40a8:      	movl	%esi, %r13d
+    40ab:      	shrb	$0x4, %r14b
+    40af:      	orq	%r8, %rcx
+    40b2:      	movzwl	%ax, %r8d
+    40b6:      	shrb	%r13b
+    40b9:      	shll	$0xc, %ecx
+    40bc:      	shlq	$0x10, %r8
+    40c0:      	xorl	%r14d, %r13d
+    40c3:      	orl	%edx, %ecx
+    40c5:      	movzwl	%r10w, %edx
+    40c9:      	andl	$0x1, %r13d
+    40cd:      	orq	%rdx, %r8
+    40d0:      	movzwl	%cx, %edx
+    40d3:      	shlq	$0x10, %r8
+    40d7:      	orq	%rdx, %r8
+    40da:      	movzwl	%r11w, %edx
+    40de:      	shlq	$0x10, %r8
+    40e2:      	orq	%rdx, %r8
+    40e5:      	movzbl	%sil, %edx
+    40e9:      	addl	%esi, %esi
+    40eb:      	xorw	-0x12(%rsp), %dx
+    40f0:      	orl	%r13d, %esi
+    40f3:      	movw	%bx, -0x12(%rsp)
+    40f8:      	movl	%ebp, %r13d
+    40fb:      	movl	%r10d, %ebx
+    40fe:      	andl	$0x1f, %esi
+    4101:      	cmpq	%r9, -0x10(%rsp)
+    4106:      	jne	0x3f20 <dipper_expand_128_ct+0x70>
+    410c:      	popq	%rbx
+    410d:      	popq	%rbp
+    410e:      	popq	%r12
+    4110:      	popq	%r13
+    4112:      	popq	%r14
+    4114:      	popq	%r15
+    4116:      	retq
+    4117:      	nopw	(%rax,%rax)

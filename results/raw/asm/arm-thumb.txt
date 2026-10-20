@@ -1,0 +1,2253 @@
+### iotlab-m3 dipper_encrypt_block_ct
+08000d18 <dipper_encrypt_block_ct>:
+ 8000d18:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8000d1c:	sub.w	lr, r2, #8
+ 8000d20:	add.w	sl, r2, #216	; 0xd8
+ 8000d24:	ldr.w	r4, [lr, #8]!
+ 8000d28:	ldr	r2, [pc, #604]	; (8000f88 <dipper_encrypt_block_ct+0x270>)
+ 8000d2a:	ldr.w	r3, [lr, #4]
+ 8000d2e:	eors	r0, r4
+ 8000d30:	eors	r1, r3
+ 8000d32:	mov.w	ip, r1, lsr #2
+ 8000d36:	and.w	ip, ip, #286331153	; 0x11111111
+ 8000d3a:	lsrs	r3, r1, #1
+ 8000d3c:	lsrs	r7, r0, #2
+ 8000d3e:	and.w	r6, r1, ip
+ 8000d42:	and.w	r3, r3, #286331153	; 0x11111111
+ 8000d46:	and.w	r7, r7, #286331153	; 0x11111111
+ 8000d4a:	lsrs	r5, r0, #1
+ 8000d4c:	eors	r6, r3
+ 8000d4e:	and.w	r9, r0, r7
+ 8000d52:	lsrs	r3, r1, #3
+ 8000d54:	lsrs	r4, r0, #3
+ 8000d56:	and.w	r5, r5, #286331153	; 0x11111111
+ 8000d5a:	and.w	r8, r3, r6
+ 8000d5e:	eor.w	r5, r9, r5
+ 8000d62:	and.w	r4, r4, #286331153	; 0x11111111
+ 8000d66:	and.w	r1, r1, #286331153	; 0x11111111
+ 8000d6a:	and.w	r9, r4, r5
+ 8000d6e:	eor.w	r1, r8, r1
+ 8000d72:	and.w	r0, r0, #286331153	; 0x11111111
+ 8000d76:	orr.w	r8, r6, r1
+ 8000d7a:	eor.w	r0, r9, r0
+ 8000d7e:	eor.w	ip, r8, ip
+ 8000d82:	and.w	r3, r3, #286331153	; 0x11111111
+ 8000d86:	orr.w	r8, r5, r0
+ 8000d8a:	eor.w	r3, r3, ip
+ 8000d8e:	eor.w	r7, r8, r7
+ 8000d92:	eors	r6, r3
+ 8000d94:	eors	r4, r7
+ 8000d96:	eors	r5, r4
+ 8000d98:	and.w	r8, r1, r6
+ 8000d9c:	eor.w	r3, r3, #286331153	; 0x11111111
+ 8000da0:	eor.w	ip, r8, ip
+ 8000da4:	adds.w	r8, r5, r5
+ 8000da8:	and.w	r8, r0, r5
+ 8000dac:	eor.w	r7, r8, r7
+ 8000db0:	adcs	r6, r6
+ 8000db2:	orr.w	r1, r3, r1, lsl #3
+ 8000db6:	eor.w	r4, r4, #286331153	; 0x11111111
+ 8000dba:	mov.w	ip, ip, lsl #2
+ 8000dbe:	orr.w	ip, ip, r7, lsr #30
+ 8000dc2:	orrs	r1, r6
+ 8000dc4:	orr.w	r0, r4, r0, lsl #3
+ 8000dc8:	orr.w	r1, r1, ip
+ 8000dcc:	orr.w	r0, r0, r5, lsl #1
+ 8000dd0:	orr.w	r0, r0, r7, lsl #2
+ 8000dd4:	ubfx	r4, r1, #12, #4
+ 8000dd8:	lsrs	r3, r1, #16
+ 8000dda:	orr.w	r4, r4, r1, lsl #4
+ 8000dde:	lsrs	r5, r1, #31
+ 8000de0:	lsrs	r6, r0, #16
+ 8000de2:	orr.w	r6, r6, r1, lsl #16
+ 8000de6:	uxth	r4, r4
+ 8000de8:	orr.w	r5, r5, r3, lsl #1
+ 8000dec:	ubfx	r3, r0, #5, #11
+ 8000df0:	add	r5, r4
+ 8000df2:	ubfx	r1, r6, #9, #7
+ 8000df6:	orr.w	r3, r3, r0, lsl #11
+ 8000dfa:	orr.w	r4, r4, r5, lsl #16
+ 8000dfe:	orr.w	r0, r1, r6, lsl #7
+ 8000e02:	uxth	r3, r3
+ 8000e04:	lsrs	r6, r4, #12
+ 8000e06:	add	r0, r3
+ 8000e08:	ldr	r7, [pc, #384]	; (8000f8c <dipper_encrypt_block_ct+0x274>)
+ 8000e0a:	orr.w	r3, r3, r0, lsl #16
+ 8000e0e:	and.w	ip, r6, #16384	; 0x4000
+ 8000e12:	and.w	r0, r6, #4096	; 0x1000
+ 8000e16:	ldr	r6, [pc, #376]	; (8000f90 <dipper_encrypt_block_ct+0x278>)
+ 8000e18:	ands	r7, r4
+ 8000e1a:	and.w	r1, r5, #32768	; 0x8000
+ 8000e1e:	and.w	r5, r5, #8192	; 0x2000
+ 8000e22:	ands	r6, r3
+ 8000e24:	mov.w	r9, r4, lsr #8
+ 8000e28:	orr.w	r1, r1, ip
+ 8000e2c:	orrs	r5, r7
+ 8000e2e:	orrs	r1, r6
+ 8000e30:	lsrs	r7, r4, #4
+ 8000e32:	orrs	r5, r0
+ 8000e34:	and.w	ip, r9, #8192	; 0x2000
+ 8000e38:	mov.w	r8, r3, lsr #28
+ 8000e3c:	ldr	r6, [pc, #340]	; (8000f94 <dipper_encrypt_block_ct+0x27c>)
+ 8000e3e:	and.w	r9, r9, #32768	; 0x8000
+ 8000e42:	orr.w	r8, r8, r4, lsl #4
+ 8000e46:	orr.w	ip, r1, ip
+ 8000e4a:	orr.w	r9, r5, r9
+ 8000e4e:	and.w	r1, r7, #6144	; 0x1800
+ 8000e52:	and.w	r7, r7, #16896	; 0x4200
+ 8000e56:	and.w	r6, r8, r6
+ 8000e5a:	mov.w	fp, r3, lsr #24
+ 8000e5e:	orr.w	ip, ip, r1
+ 8000e62:	orr.w	r9, r9, r7
+ 8000e66:	ldr	r0, [pc, #304]	; (8000f98 <dipper_encrypt_block_ct+0x280>)
+ 8000e68:	ldr	r1, [pc, #304]	; (8000f9c <dipper_encrypt_block_ct+0x284>)
+ 8000e6a:	bic.w	r8, r8, #2139095040	; 0x7f800000
+ 8000e6e:	orr.w	fp, fp, r4, lsl #8
+ 8000e72:	lsrs	r5, r3, #20
+ 8000e74:	orr.w	r9, r9, r6
+ 8000e78:	bic.w	r8, r8, #8355840	; 0x7f8000
+ 8000e7c:	ldr	r6, [pc, #288]	; (8000fa0 <dipper_encrypt_block_ct+0x288>)
+ 8000e7e:	ands	r0, r4
+ 8000e80:	orr.w	r5, r5, r4, lsl #12
+ 8000e84:	and.w	r1, fp, r1
+ 8000e88:	bic.w	r8, r8, #32128	; 0x7d80
+ 8000e8c:	bic.w	fp, fp, #3204448256	; 0xbf000000
+ 8000e90:	orr.w	ip, ip, r0
+ 8000e94:	bic.w	r8, r8, #127	; 0x7f
+ 8000e98:	lsrs	r0, r3, #16
+ 8000e9a:	ands	r6, r5
+ 8000e9c:	ldr	r7, [pc, #260]	; (8000fa4 <dipper_encrypt_block_ct+0x28c>)
+ 8000e9e:	bic.w	fp, fp, #16711680	; 0xff0000
+ 8000ea2:	bic.w	r5, r5, #3724541952	; 0xde000000
+ 8000ea6:	orr.w	ip, ip, r8
+ 8000eaa:	orr.w	r0, r0, r4, lsl #16
+ 8000eae:	orr.w	r9, r9, r1
+ 8000eb2:	mov.w	r8, r3, lsr #12
+ 8000eb6:	ldr	r1, [pc, #240]	; (8000fa8 <dipper_encrypt_block_ct+0x290>)
+ 8000eb8:	bic.w	fp, fp, #65024	; 0xfe00
+ 8000ebc:	bic.w	r5, r5, #16711680	; 0xff0000
+ 8000ec0:	orr.w	r8, r8, r4, lsl #20
+ 8000ec4:	ands	r7, r0
+ 8000ec6:	bic.w	fp, fp, #127	; 0x7f
+ 8000eca:	bic.w	r5, r5, #65280	; 0xff00
+ 8000ece:	bic.w	r0, r0, #4143972352	; 0xf7000000
+ 8000ed2:	orr.w	fp, ip, fp
+ 8000ed6:	bic.w	r5, r5, #191	; 0xbf
+ 8000eda:	and.w	r1, r8, r1
+ 8000ede:	bic.w	r0, r0, #16711680	; 0xff0000
+ 8000ee2:	bic.w	r8, r8, #4211081216	; 0xfb000000
+ 8000ee6:	mov.w	ip, r3, lsr #8
+ 8000eea:	orr.w	r6, r9, r6
+ 8000eee:	orr.w	fp, fp, r5
+ 8000ef2:	ldr.w	r9, [pc, #196]	; 8000fb8 <dipper_encrypt_block_ct+0x2a0>
+ 8000ef6:	lsrs	r5, r3, #4
+ 8000ef8:	bic.w	r0, r0, #65280	; 0xff00
+ 8000efc:	bic.w	r8, r8, #16711680	; 0xff0000
+ 8000f00:	orr.w	r5, r5, r4, lsl #28
+ 8000f04:	orr.w	ip, ip, r4, lsl #24
+ 8000f08:	orrs	r6, r7
+ 8000f0a:	ldr	r4, [pc, #160]	; (8000fac <dipper_encrypt_block_ct+0x294>)
+ 8000f0c:	ldr	r7, [pc, #160]	; (8000fb0 <dipper_encrypt_block_ct+0x298>)
+ 8000f0e:	bic.w	r0, r0, #223	; 0xdf
+ 8000f12:	bic.w	r8, r8, #65280	; 0xff00
+ 8000f16:	orrs	r1, r6
+ 8000f18:	orr.w	r0, fp, r0
+ 8000f1c:	ldr	r6, [pc, #148]	; (8000fb4 <dipper_encrypt_block_ct+0x29c>)
+ 8000f1e:	bic.w	r8, r8, #231	; 0xe7
+ 8000f22:	and.w	r9, ip, r9
+ 8000f26:	ands	r7, r5
+ 8000f28:	and.w	r4, ip, r4
+ 8000f2c:	orr.w	r0, r0, r8
+ 8000f30:	orr.w	r1, r1, r9
+ 8000f34:	ands	r2, r5
+ 8000f36:	ands	r6, r3
+ 8000f38:	orrs	r0, r4
+ 8000f3a:	orrs	r1, r7
+ 8000f3c:	lsls	r4, r3, #4
+ 8000f3e:	and.w	r5, r4, #8650752	; 0x840000
+ 8000f42:	orrs	r0, r2
+ 8000f44:	and.w	r7, r4, #2162688	; 0x210000
+ 8000f48:	lsls	r2, r3, #8
+ 8000f4a:	orrs	r1, r6
+ 8000f4c:	and.w	r4, r2, #131072	; 0x20000
+ 8000f50:	and.w	r6, r2, #524288	; 0x80000
+ 8000f54:	orrs	r1, r5
+ 8000f56:	lsls	r2, r3, #12
+ 8000f58:	orrs	r0, r7
+ 8000f5a:	and.w	r5, r2, #262144	; 0x40000
+ 8000f5e:	lsls	r3, r3, #16
+ 8000f60:	orrs	r1, r4
+ 8000f62:	orrs	r0, r6
+ 8000f64:	and.w	r2, r2, #65536	; 0x10000
+ 8000f68:	and.w	r4, r3, #131072	; 0x20000
+ 8000f6c:	orrs	r0, r5
+ 8000f6e:	and.w	r3, r3, #524288	; 0x80000
+ 8000f72:	orrs	r1, r2
+ 8000f74:	cmp	sl, lr
+ 8000f76:	orr.w	r0, r0, r4
+ 8000f7a:	orr.w	r1, r1, r3
+ 8000f7e:	bne.w	8000d24 <dipper_encrypt_block_ct+0xc>
+ 8000f82:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8000f86:	nop
+ 8000f88:	.word	0x00800002
+ 8000f8c:	.word	0x40000100
+ 8000f90:	.word	0x00400001
+ 8000f94:	.word	0x20000800
+ 8000f98:	.word	0x10000400
+ 8000f9c:	.word	0x10000420
+ 8000fa0:	.word	0x84000010
+ 8000fa4:	.word	0x02000080
+ 8000fa8:	.word	0x01000042
+ 8000fac:	.word	0x02100004
+ 8000fb0:	.word	0x00200008
+ 8000fb4:	.word	0x00100004
+ 8000fb8:	.word	0x08400001
+### iotlab-m3 dipper_expand_128_ct
+08000b64 <dipper_expand_128_ct>:
+ 8000b64:	mov	r3, r0
+ 8000b66:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8000b6a:	mov	r5, r1
+ 8000b6c:	sub	sp, #52	; 0x34
+ 8000b6e:	ldr	r1, [r3, #4]
+ 8000b70:	ldr	r0, [r0, #0]
+ 8000b72:	ldr	r2, [r3, #8]
+ 8000b74:	ldr	r3, [r3, #12]
+ 8000b76:	add	r4, sp, #32
+ 8000b78:	stmia	r4!, {r0, r1, r2, r3}
+ 8000b7a:	ldrh.w	r3, [sp, #46]	; 0x2e
+ 8000b7e:	ldrh.w	sl, [sp, #34]	; 0x22
+ 8000b82:	str	r3, [sp, #20]
+ 8000b84:	ldrh.w	r3, [sp, #44]	; 0x2c
+ 8000b88:	movs	r0, #1
+ 8000b8a:	str	r3, [sp, #12]
+ 8000b8c:	ldrh.w	r3, [sp, #42]	; 0x2a
+ 8000b90:	mov	r1, sl
+ 8000b92:	str	r3, [sp, #4]
+ 8000b94:	ldrh.w	r3, [sp, #40]	; 0x28
+ 8000b98:	ldrh.w	r4, [sp, #38]	; 0x26
+ 8000b9c:	str	r3, [sp, #24]
+ 8000b9e:	ldrh.w	r3, [sp, #36]	; 0x24
+ 8000ba2:	ldrh.w	ip, [sp, #32]
+ 8000ba6:	str	r3, [sp, #8]
+ 8000ba8:	sub.w	r3, r5, #8
+ 8000bac:	str	r3, [sp, #16]
+ 8000bae:	add.w	r3, r5, #216	; 0xd8
+ 8000bb2:	str	r3, [sp, #28]
+ 8000bb4:	b.n	8000bba <dipper_expand_128_ct+0x56>
+ 8000bb6:	strd	r6, r3, [sp, #20]
+ 8000bba:	ldr	r3, [sp, #4]
+ 8000bbc:	lsls	r6, r1, #14
+ 8000bbe:	lsrs	r2, r3, #12
+ 8000bc0:	uxth.w	sl, r2
+ 8000bc4:	mov.w	lr, sl, lsr #2
+ 8000bc8:	and.w	r5, lr, #286331153	; 0x11111111
+ 8000bcc:	mov.w	r3, sl, lsr #1
+ 8000bd0:	and.w	r7, r5, sl
+ 8000bd4:	and.w	r3, r3, #286331153	; 0x11111111
+ 8000bd8:	eors	r7, r3
+ 8000bda:	orr.w	r1, r6, r1, lsr #2
+ 8000bde:	and.w	r3, sl, #286331153	; 0x11111111
+ 8000be2:	and.w	r6, r7, sl, lsr #3
+ 8000be6:	eors	r3, r6
+ 8000be8:	orr.w	lr, r7, r3
+ 8000bec:	eor.w	lr, lr, r5
+ 8000bf0:	ubfx	r8, r1, #14, #1
+ 8000bf4:	and.w	r6, r8, r1, lsr #12
+ 8000bf8:	eor.w	r2, lr, sl, lsr #3
+ 8000bfc:	ubfx	r9, r4, #14, #1
+ 8000c00:	ubfx	r5, r1, #13, #1
+ 8000c04:	eors	r5, r6
+ 8000c06:	and.w	sl, r9, r4, lsr #12
+ 8000c0a:	eors	r7, r2
+ 8000c0c:	ubfx	r6, r4, #13, #1
+ 8000c10:	eor.w	r2, r2, #286331153	; 0x11111111
+ 8000c14:	eor.w	r6, sl, r6
+ 8000c18:	ubfx	fp, r1, #12, #1
+ 8000c1c:	and.w	sl, r5, r1, lsr #15
+ 8000c20:	orr.w	r2, r2, r3, lsl #3
+ 8000c24:	eor.w	sl, sl, fp
+ 8000c28:	ands	r3, r7
+ 8000c2a:	and.w	fp, r6, r4, lsr #15
+ 8000c2e:	orr.w	r2, r2, r7, lsl #1
+ 8000c32:	ubfx	r7, r4, #12, #1
+ 8000c36:	eor.w	fp, fp, r7
+ 8000c3a:	orr.w	r7, r6, fp
+ 8000c3e:	eor.w	r9, r7, r9
+ 8000c42:	ldr	r7, [sp, #16]
+ 8000c44:	eor.w	r3, r3, lr
+ 8000c48:	mov	lr, r7
+ 8000c4a:	orr.w	r2, r2, r3, lsl #2
+ 8000c4e:	eor.w	r3, r9, r4, lsr #15
+ 8000c52:	eors	r6, r3
+ 8000c54:	eor.w	r3, r3, #286331153	; 0x11111111
+ 8000c58:	orr.w	r3, r3, fp, lsl #3
+ 8000c5c:	and.w	fp, fp, r6
+ 8000c60:	orr.w	r6, r3, r6, lsl #1
+ 8000c64:	orr.w	r3, r5, sl
+ 8000c68:	eor.w	r8, r3, r8
+ 8000c6c:	ubfx	r3, r1, #15, #1
+ 8000c70:	eor.w	r3, r3, r8
+ 8000c74:	eors	r5, r3
+ 8000c76:	eor.w	r3, r3, #286331153	; 0x11111111
+ 8000c7a:	orr.w	r3, r3, sl, lsl #3
+ 8000c7e:	and.w	sl, sl, r5
+ 8000c82:	eor.w	sl, sl, r8
+ 8000c86:	ldrd	r7, r8, [sp, #32]
+ 8000c8a:	strd	r7, r8, [lr, #8]!
+ 8000c8e:	mov	r7, lr
+ 8000c90:	orr.w	r5, r3, r5, lsl #1
+ 8000c94:	ldr	r3, [sp, #4]
+ 8000c96:	eor.w	r9, fp, r9
+ 8000c9a:	and.w	r2, r2, #15
+ 8000c9e:	str.w	lr, [sp, #16]
+ 8000ca2:	ubfx	lr, r3, #0, #12
+ 8000ca6:	orr.w	r6, r6, r9, lsl #2
+ 8000caa:	ubfx	r9, r4, #0, #12
+ 8000cae:	orr.w	r4, lr, r2, lsl #12
+ 8000cb2:	ldr	r2, [sp, #8]
+ 8000cb4:	ldr	r3, [sp, #12]
+ 8000cb6:	str	r2, [sp, #12]
+ 8000cb8:	ldr	r2, [sp, #20]
+ 8000cba:	orr.w	sl, r5, sl, lsl #2
+ 8000cbe:	str	r2, [sp, #4]
+ 8000cc0:	ldr	r2, [sp, #24]
+ 8000cc2:	ubfx	r5, r0, #1, #1
+ 8000cc6:	mov.w	r8, ip, lsr #12
+ 8000cca:	strh.w	r2, [sp, #36]	; 0x24
+ 8000cce:	str	r2, [sp, #8]
+ 8000cd0:	ldr	r2, [sp, #28]
+ 8000cd2:	and.w	sl, sl, #15
+ 8000cd6:	ubfx	r1, r1, #0, #12
+ 8000cda:	orr.w	ip, r8, ip, lsl #4
+ 8000cde:	eor.w	r5, r5, r0, lsr #4
+ 8000ce2:	eors	r3, r0
+ 8000ce4:	and.w	r6, r6, #15
+ 8000ce8:	orr.w	r1, r1, sl, lsl #12
+ 8000cec:	uxth.w	ip, ip
+ 8000cf0:	orr.w	r0, r5, r0, lsl #1
+ 8000cf4:	cmp	r2, r7
+ 8000cf6:	uxth	r3, r3
+ 8000cf8:	orr.w	r6, r9, r6, lsl #12
+ 8000cfc:	strh.w	r4, [sp, #38]	; 0x26
+ 8000d00:	strh.w	r1, [sp, #34]	; 0x22
+ 8000d04:	strh.w	ip, [sp, #32]
+ 8000d08:	and.w	r0, r0, #31
+ 8000d0c:	bne.w	8000bb6 <dipper_expand_128_ct+0x52>
+ 8000d10:	add	sp, #52	; 0x34
+ 8000d12:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+### samr21-xpro dipper_encrypt_block_ct
+00000de8 <dipper_encrypt_block_ct>:
+     de8:	push	{r4, r5, r6, r7, lr}
+     dea:	mov	lr, fp
+     dec:	mov	r6, r9
+     dee:	mov	r7, sl
+     df0:	mov	r5, r8
+     df2:	push	{r5, r6, r7, lr}
+     df4:	mov	fp, r2
+     df6:	movs	r3, #224	; 0xe0
+     df8:	sub	sp, #36	; 0x24
+     dfa:	str	r2, [sp, #12]
+     dfc:	movs	r6, r1
+     dfe:	movs	r2, r0
+     e00:	add	r3, fp
+     e02:	str	r3, [sp, #28]
+     e04:	ldr	r1, [sp, #12]
+     e06:	ldr	r5, [pc, #664]	; (10a0 <dipper_encrypt_block_ct+0x2b8>)
+     e08:	ldr	r3, [r1, #0]
+     e0a:	ldr	r0, [pc, #660]	; (10a0 <dipper_encrypt_block_ct+0x2b8>)
+     e0c:	eors	r2, r3
+     e0e:	ldr	r3, [r1, #4]
+     e10:	lsrs	r7, r2, #1
+     e12:	eors	r6, r3
+     e14:	lsls	r3, r6, #31
+     e16:	orrs	r7, r3
+     e18:	lsls	r3, r6, #30
+     e1a:	mov	ip, r3
+     e1c:	lsrs	r4, r6, #1
+     e1e:	ands	r4, r5
+     e20:	mov	fp, r4
+     e22:	mov	r4, ip
+     e24:	lsrs	r3, r2, #2
+     e26:	orrs	r3, r4
+     e28:	ands	r3, r5
+     e2a:	lsrs	r4, r6, #2
+     e2c:	mov	sl, r3
+     e2e:	movs	r3, r4
+     e30:	ldr	r1, [pc, #620]	; (10a0 <dipper_encrypt_block_ct+0x2b8>)
+     e32:	ands	r3, r5
+     e34:	mov	ip, r3
+     e36:	ands	r1, r2
+     e38:	lsls	r3, r6, #29
+     e3a:	lsrs	r2, r2, #3
+     e3c:	orrs	r2, r3
+     e3e:	mov	r3, sl
+     e40:	ands	r3, r1
+     e42:	mov	r9, r3
+     e44:	mov	r3, ip
+     e46:	ands	r0, r6
+     e48:	ands	r3, r0
+     e4a:	mov	r8, r3
+     e4c:	mov	r3, r9
+     e4e:	ands	r7, r5
+     e50:	eors	r7, r3
+     e52:	mov	r4, fp
+     e54:	mov	r3, r8
+     e56:	eors	r4, r3
+     e58:	movs	r3, r7
+     e5a:	ands	r2, r5
+     e5c:	ands	r3, r2
+     e5e:	mov	r9, r3
+     e60:	movs	r3, r4
+     e62:	lsrs	r6, r6, #3
+     e64:	ands	r6, r5
+     e66:	ands	r3, r6
+     e68:	mov	r8, r3
+     e6a:	mov	r3, r9
+     e6c:	eors	r1, r3
+     e6e:	mov	r3, r8
+     e70:	eors	r0, r3
+     e72:	movs	r3, r7
+     e74:	orrs	r3, r1
+     e76:	mov	r9, r3
+     e78:	movs	r3, r4
+     e7a:	orrs	r3, r0
+     e7c:	mov	r8, r3
+     e7e:	mov	r5, sl
+     e80:	mov	r3, r9
+     e82:	eors	r3, r5
+     e84:	mov	r9, r3
+     e86:	mov	r5, r8
+     e88:	mov	r3, ip
+     e8a:	eors	r3, r5
+     e8c:	mov	ip, r3
+     e8e:	mov	r3, r9
+     e90:	eors	r2, r3
+     e92:	mov	r3, ip
+     e94:	ldr	r5, [pc, #520]	; (10a0 <dipper_encrypt_block_ct+0x2b8>)
+     e96:	eors	r6, r3
+     e98:	eors	r4, r6
+     e9a:	eors	r7, r2
+     e9c:	str	r4, [sp, #4]
+     e9e:	eors	r2, r5
+     ea0:	lsls	r4, r1, #3
+     ea2:	str	r7, [sp, #0]
+     ea4:	lsls	r3, r0, #3
+     ea6:	orrs	r4, r2
+     ea8:	eors	r6, r5
+     eaa:	movs	r7, r4
+     eac:	ldr	r4, [sp, #0]
+     eae:	ldr	r5, [sp, #4]
+     eb0:	orrs	r6, r3
+     eb2:	movs	r2, r4
+     eb4:	movs	r3, r5
+     eb6:	adds	r2, r2, r4
+     eb8:	adcs	r3, r5
+     eba:	movs	r4, r7
+     ebc:	orrs	r6, r3
+     ebe:	ldr	r3, [sp, #4]
+     ec0:	orrs	r4, r2
+     ec2:	ands	r0, r3
+     ec4:	mov	r3, r9
+     ec6:	ldr	r2, [sp, #0]
+     ec8:	ands	r2, r1
+     eca:	eors	r2, r3
+     ecc:	mov	r3, ip
+     ece:	eors	r0, r3
+     ed0:	lsls	r0, r0, #2
+     ed2:	orrs	r0, r6
+     ed4:	uxth	r3, r0
+     ed6:	lsls	r2, r2, #2
+     ed8:	orrs	r2, r4
+     eda:	lsls	r1, r0, #4
+     edc:	lsrs	r3, r3, #12
+     ede:	orrs	r1, r3
+     ee0:	uxth	r3, r2
+     ee2:	lsls	r4, r2, #11
+     ee4:	lsrs	r3, r3, #5
+     ee6:	orrs	r3, r4
+     ee8:	lsrs	r4, r0, #16
+     eea:	lsls	r7, r4, #1
+     eec:	lsrs	r4, r4, #15
+     eee:	uxth	r1, r1
+     ef0:	orrs	r7, r4
+     ef2:	lsls	r0, r0, #16
+     ef4:	lsrs	r2, r2, #16
+     ef6:	adds	r7, r1, r7
+     ef8:	orrs	r2, r0
+     efa:	lsls	r0, r2, #7
+     efc:	lsls	r7, r7, #16
+     efe:	uxth	r2, r2
+     f00:	orrs	r1, r7
+     f02:	lsrs	r2, r2, #9
+     f04:	orrs	r2, r0
+     f06:	lsrs	r0, r1, #12
+     f08:	mov	sl, r0
+     f0a:	uxth	r3, r3
+     f0c:	adds	r2, r3, r2
+     f0e:	lsls	r2, r2, #16
+     f10:	orrs	r3, r2
+     f12:	movs	r0, #128	; 0x80
+     f14:	movs	r2, #128	; 0x80
+     f16:	mov	r4, sl
+     f18:	movs	r6, #128	; 0x80
+     f1a:	lsrs	r7, r7, #16
+     f1c:	lsls	r2, r2, #8
+     f1e:	lsls	r0, r0, #7
+     f20:	ands	r0, r4
+     f22:	ands	r2, r7
+     f24:	orrs	r2, r0
+     f26:	ldr	r0, [pc, #380]	; (10a4 <dipper_encrypt_block_ct+0x2bc>)
+     f28:	lsls	r6, r6, #6
+     f2a:	ands	r0, r3
+     f2c:	orrs	r2, r0
+     f2e:	lsrs	r0, r1, #8
+     f30:	ands	r6, r0
+     f32:	orrs	r2, r6
+     f34:	movs	r6, #192	; 0xc0
+     f36:	lsrs	r5, r1, #4
+     f38:	lsls	r6, r6, #5
+     f3a:	ands	r6, r5
+     f3c:	orrs	r2, r6
+     f3e:	ldr	r6, [pc, #360]	; (10a8 <dipper_encrypt_block_ct+0x2c0>)
+     f40:	mov	r9, r5
+     f42:	ands	r6, r1
+     f44:	orrs	r2, r6
+     f46:	lsrs	r5, r3, #28
+     f48:	lsls	r6, r1, #4
+     f4a:	orrs	r5, r6
+     f4c:	ldr	r6, [pc, #348]	; (10ac <dipper_encrypt_block_ct+0x2c4>)
+     f4e:	mov	r8, r5
+     f50:	ands	r6, r5
+     f52:	orrs	r2, r6
+     f54:	lsls	r5, r1, #8
+     f56:	lsrs	r6, r3, #24
+     f58:	orrs	r6, r5
+     f5a:	ldr	r5, [pc, #340]	; (10b0 <dipper_encrypt_block_ct+0x2c8>)
+     f5c:	str	r6, [sp, #16]
+     f5e:	ands	r5, r6
+     f60:	orrs	r2, r5
+     f62:	lsls	r5, r1, #12
+     f64:	mov	ip, r5
+     f66:	lsrs	r5, r3, #20
+     f68:	mov	fp, r5
+     f6a:	mov	r5, ip
+     f6c:	mov	r6, fp
+     f6e:	orrs	r5, r6
+     f70:	mov	fp, r5
+     f72:	mov	r6, fp
+     f74:	ldr	r5, [pc, #316]	; (10b4 <dipper_encrypt_block_ct+0x2cc>)
+     f76:	ldr	r4, [pc, #320]	; (10b8 <dipper_encrypt_block_ct+0x2d0>)
+     f78:	ands	r5, r6
+     f7a:	orrs	r2, r5
+     f7c:	lsrs	r6, r3, #16
+     f7e:	lsls	r5, r1, #16
+     f80:	orrs	r5, r6
+     f82:	ldr	r6, [pc, #312]	; (10bc <dipper_encrypt_block_ct+0x2d4>)
+     f84:	ands	r4, r1
+     f86:	ands	r6, r5
+     f88:	mov	ip, r6
+     f8a:	movs	r6, #128	; 0x80
+     f8c:	lsls	r6, r6, #6
+     f8e:	ands	r7, r6
+     f90:	orrs	r4, r7
+     f92:	mov	r6, ip
+     f94:	mov	ip, r4
+     f96:	lsrs	r7, r3, #12
+     f98:	lsls	r4, r1, #20
+     f9a:	orrs	r7, r4
+     f9c:	ldr	r4, [pc, #288]	; (10c0 <dipper_encrypt_block_ct+0x2d8>)
+     f9e:	str	r7, [sp, #20]
+     fa0:	ands	r4, r7
+     fa2:	movs	r7, #128	; 0x80
+     fa4:	orrs	r2, r6
+     fa6:	mov	r6, sl
+     fa8:	orrs	r2, r4
+     faa:	mov	r4, ip
+     fac:	lsls	r7, r7, #5
+     fae:	ands	r7, r6
+     fb0:	orrs	r7, r4
+     fb2:	lsrs	r6, r3, #8
+     fb4:	lsls	r4, r1, #24
+     fb6:	orrs	r6, r4
+     fb8:	ldr	r4, [pc, #264]	; (10c4 <dipper_encrypt_block_ct+0x2dc>)
+     fba:	mov	sl, r6
+     fbc:	ands	r4, r6
+     fbe:	movs	r6, #128	; 0x80
+     fc0:	lsls	r6, r6, #8
+     fc2:	ands	r0, r6
+     fc4:	orrs	r7, r0
+     fc6:	lsls	r1, r1, #28
+     fc8:	lsrs	r0, r3, #4
+     fca:	orrs	r0, r1
+     fcc:	ldr	r1, [pc, #248]	; (10c8 <dipper_encrypt_block_ct+0x2e0>)
+     fce:	orrs	r2, r4
+     fd0:	movs	r4, #132	; 0x84
+     fd2:	ands	r1, r0
+     fd4:	mov	ip, r0
+     fd6:	mov	r0, r9
+     fd8:	mov	r6, r8
+     fda:	orrs	r2, r1
+     fdc:	lsls	r4, r4, #7
+     fde:	ldr	r1, [pc, #236]	; (10cc <dipper_encrypt_block_ct+0x2e4>)
+     fe0:	ands	r4, r0
+     fe2:	ands	r1, r6
+     fe4:	orrs	r4, r7
+     fe6:	orrs	r4, r1
+     fe8:	movs	r1, #128	; 0x80
+     fea:	movs	r7, #132	; 0x84
+     fec:	lsls	r1, r1, #12
+     fee:	movs	r6, r1
+     ff0:	lsls	r0, r3, #4
+     ff2:	lsls	r7, r7, #14
+     ff4:	ands	r7, r0
+     ff6:	orrs	r2, r7
+     ff8:	lsls	r7, r3, #8
+     ffa:	ands	r6, r7
+     ffc:	mov	r8, r1
+     ffe:	str	r7, [sp, #24]
+    1000:	ldr	r1, [pc, #204]	; (10d0 <dipper_encrypt_block_ct+0x2e8>)
+    1002:	movs	r7, r6
+    1004:	ldr	r6, [sp, #16]
+    1006:	orrs	r2, r7
+    1008:	ands	r6, r1
+    100a:	orrs	r4, r6
+    100c:	movs	r6, #128	; 0x80
+    100e:	lsls	r7, r3, #12
+    1010:	lsls	r6, r6, #11
+    1012:	ands	r6, r7
+    1014:	mov	r9, r6
+    1016:	mov	r1, fp
+    1018:	ldr	r6, [pc, #184]	; (10d4 <dipper_encrypt_block_ct+0x2ec>)
+    101a:	ands	r6, r1
+    101c:	mov	r1, r9
+    101e:	orrs	r2, r1
+    1020:	movs	r1, #128	; 0x80
+    1022:	orrs	r4, r6
+    1024:	lsls	r1, r1, #10
+    1026:	lsls	r6, r3, #16
+    1028:	mov	r9, r1
+    102a:	ands	r1, r6
+    102c:	str	r1, [sp, #16]
+    102e:	ldr	r1, [pc, #168]	; (10d8 <dipper_encrypt_block_ct+0x2f0>)
+    1030:	ands	r5, r1
+    1032:	orrs	r4, r5
+    1034:	ldr	r5, [pc, #164]	; (10dc <dipper_encrypt_block_ct+0x2f4>)
+    1036:	mov	fp, r5
+    1038:	mov	r1, fp
+    103a:	ldr	r5, [sp, #20]
+    103c:	ands	r5, r1
+    103e:	orrs	r4, r5
+    1040:	ldr	r5, [pc, #156]	; (10e0 <dipper_encrypt_block_ct+0x2f8>)
+    1042:	mov	fp, r5
+    1044:	mov	r5, sl
+    1046:	mov	r1, fp
+    1048:	ands	r5, r1
+    104a:	orrs	r4, r5
+    104c:	ldr	r5, [pc, #148]	; (10e4 <dipper_encrypt_block_ct+0x2fc>)
+    104e:	mov	fp, r5
+    1050:	mov	r5, ip
+    1052:	mov	r1, fp
+    1054:	ands	r5, r1
+    1056:	orrs	r4, r5
+    1058:	ldr	r5, [pc, #140]	; (10e8 <dipper_encrypt_block_ct+0x300>)
+    105a:	movs	r1, #128	; 0x80
+    105c:	ands	r3, r5
+    105e:	orrs	r4, r3
+    1060:	movs	r3, #132	; 0x84
+    1062:	lsls	r3, r3, #16
+    1064:	ands	r0, r3
+    1066:	mov	r3, r9
+    1068:	orrs	r4, r0
+    106a:	ldr	r0, [sp, #24]
+    106c:	lsls	r1, r1, #9
+    106e:	ands	r0, r3
+    1070:	mov	r3, r8
+    1072:	ands	r7, r1
+    1074:	ldr	r1, [sp, #16]
+    1076:	ands	r6, r3
+    1078:	orrs	r2, r1
+    107a:	ldr	r1, [sp, #12]
+    107c:	orrs	r4, r0
+    107e:	ldr	r3, [sp, #28]
+    1080:	orrs	r7, r4
+    1082:	adds	r1, #8
+    1084:	orrs	r6, r7
+    1086:	str	r1, [sp, #12]
+    1088:	cmp	r3, r1
+    108a:	beq.n	108e <dipper_encrypt_block_ct+0x2a6>
+    108c:	b.n	e04 <dipper_encrypt_block_ct+0x1c>
+    108e:	movs	r0, r2
+    1090:	movs	r1, r6
+    1092:	add	sp, #36	; 0x24
+    1094:	pop	{r4, r5, r6, r7}
+    1096:	mov	fp, r7
+    1098:	mov	sl, r6
+    109a:	mov	r9, r5
+    109c:	mov	r8, r4
+    109e:	pop	{r4, r5, r6, r7, pc}
+    10a0:	.word	0x11111111
+    10a4:	.word	0x00400001
+    10a8:	.word	0x10000400
+    10ac:	.word	0x80000200
+    10b0:	.word	0x40000180
+    10b4:	.word	0x21000040
+    10b8:	.word	0x40000100
+    10bc:	.word	0x08000020
+    10c0:	.word	0x04000018
+    10c4:	.word	0x02100004
+    10c8:	.word	0x00800002
+    10cc:	.word	0x20000800
+    10d0:	.word	0x10000420
+    10d4:	.word	0x84000010
+    10d8:	.word	0x02000080
+    10dc:	.word	0x01000042
+    10e0:	.word	0x08400001
+    10e4:	.word	0x00200008
+    10e8:	.word	0x00100004
+### samr21-xpro dipper_expand_128_ct
+00000c00 <dipper_expand_128_ct>:
+     c00:	push	{r4, r5, r6, r7, lr}
+     c02:	mov	lr, fp
+     c04:	mov	r5, r8
+     c06:	mov	r6, r9
+     c08:	mov	r7, sl
+     c0a:	push	{r5, r6, r7, lr}
+     c0c:	movs	r5, r1
+     c0e:	sub	sp, #76	; 0x4c
+     c10:	movs	r1, r0
+     c12:	movs	r2, #16
+     c14:	add	r0, sp, #56	; 0x38
+     c16:	bl	6eb2 <memcpy>
+     c1a:	add	r3, sp, #56	; 0x38
+     c1c:	ldrh	r3, [r3, #14]
+     c1e:	add	r2, sp, #56	; 0x38
+     c20:	str	r3, [sp, #44]	; 0x2c
+     c22:	add	r3, sp, #56	; 0x38
+     c24:	ldrh	r3, [r3, #12]
+     c26:	mov	ip, r5
+     c28:	str	r3, [sp, #28]
+     c2a:	add	r3, sp, #56	; 0x38
+     c2c:	ldrh	r3, [r3, #10]
+     c2e:	ldrh	r2, [r2, #4]
+     c30:	mov	fp, r3
+     c32:	add	r3, sp, #56	; 0x38
+     c34:	ldrh	r3, [r3, #8]
+     c36:	movs	r1, #1
+     c38:	mov	r9, r3
+     c3a:	add	r3, sp, #56	; 0x38
+     c3c:	ldrh	r3, [r3, #6]
+     c3e:	str	r2, [sp, #32]
+     c40:	add	r2, sp, #56	; 0x38
+     c42:	ldrh	r4, [r2, #2]
+     c44:	ldrh	r0, [r2, #0]
+     c46:	movs	r2, #224	; 0xe0
+     c48:	movs	r5, #15
+     c4a:	add	r2, ip
+     c4c:	str	r2, [sp, #52]	; 0x34
+     c4e:	mov	r8, r5
+     c50:	ldr	r2, [pc, #400]	; (de4 <dipper_expand_128_ct+0x1e4>)
+     c52:	str	r1, [sp, #36]	; 0x24
+     c54:	str	r0, [sp, #40]	; 0x28
+     c56:	b.n	c5e <dipper_expand_128_ct+0x5e>
+     c58:	mov	r1, sl
+     c5a:	mov	r9, r5
+     c5c:	str	r1, [sp, #44]	; 0x2c
+     c5e:	mov	r5, ip
+     c60:	ldr	r0, [sp, #56]	; 0x38
+     c62:	ldr	r1, [sp, #60]	; 0x3c
+     c64:	stmia	r5!, {r0, r1}
+     c66:	mov	ip, r5
+     c68:	lsrs	r5, r4, #2
+     c6a:	lsls	r4, r4, #14
+     c6c:	orrs	r4, r5
+     c6e:	mov	r5, r9
+     c70:	uxth	r1, r4
+     c72:	str	r1, [sp, #24]
+     c74:	ldr	r1, [sp, #40]	; 0x28
+     c76:	lsls	r4, r1, #4
+     c78:	lsrs	r0, r1, #12
+     c7a:	orrs	r0, r4
+     c7c:	uxth	r1, r0
+     c7e:	add	r4, sp, #56	; 0x38
+     c80:	strh	r5, [r4, #4]
+     c82:	strh	r1, [r4, #0]
+     c84:	lsrs	r4, r3, #12
+     c86:	lsrs	r7, r4, #2
+     c88:	movs	r6, r4
+     c8a:	ands	r7, r2
+     c8c:	movs	r0, r7
+     c8e:	ands	r6, r2
+     c90:	lsrs	r5, r4, #1
+     c92:	ands	r0, r6
+     c94:	ands	r5, r2
+     c96:	eors	r5, r0
+     c98:	movs	r0, r5
+     c9a:	lsrs	r4, r4, #3
+     c9c:	ands	r0, r4
+     c9e:	eors	r6, r0
+     ca0:	movs	r0, r5
+     ca2:	str	r1, [sp, #40]	; 0x28
+     ca4:	movs	r1, #0
+     ca6:	orrs	r0, r6
+     ca8:	eors	r7, r0
+     caa:	eors	r4, r7
+     cac:	eors	r5, r4
+     cae:	str	r5, [sp, #0]
+     cb0:	eors	r4, r2
+     cb2:	lsls	r5, r6, #3
+     cb4:	orrs	r4, r5
+     cb6:	str	r1, [sp, #4]
+     cb8:	ldr	r0, [sp, #0]
+     cba:	ldr	r1, [sp, #4]
+     cbc:	mov	sl, r4
+     cbe:	movs	r5, r1
+     cc0:	movs	r4, r0
+     cc2:	adds	r4, r4, r0
+     cc4:	adcs	r5, r1
+     cc6:	mov	r0, sl
+     cc8:	ldr	r5, [sp, #0]
+     cca:	orrs	r4, r0
+     ccc:	ands	r6, r5
+     cce:	mov	r5, r8
+     cd0:	eors	r6, r7
+     cd2:	lsls	r6, r6, #2
+     cd4:	orrs	r4, r6
+     cd6:	ands	r4, r5
+     cd8:	lsls	r3, r3, #20
+     cda:	lsrs	r3, r3, #20
+     cdc:	lsls	r4, r4, #12
+     cde:	orrs	r4, r3
+     ce0:	mov	r3, fp
+     ce2:	lsrs	r6, r3, #12
+     ce4:	uxth	r6, r6
+     ce6:	lsrs	r5, r6, #2
+     ce8:	movs	r3, r6
+     cea:	ands	r5, r2
+     cec:	mov	sl, r4
+     cee:	movs	r4, r5
+     cf0:	ands	r3, r2
+     cf2:	lsrs	r7, r6, #1
+     cf4:	ands	r4, r3
+     cf6:	ands	r7, r2
+     cf8:	eors	r7, r4
+     cfa:	movs	r4, r7
+     cfc:	lsrs	r6, r6, #3
+     cfe:	ands	r4, r6
+     d00:	eors	r4, r3
+     d02:	movs	r3, r7
+     d04:	movs	r1, #0
+     d06:	orrs	r3, r4
+     d08:	eors	r5, r3
+     d0a:	eors	r6, r5
+     d0c:	eors	r7, r6
+     d0e:	str	r7, [sp, #16]
+     d10:	eors	r6, r2
+     d12:	lsls	r3, r4, #3
+     d14:	str	r1, [sp, #20]
+     d16:	ldr	r0, [sp, #16]
+     d18:	ldr	r1, [sp, #20]
+     d1a:	orrs	r3, r6
+     d1c:	movs	r7, r1
+     d1e:	movs	r6, r0
+     d20:	adds	r6, r6, r0
+     d22:	adcs	r7, r1
+     d24:	ands	r4, r0
+     d26:	eors	r4, r5
+     d28:	orrs	r3, r6
+     d2a:	lsls	r4, r4, #2
+     d2c:	orrs	r3, r4
+     d2e:	mov	r4, r8
+     d30:	ldr	r0, [sp, #24]
+     d32:	ands	r3, r4
+     d34:	mov	r4, fp
+     d36:	lsrs	r5, r0, #12
+     d38:	lsrs	r7, r5, #2
+     d3a:	movs	r6, r5
+     d3c:	ands	r7, r2
+     d3e:	movs	r0, r7
+     d40:	lsls	r4, r4, #20
+     d42:	lsrs	r4, r4, #20
+     d44:	lsls	r3, r3, #12
+     d46:	orrs	r3, r4
+     d48:	add	r4, sp, #56	; 0x38
+     d4a:	ands	r6, r2
+     d4c:	strh	r3, [r4, #6]
+     d4e:	lsrs	r4, r5, #1
+     d50:	ands	r0, r6
+     d52:	ands	r4, r2
+     d54:	eors	r4, r0
+     d56:	movs	r0, r4
+     d58:	lsrs	r5, r5, #3
+     d5a:	ands	r0, r5
+     d5c:	eors	r6, r0
+     d5e:	movs	r0, r4
+     d60:	movs	r1, #0
+     d62:	orrs	r0, r6
+     d64:	eors	r7, r0
+     d66:	eors	r5, r7
+     d68:	eors	r4, r5
+     d6a:	str	r4, [sp, #8]
+     d6c:	eors	r5, r2
+     d6e:	lsls	r4, r6, #3
+     d70:	orrs	r5, r4
+     d72:	str	r1, [sp, #12]
+     d74:	ldr	r0, [sp, #8]
+     d76:	ldr	r1, [sp, #12]
+     d78:	mov	fp, r5
+     d7a:	movs	r4, r0
+     d7c:	movs	r5, r1
+     d7e:	str	r7, [sp, #48]	; 0x30
+     d80:	adds	r4, r4, r0
+     d82:	adcs	r5, r1
+     d84:	mov	r7, fp
+     d86:	mov	r5, r8
+     d88:	ldr	r1, [sp, #48]	; 0x30
+     d8a:	ands	r6, r0
+     d8c:	eors	r6, r1
+     d8e:	ldr	r0, [sp, #24]
+     d90:	orrs	r4, r7
+     d92:	lsls	r6, r6, #2
+     d94:	orrs	r4, r6
+     d96:	ands	r4, r5
+     d98:	lsls	r6, r0, #20
+     d9a:	lsrs	r6, r6, #20
+     d9c:	lsls	r4, r4, #12
+     d9e:	orrs	r4, r6
+     da0:	add	r1, sp, #56	; 0x38
+     da2:	strh	r4, [r1, #2]
+     da4:	movs	r1, #1
+     da6:	ldr	r0, [sp, #36]	; 0x24
+     da8:	ldr	r5, [sp, #28]
+     daa:	lsrs	r6, r0, #1
+     dac:	lsrs	r7, r0, #4
+     dae:	eors	r6, r7
+     db0:	eors	r5, r0
+     db2:	ands	r6, r1
+     db4:	lsls	r1, r0, #1
+     db6:	movs	r0, #31
+     db8:	orrs	r1, r6
+     dba:	ands	r1, r0
+     dbc:	str	r1, [sp, #36]	; 0x24
+     dbe:	ldr	r1, [sp, #32]
+     dc0:	uxth	r5, r5
+     dc2:	str	r1, [sp, #28]
+     dc4:	ldr	r1, [sp, #44]	; 0x2c
+     dc6:	mov	fp, r1
+     dc8:	mov	r1, r9
+     dca:	str	r1, [sp, #32]
+     dcc:	ldr	r1, [sp, #52]	; 0x34
+     dce:	cmp	r1, ip
+     dd0:	beq.n	dd4 <dipper_expand_128_ct+0x1d4>
+     dd2:	b.n	c58 <dipper_expand_128_ct+0x58>
+     dd4:	add	sp, #76	; 0x4c
+     dd6:	pop	{r4, r5, r6, r7}
+     dd8:	mov	fp, r7
+     dda:	mov	sl, r6
+     ddc:	mov	r9, r5
+     dde:	mov	r8, r4
+     de0:	pop	{r4, r5, r6, r7, pc}
+     de2:	nop			; (mov r8, r8)
+     de4:	.word	0x11111111
+### b-l475e-iot01a dipper_encrypt_block_ct
+08000d04 <dipper_encrypt_block_ct>:
+ 8000d04:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8000d08:	sub	sp, #12
+ 8000d0a:	add.w	r3, r2, #216	; 0xd8
+ 8000d0e:	sub.w	r8, r2, #8
+ 8000d12:	str	r3, [sp, #4]
+ 8000d14:	ldr.w	r2, [r8, #8]!
+ 8000d18:	ldr	r3, [pc, #624]	; (8000f8c <dipper_encrypt_block_ct+0x288>)
+ 8000d1a:	ldr.w	r4, [r8, #4]
+ 8000d1e:	ldr.w	sl, [pc, #644]	; 8000fa4 <dipper_encrypt_block_ct+0x2a0>
+ 8000d22:	eors	r1, r4
+ 8000d24:	eors	r0, r2
+ 8000d26:	mov.w	ip, r1, lsr #2
+ 8000d2a:	and.w	ip, ip, #286331153	; 0x11111111
+ 8000d2e:	lsrs	r4, r1, #1
+ 8000d30:	lsrs	r7, r0, #2
+ 8000d32:	and.w	r6, r1, ip
+ 8000d36:	and.w	r4, r4, #286331153	; 0x11111111
+ 8000d3a:	and.w	r7, r7, #286331153	; 0x11111111
+ 8000d3e:	lsrs	r5, r0, #1
+ 8000d40:	eors	r6, r4
+ 8000d42:	lsrs	r2, r1, #3
+ 8000d44:	and.w	lr, r0, r7
+ 8000d48:	lsrs	r4, r0, #3
+ 8000d4a:	and.w	r5, r5, #286331153	; 0x11111111
+ 8000d4e:	and.w	r9, r2, r6
+ 8000d52:	eor.w	r5, lr, r5
+ 8000d56:	and.w	r4, r4, #286331153	; 0x11111111
+ 8000d5a:	and.w	r1, r1, #286331153	; 0x11111111
+ 8000d5e:	eor.w	r1, r9, r1
+ 8000d62:	and.w	r0, r0, #286331153	; 0x11111111
+ 8000d66:	and.w	r9, r4, r5
+ 8000d6a:	eor.w	r0, r9, r0
+ 8000d6e:	orr.w	lr, r6, r1
+ 8000d72:	eor.w	ip, lr, ip
+ 8000d76:	and.w	r9, r2, #286331153	; 0x11111111
+ 8000d7a:	orr.w	r2, r5, r0
+ 8000d7e:	eor.w	r9, r9, ip
+ 8000d82:	eors	r7, r2
+ 8000d84:	eor.w	r6, r6, r9
+ 8000d88:	eors	r4, r7
+ 8000d8a:	eors	r5, r4
+ 8000d8c:	and.w	lr, r1, r6
+ 8000d90:	adds	r2, r5, r5
+ 8000d92:	eor.w	r9, r9, #286331153	; 0x11111111
+ 8000d96:	eor.w	ip, lr, ip
+ 8000d9a:	and.w	lr, r0, r5
+ 8000d9e:	eor.w	r7, lr, r7
+ 8000da2:	orr.w	r1, r9, r1, lsl #3
+ 8000da6:	adcs	r6, r6
+ 8000da8:	mov.w	ip, ip, lsl #2
+ 8000dac:	orr.w	ip, ip, r7, lsr #30
+ 8000db0:	eor.w	r4, r4, #286331153	; 0x11111111
+ 8000db4:	orrs	r6, r1
+ 8000db6:	orr.w	r6, r6, ip
+ 8000dba:	orr.w	r2, r4, r0, lsl #3
+ 8000dbe:	orr.w	r2, r2, r5, lsl #1
+ 8000dc2:	ubfx	r0, r6, #12, #4
+ 8000dc6:	orr.w	r2, r2, r7, lsl #2
+ 8000dca:	lsrs	r1, r6, #16
+ 8000dcc:	orr.w	r0, r0, r6, lsl #4
+ 8000dd0:	lsrs	r4, r6, #31
+ 8000dd2:	lsrs	r7, r2, #16
+ 8000dd4:	uxth	r0, r0
+ 8000dd6:	orr.w	r4, r4, r1, lsl #1
+ 8000dda:	orr.w	r7, r7, r6, lsl #16
+ 8000dde:	add	r4, r0
+ 8000de0:	orr.w	r0, r0, r4, lsl #16
+ 8000de4:	ubfx	r5, r7, #9, #7
+ 8000de8:	ubfx	r1, r2, #5, #11
+ 8000dec:	orr.w	r1, r1, r2, lsl #11
+ 8000df0:	orr.w	r2, r5, r7, lsl #7
+ 8000df4:	lsrs	r5, r0, #12
+ 8000df6:	and.w	r7, r5, #16384	; 0x4000
+ 8000dfa:	uxth	r1, r1
+ 8000dfc:	and.w	r6, r4, #32768	; 0x8000
+ 8000e00:	and.w	lr, r5, #4096	; 0x1000
+ 8000e04:	add	r2, r1
+ 8000e06:	orrs	r6, r7
+ 8000e08:	ldr	r5, [pc, #388]	; (8000f90 <dipper_encrypt_block_ct+0x28c>)
+ 8000e0a:	ldr	r7, [pc, #392]	; (8000f94 <dipper_encrypt_block_ct+0x290>)
+ 8000e0c:	ldr.w	r9, [pc, #408]	; 8000fa8 <dipper_encrypt_block_ct+0x2a4>
+ 8000e10:	orr.w	r1, r1, r2, lsl #16
+ 8000e14:	ands	r7, r1
+ 8000e16:	lsrs	r2, r0, #8
+ 8000e18:	and.w	r4, r4, #8192	; 0x2000
+ 8000e1c:	ands	r5, r0
+ 8000e1e:	orrs	r5, r4
+ 8000e20:	orrs	r6, r7
+ 8000e22:	and.w	r4, r2, #8192	; 0x2000
+ 8000e26:	lsrs	r7, r1, #28
+ 8000e28:	orr.w	r7, r7, r0, lsl #4
+ 8000e2c:	and.w	r2, r2, #32768	; 0x8000
+ 8000e30:	orr.w	r5, r5, lr
+ 8000e34:	orrs	r6, r4
+ 8000e36:	lsrs	r4, r1, #24
+ 8000e38:	mov.w	ip, r0, lsr #4
+ 8000e3c:	orr.w	r4, r4, r0, lsl #8
+ 8000e40:	ands	r3, r7
+ 8000e42:	orrs	r5, r2
+ 8000e44:	bic.w	r7, r7, #2139095040	; 0x7f800000
+ 8000e48:	ldr	r2, [pc, #332]	; (8000f98 <dipper_encrypt_block_ct+0x294>)
+ 8000e4a:	and.w	lr, ip, #6144	; 0x1800
+ 8000e4e:	and.w	r9, r4, r9
+ 8000e52:	bic.w	r7, r7, #8355840	; 0x7f8000
+ 8000e56:	bic.w	r4, r4, #3204448256	; 0xbf000000
+ 8000e5a:	ands	r2, r0
+ 8000e5c:	and.w	ip, ip, #16896	; 0x4200
+ 8000e60:	orr.w	r6, r6, lr
+ 8000e64:	mov.w	fp, r1, lsr #20
+ 8000e68:	ldr.w	lr, [pc, #320]	; 8000fac <dipper_encrypt_block_ct+0x2a8>
+ 8000e6c:	bic.w	r7, r7, #32128	; 0x7d80
+ 8000e70:	bic.w	r4, r4, #16711680	; 0xff0000
+ 8000e74:	orr.w	fp, fp, r0, lsl #12
+ 8000e78:	orr.w	r5, r5, ip
+ 8000e7c:	orrs	r6, r2
+ 8000e7e:	bic.w	r7, r7, #127	; 0x7f
+ 8000e82:	lsrs	r2, r1, #16
+ 8000e84:	ldr.w	ip, [pc, #296]	; 8000fb0 <dipper_encrypt_block_ct+0x2ac>
+ 8000e88:	bic.w	r4, r4, #65024	; 0xfe00
+ 8000e8c:	orrs	r6, r7
+ 8000e8e:	orr.w	r2, r2, r0, lsl #16
+ 8000e92:	and.w	lr, fp, lr
+ 8000e96:	orrs	r5, r3
+ 8000e98:	lsrs	r7, r1, #12
+ 8000e9a:	ldr	r3, [pc, #256]	; (8000f9c <dipper_encrypt_block_ct+0x298>)
+ 8000e9c:	bic.w	r4, r4, #127	; 0x7f
+ 8000ea0:	bic.w	fp, fp, #3724541952	; 0xde000000
+ 8000ea4:	orr.w	r7, r7, r0, lsl #20
+ 8000ea8:	orrs	r4, r6
+ 8000eaa:	and.w	ip, r2, ip
+ 8000eae:	lsrs	r6, r1, #8
+ 8000eb0:	bic.w	fp, fp, #16711680	; 0xff0000
+ 8000eb4:	bic.w	r2, r2, #4143972352	; 0xf7000000
+ 8000eb8:	orr.w	r6, r6, r0, lsl #24
+ 8000ebc:	ands	r3, r7
+ 8000ebe:	orr.w	r5, r5, r9
+ 8000ec2:	bic.w	fp, fp, #65280	; 0xff00
+ 8000ec6:	bic.w	r2, r2, #16711680	; 0xff0000
+ 8000eca:	bic.w	r7, r7, #4211081216	; 0xfb000000
+ 8000ece:	bic.w	fp, fp, #191	; 0xbf
+ 8000ed2:	orr.w	r5, r5, lr
+ 8000ed6:	and.w	sl, r6, sl
+ 8000eda:	bic.w	r2, r2, #65280	; 0xff00
+ 8000ede:	bic.w	r7, r7, #16711680	; 0xff0000
+ 8000ee2:	bic.w	r6, r6, #4244635648	; 0xfd000000
+ 8000ee6:	orr.w	r4, r4, fp
+ 8000eea:	ldr.w	r9, [pc, #200]	; 8000fb4 <dipper_encrypt_block_ct+0x2b0>
+ 8000eee:	ldr.w	lr, [pc, #200]	; 8000fb8 <dipper_encrypt_block_ct+0x2b4>
+ 8000ef2:	mov.w	fp, r1, lsr #4
+ 8000ef6:	bic.w	r2, r2, #223	; 0xdf
+ 8000efa:	orr.w	r5, r5, ip
+ 8000efe:	bic.w	r7, r7, #65280	; 0xff00
+ 8000f02:	bic.w	r6, r6, #15663104	; 0xef0000
+ 8000f06:	orrs	r2, r4
+ 8000f08:	orr.w	fp, fp, r0, lsl #28
+ 8000f0c:	orrs	r5, r3
+ 8000f0e:	bic.w	r7, r7, #231	; 0xe7
+ 8000f12:	ldr	r3, [pc, #140]	; (8000fa0 <dipper_encrypt_block_ct+0x29c>)
+ 8000f14:	bic.w	r6, r6, #65280	; 0xff00
+ 8000f18:	orr.w	r0, r2, r7
+ 8000f1c:	bic.w	r6, r6, #251	; 0xfb
+ 8000f20:	orr.w	r5, r5, sl
+ 8000f24:	and.w	r9, fp, r9
+ 8000f28:	and.w	r2, fp, r3
+ 8000f2c:	orrs	r0, r6
+ 8000f2e:	lsls	r3, r1, #4
+ 8000f30:	orr.w	r9, r5, r9
+ 8000f34:	and.w	lr, r1, lr
+ 8000f38:	orrs	r0, r2
+ 8000f3a:	and.w	r6, r3, #2162688	; 0x210000
+ 8000f3e:	and.w	r2, r3, #8650752	; 0x840000
+ 8000f42:	orr.w	lr, r9, lr
+ 8000f46:	lsls	r3, r1, #8
+ 8000f48:	and.w	r5, r3, #524288	; 0x80000
+ 8000f4c:	and.w	r4, r3, #131072	; 0x20000
+ 8000f50:	orr.w	lr, lr, r2
+ 8000f54:	lsls	r3, r1, #12
+ 8000f56:	and.w	r2, r3, #65536	; 0x10000
+ 8000f5a:	lsls	r1, r1, #16
+ 8000f5c:	orr.w	lr, lr, r4
+ 8000f60:	orrs	r0, r6
+ 8000f62:	orrs	r0, r5
+ 8000f64:	and.w	r4, r1, #131072	; 0x20000
+ 8000f68:	and.w	r5, r3, #262144	; 0x40000
+ 8000f6c:	and.w	r3, r1, #524288	; 0x80000
+ 8000f70:	orr.w	r1, lr, r2
+ 8000f74:	orrs	r1, r3
+ 8000f76:	ldr	r3, [sp, #4]
+ 8000f78:	orrs	r0, r5
+ 8000f7a:	cmp	r3, r8
+ 8000f7c:	orr.w	r0, r0, r4
+ 8000f80:	bne.w	8000d14 <dipper_encrypt_block_ct+0x10>
+ 8000f84:	add	sp, #12
+ 8000f86:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8000f8a:	nop
+ 8000f8c:	.word	0x20000800
+ 8000f90:	.word	0x40000100
+ 8000f94:	.word	0x00400001
+ 8000f98:	.word	0x10000400
+ 8000f9c:	.word	0x01000042
+ 8000fa0:	.word	0x00800002
+ 8000fa4:	.word	0x08400001
+ 8000fa8:	.word	0x10000420
+ 8000fac:	.word	0x84000010
+ 8000fb0:	.word	0x02000080
+ 8000fb4:	.word	0x00200008
+ 8000fb8:	.word	0x00100004
+### b-l475e-iot01a dipper_expand_128_ct
+08000b48 <dipper_expand_128_ct>:
+ 8000b48:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8000b4c:	mov	r3, r0
+ 8000b4e:	sub	sp, #52	; 0x34
+ 8000b50:	mov	r5, r1
+ 8000b52:	ldr	r2, [r3, #8]
+ 8000b54:	ldr	r1, [r3, #4]
+ 8000b56:	ldr	r0, [r0, #0]
+ 8000b58:	ldr	r3, [r3, #12]
+ 8000b5a:	add	r4, sp, #32
+ 8000b5c:	stmia	r4!, {r0, r1, r2, r3}
+ 8000b5e:	ldrh.w	r3, [sp, #46]	; 0x2e
+ 8000b62:	str	r3, [sp, #20]
+ 8000b64:	ldrh.w	r3, [sp, #44]	; 0x2c
+ 8000b68:	str	r3, [sp, #12]
+ 8000b6a:	ldrh.w	r3, [sp, #42]	; 0x2a
+ 8000b6e:	str	r3, [sp, #0]
+ 8000b70:	ldrh.w	r3, [sp, #40]	; 0x28
+ 8000b74:	str	r3, [sp, #24]
+ 8000b76:	ldrh.w	r3, [sp, #36]	; 0x24
+ 8000b7a:	str	r3, [sp, #8]
+ 8000b7c:	mov	r1, r5
+ 8000b7e:	ldrh.w	r3, [sp, #32]
+ 8000b82:	str	r3, [sp, #16]
+ 8000b84:	sub.w	r3, r1, #8
+ 8000b88:	str	r3, [sp, #4]
+ 8000b8a:	add.w	r3, r1, #216	; 0xd8
+ 8000b8e:	ldrh.w	r5, [sp, #38]	; 0x26
+ 8000b92:	ldrh.w	r7, [sp, #34]	; 0x22
+ 8000b96:	str	r3, [sp, #28]
+ 8000b98:	movs	r4, #1
+ 8000b9a:	b.n	8000ba0 <dipper_expand_128_ct+0x58>
+ 8000b9c:	strd	r6, r8, [sp, #20]
+ 8000ba0:	ldr	r3, [sp, #0]
+ 8000ba2:	lsrs	r2, r3, #12
+ 8000ba4:	uxth.w	sl, r2
+ 8000ba8:	mov.w	lr, sl, lsr #2
+ 8000bac:	and.w	r1, lr, #286331153	; 0x11111111
+ 8000bb0:	mov.w	ip, sl, lsr #1
+ 8000bb4:	and.w	r0, r1, sl
+ 8000bb8:	and.w	ip, ip, #286331153	; 0x11111111
+ 8000bbc:	eor.w	ip, r0, ip
+ 8000bc0:	lsls	r3, r7, #14
+ 8000bc2:	orr.w	r3, r3, r7, lsr #2
+ 8000bc6:	and.w	r6, ip, sl, lsr #3
+ 8000bca:	and.w	r0, sl, #286331153	; 0x11111111
+ 8000bce:	eors	r0, r6
+ 8000bd0:	ubfx	r9, r3, #14, #1
+ 8000bd4:	ubfx	r8, r5, #14, #1
+ 8000bd8:	and.w	r7, r9, r3, lsr #12
+ 8000bdc:	ubfx	r6, r3, #13, #1
+ 8000be0:	orr.w	lr, ip, r0
+ 8000be4:	eors	r7, r6
+ 8000be6:	eor.w	lr, lr, r1
+ 8000bea:	and.w	r6, r8, r5, lsr #12
+ 8000bee:	ubfx	r1, r5, #13, #1
+ 8000bf2:	eors	r6, r1
+ 8000bf4:	eor.w	r2, lr, sl, lsr #3
+ 8000bf8:	ubfx	r1, r3, #12, #1
+ 8000bfc:	and.w	sl, r7, r3, lsr #15
+ 8000c00:	eor.w	r1, sl, r1
+ 8000c04:	ubfx	fp, r5, #12, #1
+ 8000c08:	and.w	sl, r6, r5, lsr #15
+ 8000c0c:	eor.w	sl, sl, fp
+ 8000c10:	orr.w	fp, r7, r1
+ 8000c14:	eor.w	r9, fp, r9
+ 8000c18:	orr.w	fp, r6, sl
+ 8000c1c:	eor.w	r8, fp, r8
+ 8000c20:	ubfx	fp, r3, #15, #1
+ 8000c24:	eor.w	ip, ip, r2
+ 8000c28:	eor.w	fp, fp, r9
+ 8000c2c:	eor.w	r2, r2, #286331153	; 0x11111111
+ 8000c30:	eor.w	r7, r7, fp
+ 8000c34:	orr.w	r2, r2, r0, lsl #3
+ 8000c38:	eor.w	fp, fp, #286331153	; 0x11111111
+ 8000c3c:	and.w	r0, r0, ip
+ 8000c40:	orr.w	r2, r2, ip, lsl #1
+ 8000c44:	orr.w	ip, fp, r1, lsl #3
+ 8000c48:	eor.w	r0, r0, lr
+ 8000c4c:	ands	r1, r7
+ 8000c4e:	orr.w	r7, ip, r7, lsl #1
+ 8000c52:	ldrd	fp, ip, [sp, #32]
+ 8000c56:	orr.w	r2, r2, r0, lsl #2
+ 8000c5a:	ldr	r0, [sp, #4]
+ 8000c5c:	strd	fp, ip, [r0, #8]!
+ 8000c60:	eor.w	lr, r8, r5, lsr #15
+ 8000c64:	eor.w	r6, r6, lr
+ 8000c68:	eor.w	lr, lr, #286331153	; 0x11111111
+ 8000c6c:	eor.w	r9, r1, r9
+ 8000c70:	str	r0, [sp, #4]
+ 8000c72:	orr.w	r1, lr, sl, lsl #3
+ 8000c76:	ldr	r0, [sp, #16]
+ 8000c78:	and.w	sl, sl, r6
+ 8000c7c:	orr.w	r6, r1, r6, lsl #1
+ 8000c80:	ldr	r1, [sp, #0]
+ 8000c82:	mov.w	lr, r0, lsr #12
+ 8000c86:	orr.w	r7, r7, r9, lsl #2
+ 8000c8a:	orr.w	r0, lr, r0, lsl #4
+ 8000c8e:	ubfx	ip, r1, #0, #12
+ 8000c92:	ubfx	r3, r3, #0, #12
+ 8000c96:	ldr	r1, [sp, #12]
+ 8000c98:	and.w	r7, r7, #15
+ 8000c9c:	eor.w	r8, sl, r8
+ 8000ca0:	and.w	r2, r2, #15
+ 8000ca4:	orr.w	r7, r3, r7, lsl #12
+ 8000ca8:	uxth	r3, r0
+ 8000caa:	ubfx	sl, r4, #1, #1
+ 8000cae:	orr.w	r6, r6, r8, lsl #2
+ 8000cb2:	ldr	r0, [sp, #4]
+ 8000cb4:	str	r3, [sp, #16]
+ 8000cb6:	eor.w	r8, r1, r4
+ 8000cba:	strh.w	r3, [sp, #32]
+ 8000cbe:	ubfx	r1, r5, #0, #12
+ 8000cc2:	ldr	r3, [sp, #28]
+ 8000cc4:	strh.w	r7, [sp, #34]	; 0x22
+ 8000cc8:	orr.w	r5, ip, r2, lsl #12
+ 8000ccc:	ldr	r2, [sp, #8]
+ 8000cce:	str	r2, [sp, #12]
+ 8000cd0:	eor.w	lr, sl, r4, lsr #4
+ 8000cd4:	ldr	r2, [sp, #20]
+ 8000cd6:	str	r2, [sp, #0]
+ 8000cd8:	and.w	r6, r6, #15
+ 8000cdc:	ldr	r2, [sp, #24]
+ 8000cde:	strh.w	r5, [sp, #38]	; 0x26
+ 8000ce2:	orr.w	r4, lr, r4, lsl #1
+ 8000ce6:	cmp	r3, r0
+ 8000ce8:	uxth.w	r8, r8
+ 8000cec:	orr.w	r6, r1, r6, lsl #12
+ 8000cf0:	strh.w	r2, [sp, #36]	; 0x24
+ 8000cf4:	str	r2, [sp, #8]
+ 8000cf6:	and.w	r4, r4, #31
+ 8000cfa:	bne.w	8000b9c <dipper_expand_128_ct+0x54>
+ 8000cfe:	add	sp, #52	; 0x34
+ 8000d00:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+### nrf52840dk dipper_encrypt_block_ct
+00000de4 <dipper_encrypt_block_ct>:
+     de4:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     de8:	sub	sp, #12
+     dea:	add.w	r3, r2, #216	; 0xd8
+     dee:	sub.w	r8, r2, #8
+     df2:	str	r3, [sp, #4]
+     df4:	ldr.w	r2, [r8, #8]!
+     df8:	ldr	r3, [pc, #624]	; (106c <dipper_encrypt_block_ct+0x288>)
+     dfa:	ldr.w	r4, [r8, #4]
+     dfe:	ldr.w	sl, [pc, #644]	; 1084 <dipper_encrypt_block_ct+0x2a0>
+     e02:	eors	r1, r4
+     e04:	eors	r0, r2
+     e06:	mov.w	ip, r1, lsr #2
+     e0a:	and.w	ip, ip, #286331153	; 0x11111111
+     e0e:	lsrs	r4, r1, #1
+     e10:	lsrs	r7, r0, #2
+     e12:	and.w	r6, r1, ip
+     e16:	and.w	r4, r4, #286331153	; 0x11111111
+     e1a:	and.w	r7, r7, #286331153	; 0x11111111
+     e1e:	lsrs	r5, r0, #1
+     e20:	eors	r6, r4
+     e22:	lsrs	r2, r1, #3
+     e24:	and.w	lr, r0, r7
+     e28:	lsrs	r4, r0, #3
+     e2a:	and.w	r5, r5, #286331153	; 0x11111111
+     e2e:	and.w	r9, r2, r6
+     e32:	eor.w	r5, lr, r5
+     e36:	and.w	r4, r4, #286331153	; 0x11111111
+     e3a:	and.w	r1, r1, #286331153	; 0x11111111
+     e3e:	eor.w	r1, r9, r1
+     e42:	and.w	r0, r0, #286331153	; 0x11111111
+     e46:	and.w	r9, r4, r5
+     e4a:	eor.w	r0, r9, r0
+     e4e:	orr.w	lr, r6, r1
+     e52:	eor.w	ip, lr, ip
+     e56:	and.w	r9, r2, #286331153	; 0x11111111
+     e5a:	orr.w	r2, r5, r0
+     e5e:	eor.w	r9, r9, ip
+     e62:	eors	r7, r2
+     e64:	eor.w	r6, r6, r9
+     e68:	eors	r4, r7
+     e6a:	eors	r5, r4
+     e6c:	and.w	lr, r1, r6
+     e70:	adds	r2, r5, r5
+     e72:	eor.w	r9, r9, #286331153	; 0x11111111
+     e76:	eor.w	ip, lr, ip
+     e7a:	and.w	lr, r0, r5
+     e7e:	eor.w	r7, lr, r7
+     e82:	orr.w	r1, r9, r1, lsl #3
+     e86:	adcs	r6, r6
+     e88:	mov.w	ip, ip, lsl #2
+     e8c:	orr.w	ip, ip, r7, lsr #30
+     e90:	eor.w	r4, r4, #286331153	; 0x11111111
+     e94:	orrs	r6, r1
+     e96:	orr.w	r6, r6, ip
+     e9a:	orr.w	r2, r4, r0, lsl #3
+     e9e:	orr.w	r2, r2, r5, lsl #1
+     ea2:	ubfx	r0, r6, #12, #4
+     ea6:	orr.w	r2, r2, r7, lsl #2
+     eaa:	lsrs	r1, r6, #16
+     eac:	orr.w	r0, r0, r6, lsl #4
+     eb0:	lsrs	r4, r6, #31
+     eb2:	lsrs	r7, r2, #16
+     eb4:	uxth	r0, r0
+     eb6:	orr.w	r4, r4, r1, lsl #1
+     eba:	orr.w	r7, r7, r6, lsl #16
+     ebe:	add	r4, r0
+     ec0:	orr.w	r0, r0, r4, lsl #16
+     ec4:	ubfx	r5, r7, #9, #7
+     ec8:	ubfx	r1, r2, #5, #11
+     ecc:	orr.w	r1, r1, r2, lsl #11
+     ed0:	orr.w	r2, r5, r7, lsl #7
+     ed4:	lsrs	r5, r0, #12
+     ed6:	and.w	r7, r5, #16384	; 0x4000
+     eda:	uxth	r1, r1
+     edc:	and.w	r6, r4, #32768	; 0x8000
+     ee0:	and.w	lr, r5, #4096	; 0x1000
+     ee4:	add	r2, r1
+     ee6:	orrs	r6, r7
+     ee8:	ldr	r5, [pc, #388]	; (1070 <dipper_encrypt_block_ct+0x28c>)
+     eea:	ldr	r7, [pc, #392]	; (1074 <dipper_encrypt_block_ct+0x290>)
+     eec:	ldr.w	r9, [pc, #408]	; 1088 <dipper_encrypt_block_ct+0x2a4>
+     ef0:	orr.w	r1, r1, r2, lsl #16
+     ef4:	ands	r7, r1
+     ef6:	lsrs	r2, r0, #8
+     ef8:	and.w	r4, r4, #8192	; 0x2000
+     efc:	ands	r5, r0
+     efe:	orrs	r5, r4
+     f00:	orrs	r6, r7
+     f02:	and.w	r4, r2, #8192	; 0x2000
+     f06:	lsrs	r7, r1, #28
+     f08:	orr.w	r7, r7, r0, lsl #4
+     f0c:	and.w	r2, r2, #32768	; 0x8000
+     f10:	orr.w	r5, r5, lr
+     f14:	orrs	r6, r4
+     f16:	lsrs	r4, r1, #24
+     f18:	mov.w	ip, r0, lsr #4
+     f1c:	orr.w	r4, r4, r0, lsl #8
+     f20:	ands	r3, r7
+     f22:	orrs	r5, r2
+     f24:	bic.w	r7, r7, #2139095040	; 0x7f800000
+     f28:	ldr	r2, [pc, #332]	; (1078 <dipper_encrypt_block_ct+0x294>)
+     f2a:	and.w	lr, ip, #6144	; 0x1800
+     f2e:	and.w	r9, r4, r9
+     f32:	bic.w	r7, r7, #8355840	; 0x7f8000
+     f36:	bic.w	r4, r4, #3204448256	; 0xbf000000
+     f3a:	ands	r2, r0
+     f3c:	and.w	ip, ip, #16896	; 0x4200
+     f40:	orr.w	r6, r6, lr
+     f44:	mov.w	fp, r1, lsr #20
+     f48:	ldr.w	lr, [pc, #320]	; 108c <dipper_encrypt_block_ct+0x2a8>
+     f4c:	bic.w	r7, r7, #32128	; 0x7d80
+     f50:	bic.w	r4, r4, #16711680	; 0xff0000
+     f54:	orr.w	fp, fp, r0, lsl #12
+     f58:	orr.w	r5, r5, ip
+     f5c:	orrs	r6, r2
+     f5e:	bic.w	r7, r7, #127	; 0x7f
+     f62:	lsrs	r2, r1, #16
+     f64:	ldr.w	ip, [pc, #296]	; 1090 <dipper_encrypt_block_ct+0x2ac>
+     f68:	bic.w	r4, r4, #65024	; 0xfe00
+     f6c:	orrs	r6, r7
+     f6e:	orr.w	r2, r2, r0, lsl #16
+     f72:	and.w	lr, fp, lr
+     f76:	orrs	r5, r3
+     f78:	lsrs	r7, r1, #12
+     f7a:	ldr	r3, [pc, #256]	; (107c <dipper_encrypt_block_ct+0x298>)
+     f7c:	bic.w	r4, r4, #127	; 0x7f
+     f80:	bic.w	fp, fp, #3724541952	; 0xde000000
+     f84:	orr.w	r7, r7, r0, lsl #20
+     f88:	orrs	r4, r6
+     f8a:	and.w	ip, r2, ip
+     f8e:	lsrs	r6, r1, #8
+     f90:	bic.w	fp, fp, #16711680	; 0xff0000
+     f94:	bic.w	r2, r2, #4143972352	; 0xf7000000
+     f98:	orr.w	r6, r6, r0, lsl #24
+     f9c:	ands	r3, r7
+     f9e:	orr.w	r5, r5, r9
+     fa2:	bic.w	fp, fp, #65280	; 0xff00
+     fa6:	bic.w	r2, r2, #16711680	; 0xff0000
+     faa:	bic.w	r7, r7, #4211081216	; 0xfb000000
+     fae:	bic.w	fp, fp, #191	; 0xbf
+     fb2:	orr.w	r5, r5, lr
+     fb6:	and.w	sl, r6, sl
+     fba:	bic.w	r2, r2, #65280	; 0xff00
+     fbe:	bic.w	r7, r7, #16711680	; 0xff0000
+     fc2:	bic.w	r6, r6, #4244635648	; 0xfd000000
+     fc6:	orr.w	r4, r4, fp
+     fca:	ldr.w	r9, [pc, #200]	; 1094 <dipper_encrypt_block_ct+0x2b0>
+     fce:	ldr.w	lr, [pc, #200]	; 1098 <dipper_encrypt_block_ct+0x2b4>
+     fd2:	mov.w	fp, r1, lsr #4
+     fd6:	bic.w	r2, r2, #223	; 0xdf
+     fda:	orr.w	r5, r5, ip
+     fde:	bic.w	r7, r7, #65280	; 0xff00
+     fe2:	bic.w	r6, r6, #15663104	; 0xef0000
+     fe6:	orrs	r2, r4
+     fe8:	orr.w	fp, fp, r0, lsl #28
+     fec:	orrs	r5, r3
+     fee:	bic.w	r7, r7, #231	; 0xe7
+     ff2:	ldr	r3, [pc, #140]	; (1080 <dipper_encrypt_block_ct+0x29c>)
+     ff4:	bic.w	r6, r6, #65280	; 0xff00
+     ff8:	orr.w	r0, r2, r7
+     ffc:	bic.w	r6, r6, #251	; 0xfb
+    1000:	orr.w	r5, r5, sl
+    1004:	and.w	r9, fp, r9
+    1008:	and.w	r2, fp, r3
+    100c:	orrs	r0, r6
+    100e:	lsls	r3, r1, #4
+    1010:	orr.w	r9, r5, r9
+    1014:	and.w	lr, r1, lr
+    1018:	orrs	r0, r2
+    101a:	and.w	r6, r3, #2162688	; 0x210000
+    101e:	and.w	r2, r3, #8650752	; 0x840000
+    1022:	orr.w	lr, r9, lr
+    1026:	lsls	r3, r1, #8
+    1028:	and.w	r5, r3, #524288	; 0x80000
+    102c:	and.w	r4, r3, #131072	; 0x20000
+    1030:	orr.w	lr, lr, r2
+    1034:	lsls	r3, r1, #12
+    1036:	and.w	r2, r3, #65536	; 0x10000
+    103a:	lsls	r1, r1, #16
+    103c:	orr.w	lr, lr, r4
+    1040:	orrs	r0, r6
+    1042:	orrs	r0, r5
+    1044:	and.w	r4, r1, #131072	; 0x20000
+    1048:	and.w	r5, r3, #262144	; 0x40000
+    104c:	and.w	r3, r1, #524288	; 0x80000
+    1050:	orr.w	r1, lr, r2
+    1054:	orrs	r1, r3
+    1056:	ldr	r3, [sp, #4]
+    1058:	orrs	r0, r5
+    105a:	cmp	r3, r8
+    105c:	orr.w	r0, r0, r4
+    1060:	bne.w	df4 <dipper_encrypt_block_ct+0x10>
+    1064:	add	sp, #12
+    1066:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    106a:	nop
+    106c:	.word	0x20000800
+    1070:	.word	0x40000100
+    1074:	.word	0x00400001
+    1078:	.word	0x10000400
+    107c:	.word	0x01000042
+    1080:	.word	0x00800002
+    1084:	.word	0x08400001
+    1088:	.word	0x10000420
+    108c:	.word	0x84000010
+    1090:	.word	0x02000080
+    1094:	.word	0x00200008
+    1098:	.word	0x00100004
+### nrf52840dk dipper_expand_128_ct
+00000c28 <dipper_expand_128_ct>:
+     c28:	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     c2c:	mov	r3, r0
+     c2e:	sub	sp, #52	; 0x34
+     c30:	mov	r5, r1
+     c32:	ldr	r2, [r3, #8]
+     c34:	ldr	r1, [r3, #4]
+     c36:	ldr	r0, [r0, #0]
+     c38:	ldr	r3, [r3, #12]
+     c3a:	add	r4, sp, #32
+     c3c:	stmia	r4!, {r0, r1, r2, r3}
+     c3e:	ldrh.w	r3, [sp, #46]	; 0x2e
+     c42:	str	r3, [sp, #20]
+     c44:	ldrh.w	r3, [sp, #44]	; 0x2c
+     c48:	str	r3, [sp, #12]
+     c4a:	ldrh.w	r3, [sp, #42]	; 0x2a
+     c4e:	str	r3, [sp, #0]
+     c50:	ldrh.w	r3, [sp, #40]	; 0x28
+     c54:	str	r3, [sp, #24]
+     c56:	ldrh.w	r3, [sp, #36]	; 0x24
+     c5a:	str	r3, [sp, #8]
+     c5c:	mov	r1, r5
+     c5e:	ldrh.w	r3, [sp, #32]
+     c62:	str	r3, [sp, #16]
+     c64:	sub.w	r3, r1, #8
+     c68:	str	r3, [sp, #4]
+     c6a:	add.w	r3, r1, #216	; 0xd8
+     c6e:	ldrh.w	r5, [sp, #38]	; 0x26
+     c72:	ldrh.w	r7, [sp, #34]	; 0x22
+     c76:	str	r3, [sp, #28]
+     c78:	movs	r4, #1
+     c7a:	b.n	c80 <dipper_expand_128_ct+0x58>
+     c7c:	strd	r6, r8, [sp, #20]
+     c80:	ldr	r3, [sp, #0]
+     c82:	lsrs	r2, r3, #12
+     c84:	uxth.w	sl, r2
+     c88:	mov.w	lr, sl, lsr #2
+     c8c:	and.w	r1, lr, #286331153	; 0x11111111
+     c90:	mov.w	ip, sl, lsr #1
+     c94:	and.w	r0, r1, sl
+     c98:	and.w	ip, ip, #286331153	; 0x11111111
+     c9c:	eor.w	ip, r0, ip
+     ca0:	lsls	r3, r7, #14
+     ca2:	orr.w	r3, r3, r7, lsr #2
+     ca6:	and.w	r6, ip, sl, lsr #3
+     caa:	and.w	r0, sl, #286331153	; 0x11111111
+     cae:	eors	r0, r6
+     cb0:	ubfx	r9, r3, #14, #1
+     cb4:	ubfx	r8, r5, #14, #1
+     cb8:	and.w	r7, r9, r3, lsr #12
+     cbc:	ubfx	r6, r3, #13, #1
+     cc0:	orr.w	lr, ip, r0
+     cc4:	eors	r7, r6
+     cc6:	eor.w	lr, lr, r1
+     cca:	and.w	r6, r8, r5, lsr #12
+     cce:	ubfx	r1, r5, #13, #1
+     cd2:	eors	r6, r1
+     cd4:	eor.w	r2, lr, sl, lsr #3
+     cd8:	ubfx	r1, r3, #12, #1
+     cdc:	and.w	sl, r7, r3, lsr #15
+     ce0:	eor.w	r1, sl, r1
+     ce4:	ubfx	fp, r5, #12, #1
+     ce8:	and.w	sl, r6, r5, lsr #15
+     cec:	eor.w	sl, sl, fp
+     cf0:	orr.w	fp, r7, r1
+     cf4:	eor.w	r9, fp, r9
+     cf8:	orr.w	fp, r6, sl
+     cfc:	eor.w	r8, fp, r8
+     d00:	ubfx	fp, r3, #15, #1
+     d04:	eor.w	ip, ip, r2
+     d08:	eor.w	fp, fp, r9
+     d0c:	eor.w	r2, r2, #286331153	; 0x11111111
+     d10:	eor.w	r7, r7, fp
+     d14:	orr.w	r2, r2, r0, lsl #3
+     d18:	eor.w	fp, fp, #286331153	; 0x11111111
+     d1c:	and.w	r0, r0, ip
+     d20:	orr.w	r2, r2, ip, lsl #1
+     d24:	orr.w	ip, fp, r1, lsl #3
+     d28:	eor.w	r0, r0, lr
+     d2c:	ands	r1, r7
+     d2e:	orr.w	r7, ip, r7, lsl #1
+     d32:	ldrd	fp, ip, [sp, #32]
+     d36:	orr.w	r2, r2, r0, lsl #2
+     d3a:	ldr	r0, [sp, #4]
+     d3c:	strd	fp, ip, [r0, #8]!
+     d40:	eor.w	lr, r8, r5, lsr #15
+     d44:	eor.w	r6, r6, lr
+     d48:	eor.w	lr, lr, #286331153	; 0x11111111
+     d4c:	eor.w	r9, r1, r9
+     d50:	str	r0, [sp, #4]
+     d52:	orr.w	r1, lr, sl, lsl #3
+     d56:	ldr	r0, [sp, #16]
+     d58:	and.w	sl, sl, r6
+     d5c:	orr.w	r6, r1, r6, lsl #1
+     d60:	ldr	r1, [sp, #0]
+     d62:	mov.w	lr, r0, lsr #12
+     d66:	orr.w	r7, r7, r9, lsl #2
+     d6a:	orr.w	r0, lr, r0, lsl #4
+     d6e:	ubfx	ip, r1, #0, #12
+     d72:	ubfx	r3, r3, #0, #12
+     d76:	ldr	r1, [sp, #12]
+     d78:	and.w	r7, r7, #15
+     d7c:	eor.w	r8, sl, r8
+     d80:	and.w	r2, r2, #15
+     d84:	orr.w	r7, r3, r7, lsl #12
+     d88:	uxth	r3, r0
+     d8a:	ubfx	sl, r4, #1, #1
+     d8e:	orr.w	r6, r6, r8, lsl #2
+     d92:	ldr	r0, [sp, #4]
+     d94:	str	r3, [sp, #16]
+     d96:	eor.w	r8, r1, r4
+     d9a:	strh.w	r3, [sp, #32]
+     d9e:	ubfx	r1, r5, #0, #12
+     da2:	ldr	r3, [sp, #28]
+     da4:	strh.w	r7, [sp, #34]	; 0x22
+     da8:	orr.w	r5, ip, r2, lsl #12
+     dac:	ldr	r2, [sp, #8]
+     dae:	str	r2, [sp, #12]
+     db0:	eor.w	lr, sl, r4, lsr #4
+     db4:	ldr	r2, [sp, #20]
+     db6:	str	r2, [sp, #0]
+     db8:	and.w	r6, r6, #15
+     dbc:	ldr	r2, [sp, #24]
+     dbe:	strh.w	r5, [sp, #38]	; 0x26
+     dc2:	orr.w	r4, lr, r4, lsl #1
+     dc6:	cmp	r3, r0
+     dc8:	uxth.w	r8, r8
+     dcc:	orr.w	r6, r1, r6, lsl #12
+     dd0:	strh.w	r2, [sp, #36]	; 0x24
+     dd4:	str	r2, [sp, #8]
+     dd6:	and.w	r4, r4, #31
+     dda:	bne.w	c7c <dipper_expand_128_ct+0x54>
+     dde:	add	sp, #52	; 0x34
+     de0:	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+### rpi-pico dipper_encrypt_block_ct
+10000fe4 <dipper_encrypt_block_ct>:
+10000fe4:	push	{r4, r5, r6, r7, lr}
+10000fe6:	mov	lr, fp
+10000fe8:	mov	r6, r9
+10000fea:	mov	r7, sl
+10000fec:	mov	r5, r8
+10000fee:	push	{r5, r6, r7, lr}
+10000ff0:	mov	fp, r2
+10000ff2:	movs	r3, #224	; 0xe0
+10000ff4:	sub	sp, #36	; 0x24
+10000ff6:	str	r2, [sp, #12]
+10000ff8:	movs	r6, r1
+10000ffa:	movs	r2, r0
+10000ffc:	add	r3, fp
+10000ffe:	str	r3, [sp, #28]
+10001000:	ldr	r1, [sp, #12]
+10001002:	ldr	r5, [pc, #664]	; (1000129c <dipper_encrypt_block_ct+0x2b8>)
+10001004:	ldr	r3, [r1, #0]
+10001006:	ldr	r0, [pc, #660]	; (1000129c <dipper_encrypt_block_ct+0x2b8>)
+10001008:	eors	r2, r3
+1000100a:	ldr	r3, [r1, #4]
+1000100c:	lsrs	r7, r2, #1
+1000100e:	eors	r6, r3
+10001010:	lsls	r3, r6, #31
+10001012:	orrs	r7, r3
+10001014:	lsls	r3, r6, #30
+10001016:	mov	ip, r3
+10001018:	lsrs	r4, r6, #1
+1000101a:	ands	r4, r5
+1000101c:	mov	fp, r4
+1000101e:	mov	r4, ip
+10001020:	lsrs	r3, r2, #2
+10001022:	orrs	r3, r4
+10001024:	ands	r3, r5
+10001026:	lsrs	r4, r6, #2
+10001028:	mov	sl, r3
+1000102a:	movs	r3, r4
+1000102c:	ldr	r1, [pc, #620]	; (1000129c <dipper_encrypt_block_ct+0x2b8>)
+1000102e:	ands	r3, r5
+10001030:	mov	ip, r3
+10001032:	ands	r1, r2
+10001034:	lsls	r3, r6, #29
+10001036:	lsrs	r2, r2, #3
+10001038:	orrs	r2, r3
+1000103a:	mov	r3, sl
+1000103c:	ands	r3, r1
+1000103e:	mov	r9, r3
+10001040:	mov	r3, ip
+10001042:	ands	r0, r6
+10001044:	ands	r3, r0
+10001046:	mov	r8, r3
+10001048:	mov	r3, r9
+1000104a:	ands	r7, r5
+1000104c:	eors	r7, r3
+1000104e:	mov	r4, fp
+10001050:	mov	r3, r8
+10001052:	eors	r4, r3
+10001054:	movs	r3, r7
+10001056:	ands	r2, r5
+10001058:	ands	r3, r2
+1000105a:	mov	r9, r3
+1000105c:	movs	r3, r4
+1000105e:	lsrs	r6, r6, #3
+10001060:	ands	r6, r5
+10001062:	ands	r3, r6
+10001064:	mov	r8, r3
+10001066:	mov	r3, r9
+10001068:	eors	r1, r3
+1000106a:	mov	r3, r8
+1000106c:	eors	r0, r3
+1000106e:	movs	r3, r7
+10001070:	orrs	r3, r1
+10001072:	mov	r9, r3
+10001074:	movs	r3, r4
+10001076:	orrs	r3, r0
+10001078:	mov	r8, r3
+1000107a:	mov	r5, sl
+1000107c:	mov	r3, r9
+1000107e:	eors	r3, r5
+10001080:	mov	r9, r3
+10001082:	mov	r5, r8
+10001084:	mov	r3, ip
+10001086:	eors	r3, r5
+10001088:	mov	ip, r3
+1000108a:	mov	r3, r9
+1000108c:	eors	r2, r3
+1000108e:	mov	r3, ip
+10001090:	ldr	r5, [pc, #520]	; (1000129c <dipper_encrypt_block_ct+0x2b8>)
+10001092:	eors	r6, r3
+10001094:	eors	r4, r6
+10001096:	eors	r7, r2
+10001098:	str	r4, [sp, #4]
+1000109a:	eors	r2, r5
+1000109c:	lsls	r4, r1, #3
+1000109e:	str	r7, [sp, #0]
+100010a0:	lsls	r3, r0, #3
+100010a2:	orrs	r4, r2
+100010a4:	eors	r6, r5
+100010a6:	movs	r7, r4
+100010a8:	ldr	r4, [sp, #0]
+100010aa:	ldr	r5, [sp, #4]
+100010ac:	orrs	r6, r3
+100010ae:	movs	r2, r4
+100010b0:	movs	r3, r5
+100010b2:	adds	r2, r2, r4
+100010b4:	adcs	r3, r5
+100010b6:	movs	r4, r7
+100010b8:	orrs	r6, r3
+100010ba:	ldr	r3, [sp, #4]
+100010bc:	orrs	r4, r2
+100010be:	ands	r0, r3
+100010c0:	mov	r3, r9
+100010c2:	ldr	r2, [sp, #0]
+100010c4:	ands	r2, r1
+100010c6:	eors	r2, r3
+100010c8:	mov	r3, ip
+100010ca:	eors	r0, r3
+100010cc:	lsls	r0, r0, #2
+100010ce:	orrs	r0, r6
+100010d0:	uxth	r3, r0
+100010d2:	lsls	r2, r2, #2
+100010d4:	orrs	r2, r4
+100010d6:	lsls	r1, r0, #4
+100010d8:	lsrs	r3, r3, #12
+100010da:	orrs	r1, r3
+100010dc:	uxth	r3, r2
+100010de:	lsls	r4, r2, #11
+100010e0:	lsrs	r3, r3, #5
+100010e2:	orrs	r3, r4
+100010e4:	lsrs	r4, r0, #16
+100010e6:	lsls	r7, r4, #1
+100010e8:	lsrs	r4, r4, #15
+100010ea:	uxth	r1, r1
+100010ec:	orrs	r7, r4
+100010ee:	lsls	r0, r0, #16
+100010f0:	lsrs	r2, r2, #16
+100010f2:	adds	r7, r1, r7
+100010f4:	orrs	r2, r0
+100010f6:	lsls	r0, r2, #7
+100010f8:	lsls	r7, r7, #16
+100010fa:	uxth	r2, r2
+100010fc:	orrs	r1, r7
+100010fe:	lsrs	r2, r2, #9
+10001100:	orrs	r2, r0
+10001102:	lsrs	r0, r1, #12
+10001104:	mov	sl, r0
+10001106:	uxth	r3, r3
+10001108:	adds	r2, r3, r2
+1000110a:	lsls	r2, r2, #16
+1000110c:	orrs	r3, r2
+1000110e:	movs	r0, #128	; 0x80
+10001110:	movs	r2, #128	; 0x80
+10001112:	mov	r4, sl
+10001114:	movs	r6, #128	; 0x80
+10001116:	lsrs	r7, r7, #16
+10001118:	lsls	r2, r2, #8
+1000111a:	lsls	r0, r0, #7
+1000111c:	ands	r0, r4
+1000111e:	ands	r2, r7
+10001120:	orrs	r2, r0
+10001122:	ldr	r0, [pc, #380]	; (100012a0 <dipper_encrypt_block_ct+0x2bc>)
+10001124:	lsls	r6, r6, #6
+10001126:	ands	r0, r3
+10001128:	orrs	r2, r0
+1000112a:	lsrs	r0, r1, #8
+1000112c:	ands	r6, r0
+1000112e:	orrs	r2, r6
+10001130:	movs	r6, #192	; 0xc0
+10001132:	lsrs	r5, r1, #4
+10001134:	lsls	r6, r6, #5
+10001136:	ands	r6, r5
+10001138:	orrs	r2, r6
+1000113a:	ldr	r6, [pc, #360]	; (100012a4 <dipper_encrypt_block_ct+0x2c0>)
+1000113c:	mov	r9, r5
+1000113e:	ands	r6, r1
+10001140:	orrs	r2, r6
+10001142:	lsrs	r5, r3, #28
+10001144:	lsls	r6, r1, #4
+10001146:	orrs	r5, r6
+10001148:	ldr	r6, [pc, #348]	; (100012a8 <dipper_encrypt_block_ct+0x2c4>)
+1000114a:	mov	r8, r5
+1000114c:	ands	r6, r5
+1000114e:	orrs	r2, r6
+10001150:	lsls	r5, r1, #8
+10001152:	lsrs	r6, r3, #24
+10001154:	orrs	r6, r5
+10001156:	ldr	r5, [pc, #340]	; (100012ac <dipper_encrypt_block_ct+0x2c8>)
+10001158:	str	r6, [sp, #16]
+1000115a:	ands	r5, r6
+1000115c:	orrs	r2, r5
+1000115e:	lsls	r5, r1, #12
+10001160:	mov	ip, r5
+10001162:	lsrs	r5, r3, #20
+10001164:	mov	fp, r5
+10001166:	mov	r5, ip
+10001168:	mov	r6, fp
+1000116a:	orrs	r5, r6
+1000116c:	mov	fp, r5
+1000116e:	mov	r6, fp
+10001170:	ldr	r5, [pc, #316]	; (100012b0 <dipper_encrypt_block_ct+0x2cc>)
+10001172:	ldr	r4, [pc, #320]	; (100012b4 <dipper_encrypt_block_ct+0x2d0>)
+10001174:	ands	r5, r6
+10001176:	orrs	r2, r5
+10001178:	lsrs	r6, r3, #16
+1000117a:	lsls	r5, r1, #16
+1000117c:	orrs	r5, r6
+1000117e:	ldr	r6, [pc, #312]	; (100012b8 <dipper_encrypt_block_ct+0x2d4>)
+10001180:	ands	r4, r1
+10001182:	ands	r6, r5
+10001184:	mov	ip, r6
+10001186:	movs	r6, #128	; 0x80
+10001188:	lsls	r6, r6, #6
+1000118a:	ands	r7, r6
+1000118c:	orrs	r4, r7
+1000118e:	mov	r6, ip
+10001190:	mov	ip, r4
+10001192:	lsrs	r7, r3, #12
+10001194:	lsls	r4, r1, #20
+10001196:	orrs	r7, r4
+10001198:	ldr	r4, [pc, #288]	; (100012bc <dipper_encrypt_block_ct+0x2d8>)
+1000119a:	str	r7, [sp, #20]
+1000119c:	ands	r4, r7
+1000119e:	movs	r7, #128	; 0x80
+100011a0:	orrs	r2, r6
+100011a2:	mov	r6, sl
+100011a4:	orrs	r2, r4
+100011a6:	mov	r4, ip
+100011a8:	lsls	r7, r7, #5
+100011aa:	ands	r7, r6
+100011ac:	orrs	r7, r4
+100011ae:	lsrs	r6, r3, #8
+100011b0:	lsls	r4, r1, #24
+100011b2:	orrs	r6, r4
+100011b4:	ldr	r4, [pc, #264]	; (100012c0 <dipper_encrypt_block_ct+0x2dc>)
+100011b6:	mov	sl, r6
+100011b8:	ands	r4, r6
+100011ba:	movs	r6, #128	; 0x80
+100011bc:	lsls	r6, r6, #8
+100011be:	ands	r0, r6
+100011c0:	orrs	r7, r0
+100011c2:	lsls	r1, r1, #28
+100011c4:	lsrs	r0, r3, #4
+100011c6:	orrs	r0, r1
+100011c8:	ldr	r1, [pc, #248]	; (100012c4 <dipper_encrypt_block_ct+0x2e0>)
+100011ca:	orrs	r2, r4
+100011cc:	movs	r4, #132	; 0x84
+100011ce:	ands	r1, r0
+100011d0:	mov	ip, r0
+100011d2:	mov	r0, r9
+100011d4:	mov	r6, r8
+100011d6:	orrs	r2, r1
+100011d8:	lsls	r4, r4, #7
+100011da:	ldr	r1, [pc, #236]	; (100012c8 <dipper_encrypt_block_ct+0x2e4>)
+100011dc:	ands	r4, r0
+100011de:	ands	r1, r6
+100011e0:	orrs	r4, r7
+100011e2:	orrs	r4, r1
+100011e4:	movs	r1, #128	; 0x80
+100011e6:	movs	r7, #132	; 0x84
+100011e8:	lsls	r1, r1, #12
+100011ea:	movs	r6, r1
+100011ec:	lsls	r0, r3, #4
+100011ee:	lsls	r7, r7, #14
+100011f0:	ands	r7, r0
+100011f2:	orrs	r2, r7
+100011f4:	lsls	r7, r3, #8
+100011f6:	ands	r6, r7
+100011f8:	mov	r8, r1
+100011fa:	str	r7, [sp, #24]
+100011fc:	ldr	r1, [pc, #204]	; (100012cc <dipper_encrypt_block_ct+0x2e8>)
+100011fe:	movs	r7, r6
+10001200:	ldr	r6, [sp, #16]
+10001202:	orrs	r2, r7
+10001204:	ands	r6, r1
+10001206:	orrs	r4, r6
+10001208:	movs	r6, #128	; 0x80
+1000120a:	lsls	r7, r3, #12
+1000120c:	lsls	r6, r6, #11
+1000120e:	ands	r6, r7
+10001210:	mov	r9, r6
+10001212:	mov	r1, fp
+10001214:	ldr	r6, [pc, #184]	; (100012d0 <dipper_encrypt_block_ct+0x2ec>)
+10001216:	ands	r6, r1
+10001218:	mov	r1, r9
+1000121a:	orrs	r2, r1
+1000121c:	movs	r1, #128	; 0x80
+1000121e:	orrs	r4, r6
+10001220:	lsls	r1, r1, #10
+10001222:	lsls	r6, r3, #16
+10001224:	mov	r9, r1
+10001226:	ands	r1, r6
+10001228:	str	r1, [sp, #16]
+1000122a:	ldr	r1, [pc, #168]	; (100012d4 <dipper_encrypt_block_ct+0x2f0>)
+1000122c:	ands	r5, r1
+1000122e:	orrs	r4, r5
+10001230:	ldr	r5, [pc, #164]	; (100012d8 <dipper_encrypt_block_ct+0x2f4>)
+10001232:	mov	fp, r5
+10001234:	mov	r1, fp
+10001236:	ldr	r5, [sp, #20]
+10001238:	ands	r5, r1
+1000123a:	orrs	r4, r5
+1000123c:	ldr	r5, [pc, #156]	; (100012dc <dipper_encrypt_block_ct+0x2f8>)
+1000123e:	mov	fp, r5
+10001240:	mov	r5, sl
+10001242:	mov	r1, fp
+10001244:	ands	r5, r1
+10001246:	orrs	r4, r5
+10001248:	ldr	r5, [pc, #148]	; (100012e0 <dipper_encrypt_block_ct+0x2fc>)
+1000124a:	mov	fp, r5
+1000124c:	mov	r5, ip
+1000124e:	mov	r1, fp
+10001250:	ands	r5, r1
+10001252:	orrs	r4, r5
+10001254:	ldr	r5, [pc, #140]	; (100012e4 <dipper_encrypt_block_ct+0x300>)
+10001256:	movs	r1, #128	; 0x80
+10001258:	ands	r3, r5
+1000125a:	orrs	r4, r3
+1000125c:	movs	r3, #132	; 0x84
+1000125e:	lsls	r3, r3, #16
+10001260:	ands	r0, r3
+10001262:	mov	r3, r9
+10001264:	orrs	r4, r0
+10001266:	ldr	r0, [sp, #24]
+10001268:	lsls	r1, r1, #9
+1000126a:	ands	r0, r3
+1000126c:	mov	r3, r8
+1000126e:	ands	r7, r1
+10001270:	ldr	r1, [sp, #16]
+10001272:	ands	r6, r3
+10001274:	orrs	r2, r1
+10001276:	ldr	r1, [sp, #12]
+10001278:	orrs	r4, r0
+1000127a:	ldr	r3, [sp, #28]
+1000127c:	orrs	r7, r4
+1000127e:	adds	r1, #8
+10001280:	orrs	r6, r7
+10001282:	str	r1, [sp, #12]
+10001284:	cmp	r3, r1
+10001286:	beq.n	1000128a <dipper_encrypt_block_ct+0x2a6>
+10001288:	b.n	10001000 <dipper_encrypt_block_ct+0x1c>
+1000128a:	movs	r0, r2
+1000128c:	movs	r1, r6
+1000128e:	add	sp, #36	; 0x24
+10001290:	pop	{r4, r5, r6, r7}
+10001292:	mov	fp, r7
+10001294:	mov	sl, r6
+10001296:	mov	r9, r5
+10001298:	mov	r8, r4
+1000129a:	pop	{r4, r5, r6, r7, pc}
+1000129c:	.word	0x11111111
+100012a0:	.word	0x00400001
+100012a4:	.word	0x10000400
+100012a8:	.word	0x80000200
+100012ac:	.word	0x40000180
+100012b0:	.word	0x21000040
+100012b4:	.word	0x40000100
+100012b8:	.word	0x08000020
+100012bc:	.word	0x04000018
+100012c0:	.word	0x02100004
+100012c4:	.word	0x00800002
+100012c8:	.word	0x20000800
+100012cc:	.word	0x10000420
+100012d0:	.word	0x84000010
+100012d4:	.word	0x02000080
+100012d8:	.word	0x01000042
+100012dc:	.word	0x08400001
+100012e0:	.word	0x00200008
+100012e4:	.word	0x00100004
+
+### rpi-pico dipper_expand_128_ct
+10000dfc <dipper_expand_128_ct>:
+10000dfc:	push	{r4, r5, r6, r7, lr}
+10000dfe:	mov	lr, fp
+10000e00:	mov	r5, r8
+10000e02:	mov	r6, r9
+10000e04:	mov	r7, sl
+10000e06:	push	{r5, r6, r7, lr}
+10000e08:	movs	r5, r1
+10000e0a:	sub	sp, #76	; 0x4c
+10000e0c:	movs	r1, r0
+10000e0e:	movs	r2, #16
+10000e10:	add	r0, sp, #56	; 0x38
+10000e12:	bl	10006dfa <memcpy>
+10000e16:	add	r3, sp, #56	; 0x38
+10000e18:	ldrh	r3, [r3, #14]
+10000e1a:	add	r2, sp, #56	; 0x38
+10000e1c:	str	r3, [sp, #44]	; 0x2c
+10000e1e:	add	r3, sp, #56	; 0x38
+10000e20:	ldrh	r3, [r3, #12]
+10000e22:	mov	ip, r5
+10000e24:	str	r3, [sp, #28]
+10000e26:	add	r3, sp, #56	; 0x38
+10000e28:	ldrh	r3, [r3, #10]
+10000e2a:	ldrh	r2, [r2, #4]
+10000e2c:	mov	fp, r3
+10000e2e:	add	r3, sp, #56	; 0x38
+10000e30:	ldrh	r3, [r3, #8]
+10000e32:	movs	r1, #1
+10000e34:	mov	r9, r3
+10000e36:	add	r3, sp, #56	; 0x38
+10000e38:	ldrh	r3, [r3, #6]
+10000e3a:	str	r2, [sp, #32]
+10000e3c:	add	r2, sp, #56	; 0x38
+10000e3e:	ldrh	r4, [r2, #2]
+10000e40:	ldrh	r0, [r2, #0]
+10000e42:	movs	r2, #224	; 0xe0
+10000e44:	movs	r5, #15
+10000e46:	add	r2, ip
+10000e48:	str	r2, [sp, #52]	; 0x34
+10000e4a:	mov	r8, r5
+10000e4c:	ldr	r2, [pc, #400]	; (10000fe0 <dipper_expand_128_ct+0x1e4>)
+10000e4e:	str	r1, [sp, #36]	; 0x24
+10000e50:	str	r0, [sp, #40]	; 0x28
+10000e52:	b.n	10000e5a <dipper_expand_128_ct+0x5e>
+10000e54:	mov	r1, sl
+10000e56:	mov	r9, r5
+10000e58:	str	r1, [sp, #44]	; 0x2c
+10000e5a:	mov	r5, ip
+10000e5c:	ldr	r0, [sp, #56]	; 0x38
+10000e5e:	ldr	r1, [sp, #60]	; 0x3c
+10000e60:	stmia	r5!, {r0, r1}
+10000e62:	mov	ip, r5
+10000e64:	lsrs	r5, r4, #2
+10000e66:	lsls	r4, r4, #14
+10000e68:	orrs	r4, r5
+10000e6a:	mov	r5, r9
+10000e6c:	uxth	r1, r4
+10000e6e:	str	r1, [sp, #24]
+10000e70:	ldr	r1, [sp, #40]	; 0x28
+10000e72:	lsls	r4, r1, #4
+10000e74:	lsrs	r0, r1, #12
+10000e76:	orrs	r0, r4
+10000e78:	uxth	r1, r0
+10000e7a:	add	r4, sp, #56	; 0x38
+10000e7c:	strh	r5, [r4, #4]
+10000e7e:	strh	r1, [r4, #0]
+10000e80:	lsrs	r4, r3, #12
+10000e82:	lsrs	r7, r4, #2
+10000e84:	movs	r6, r4
+10000e86:	ands	r7, r2
+10000e88:	movs	r0, r7
+10000e8a:	ands	r6, r2
+10000e8c:	lsrs	r5, r4, #1
+10000e8e:	ands	r0, r6
+10000e90:	ands	r5, r2
+10000e92:	eors	r5, r0
+10000e94:	movs	r0, r5
+10000e96:	lsrs	r4, r4, #3
+10000e98:	ands	r0, r4
+10000e9a:	eors	r6, r0
+10000e9c:	movs	r0, r5
+10000e9e:	str	r1, [sp, #40]	; 0x28
+10000ea0:	movs	r1, #0
+10000ea2:	orrs	r0, r6
+10000ea4:	eors	r7, r0
+10000ea6:	eors	r4, r7
+10000ea8:	eors	r5, r4
+10000eaa:	str	r5, [sp, #0]
+10000eac:	eors	r4, r2
+10000eae:	lsls	r5, r6, #3
+10000eb0:	orrs	r4, r5
+10000eb2:	str	r1, [sp, #4]
+10000eb4:	ldr	r0, [sp, #0]
+10000eb6:	ldr	r1, [sp, #4]
+10000eb8:	mov	sl, r4
+10000eba:	movs	r5, r1
+10000ebc:	movs	r4, r0
+10000ebe:	adds	r4, r4, r0
+10000ec0:	adcs	r5, r1
+10000ec2:	mov	r0, sl
+10000ec4:	ldr	r5, [sp, #0]
+10000ec6:	orrs	r4, r0
+10000ec8:	ands	r6, r5
+10000eca:	mov	r5, r8
+10000ecc:	eors	r6, r7
+10000ece:	lsls	r6, r6, #2
+10000ed0:	orrs	r4, r6
+10000ed2:	ands	r4, r5
+10000ed4:	lsls	r3, r3, #20
+10000ed6:	lsrs	r3, r3, #20
+10000ed8:	lsls	r4, r4, #12
+10000eda:	orrs	r4, r3
+10000edc:	mov	r3, fp
+10000ede:	lsrs	r6, r3, #12
+10000ee0:	uxth	r6, r6
+10000ee2:	lsrs	r5, r6, #2
+10000ee4:	movs	r3, r6
+10000ee6:	ands	r5, r2
+10000ee8:	mov	sl, r4
+10000eea:	movs	r4, r5
+10000eec:	ands	r3, r2
+10000eee:	lsrs	r7, r6, #1
+10000ef0:	ands	r4, r3
+10000ef2:	ands	r7, r2
+10000ef4:	eors	r7, r4
+10000ef6:	movs	r4, r7
+10000ef8:	lsrs	r6, r6, #3
+10000efa:	ands	r4, r6
+10000efc:	eors	r4, r3
+10000efe:	movs	r3, r7
+10000f00:	movs	r1, #0
+10000f02:	orrs	r3, r4
+10000f04:	eors	r5, r3
+10000f06:	eors	r6, r5
+10000f08:	eors	r7, r6
+10000f0a:	str	r7, [sp, #16]
+10000f0c:	eors	r6, r2
+10000f0e:	lsls	r3, r4, #3
+10000f10:	str	r1, [sp, #20]
+10000f12:	ldr	r0, [sp, #16]
+10000f14:	ldr	r1, [sp, #20]
+10000f16:	orrs	r3, r6
+10000f18:	movs	r7, r1
+10000f1a:	movs	r6, r0
+10000f1c:	adds	r6, r6, r0
+10000f1e:	adcs	r7, r1
+10000f20:	ands	r4, r0
+10000f22:	eors	r4, r5
+10000f24:	orrs	r3, r6
+10000f26:	lsls	r4, r4, #2
+10000f28:	orrs	r3, r4
+10000f2a:	mov	r4, r8
+10000f2c:	ldr	r0, [sp, #24]
+10000f2e:	ands	r3, r4
+10000f30:	mov	r4, fp
+10000f32:	lsrs	r5, r0, #12
+10000f34:	lsrs	r7, r5, #2
+10000f36:	movs	r6, r5
+10000f38:	ands	r7, r2
+10000f3a:	movs	r0, r7
+10000f3c:	lsls	r4, r4, #20
+10000f3e:	lsrs	r4, r4, #20
+10000f40:	lsls	r3, r3, #12
+10000f42:	orrs	r3, r4
+10000f44:	add	r4, sp, #56	; 0x38
+10000f46:	ands	r6, r2
+10000f48:	strh	r3, [r4, #6]
+10000f4a:	lsrs	r4, r5, #1
+10000f4c:	ands	r0, r6
+10000f4e:	ands	r4, r2
+10000f50:	eors	r4, r0
+10000f52:	movs	r0, r4
+10000f54:	lsrs	r5, r5, #3
+10000f56:	ands	r0, r5
+10000f58:	eors	r6, r0
+10000f5a:	movs	r0, r4
+10000f5c:	movs	r1, #0
+10000f5e:	orrs	r0, r6
+10000f60:	eors	r7, r0
+10000f62:	eors	r5, r7
+10000f64:	eors	r4, r5
+10000f66:	str	r4, [sp, #8]
+10000f68:	eors	r5, r2
+10000f6a:	lsls	r4, r6, #3
+10000f6c:	orrs	r5, r4
+10000f6e:	str	r1, [sp, #12]
+10000f70:	ldr	r0, [sp, #8]
+10000f72:	ldr	r1, [sp, #12]
+10000f74:	mov	fp, r5
+10000f76:	movs	r4, r0
+10000f78:	movs	r5, r1
+10000f7a:	str	r7, [sp, #48]	; 0x30
+10000f7c:	adds	r4, r4, r0
+10000f7e:	adcs	r5, r1
+10000f80:	mov	r7, fp
+10000f82:	mov	r5, r8
+10000f84:	ldr	r1, [sp, #48]	; 0x30
+10000f86:	ands	r6, r0
+10000f88:	eors	r6, r1
+10000f8a:	ldr	r0, [sp, #24]
+10000f8c:	orrs	r4, r7
+10000f8e:	lsls	r6, r6, #2
+10000f90:	orrs	r4, r6
+10000f92:	ands	r4, r5
+10000f94:	lsls	r6, r0, #20
+10000f96:	lsrs	r6, r6, #20
+10000f98:	lsls	r4, r4, #12
+10000f9a:	orrs	r4, r6
+10000f9c:	add	r1, sp, #56	; 0x38
+10000f9e:	strh	r4, [r1, #2]
+10000fa0:	movs	r1, #1
+10000fa2:	ldr	r0, [sp, #36]	; 0x24
+10000fa4:	ldr	r5, [sp, #28]
+10000fa6:	lsrs	r6, r0, #1
+10000fa8:	lsrs	r7, r0, #4
+10000faa:	eors	r6, r7
+10000fac:	eors	r5, r0
+10000fae:	ands	r6, r1
+10000fb0:	lsls	r1, r0, #1
+10000fb2:	movs	r0, #31
+10000fb4:	orrs	r1, r6
+10000fb6:	ands	r1, r0
+10000fb8:	str	r1, [sp, #36]	; 0x24
+10000fba:	ldr	r1, [sp, #32]
+10000fbc:	uxth	r5, r5
+10000fbe:	str	r1, [sp, #28]
+10000fc0:	ldr	r1, [sp, #44]	; 0x2c
+10000fc2:	mov	fp, r1
+10000fc4:	mov	r1, r9
+10000fc6:	str	r1, [sp, #32]
+10000fc8:	ldr	r1, [sp, #52]	; 0x34
+10000fca:	cmp	r1, ip
+10000fcc:	beq.n	10000fd0 <dipper_expand_128_ct+0x1d4>
+10000fce:	b.n	10000e54 <dipper_expand_128_ct+0x58>
+10000fd0:	add	sp, #76	; 0x4c
+10000fd2:	pop	{r4, r5, r6, r7}
+10000fd4:	mov	fp, r7
+10000fd6:	mov	sl, r6
+10000fd8:	mov	r9, r5
+10000fda:	mov	r8, r4
+10000fdc:	pop	{r4, r5, r6, r7, pc}
+10000fde:	nop			; (mov r8, r8)
+10000fe0:	.word	0x11111111
+
