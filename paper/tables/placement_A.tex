@@ -1,0 +1,13 @@
+\begin{tabular}{llrrrrrr}
+\hline
+Platform & Setting & S fl & S ram & T fl & T ram & lk1 & lk32\\
+\hline
+STM32F103 & none & $=$ & $=$ & $=$ & $=$ & \textbf{116\,790} {\scriptsize(+3.0)} & \textbf{85\,915} {\scriptsize(+160.2)}\\
+nRF52840 & I-cache on (default) & 0.3 & 0.5 & \textbf{848} {\scriptsize(-6.0)} & 0.3 & \textbf{620} {\scriptsize(+4.5)} & \textbf{29\,003} {\scriptsize(+128.0)}\\
+nRF52840 & I-cache off & $=$ & $=$ & \textbf{492} {\scriptsize(+1.3)} & $=$ & \textbf{112\,067} {\scriptsize(+3.5)} & \textbf{102\,502} {\scriptsize(+173.3)}\\
+nRF52840 & cipher code in RAM & 0.9 & 0.8 & \textbf{850} {\scriptsize(-6.4)} & 1.1 & \textbf{4\,592} {\scriptsize(+6.0)} & \textbf{96\,122} {\scriptsize(+160.4)}\\
+SAMR21 & NVM cache 64\,B & \textbf{1\,018} {\scriptsize(+10.0)} & $=$ & \textbf{680} {\scriptsize(+13.0)} & $=$ & \textbf{112\,737} {\scriptsize(+7.0)} & \textbf{91\,419} {\scriptsize(+146.2)}\\
+STM32L475 & ART D-cache 256\,B & 0.5 & 0.7 & \textbf{1\,130} {\scriptsize(+20.5)} & 0.3 & \textbf{276} {\scriptsize(+4.4)} & \textbf{5\,203} {\scriptsize(+127.9)}\\
+RP2040 & XIP cache 16\,KB & 0.9 & 0.6 & \textbf{10.4} {\scriptsize(+10.4)} & 0.8 & \textbf{115} {\scriptsize(+5.4)} & \textbf{685} {\scriptsize(+144.3)}\\
+\hline
+\end{tabular}

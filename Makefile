@@ -21,4 +21,10 @@ host:
 paper-zip:
 	cd paper && rm -f ../paper_overleaf.zip && zip -qr ../paper_overleaf.zip paper.tex logo.eps figures tables && cd .. && ls -la paper_overleaf.zip
 
-.PHONY: analysis host paper-zip
+.PHONY: analysis host paper-zip verify
+
+# Host check of every raw dump (main and placement experiments, .log or .log.xz):
+# recomputes the device statistic from the dumped samples and compares.
+verify:
+	$(PY) analysis/recompute.py $$($(PY) -c "import sys; sys.path.insert(0,'analysis'); from summarize import raw_logs; print(' '.join(sorted(raw_logs())))") > results/summary/recompute.txt; tail -1 results/summary/recompute.txt
+	$(PY) analysis/recompute.py $$(ls results/raw/placement/*.log.xz) > results/summary/recompute_placement.txt; tail -1 results/summary/recompute_placement.txt; grep -c 'exact$$' results/summary/recompute_placement.txt

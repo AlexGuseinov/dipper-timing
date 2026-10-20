@@ -179,18 +179,18 @@ def main():
             return "%s$^{\\dagger}$" % fmt_t(lo)
         return fmt_t(lo)
 
-    lines = ["\\begin{tabular}{ll" + "r" * 6 + "|" + "r" * 6 + "}", "\\hline",
-             " & & \\multicolumn{6}{c|}{Test A} & \\multicolumn{6}{c}{Test B}\\\\",
-             "Platform & Setting & " + " & ".join(["S fl", "S ram", "T fl", "T ram", "lk1", "lk32"] * 2) + "\\\\", "\\hline"]
-    for pre, name, note in CONFIGS:
-        cells = [cell(by.get((pre, v, t), [])) for t in "AB" for v in VARIANTS]
-        if all(c == "--" for c in cells):
-            continue
-        lines.append("%s & %s & %s\\\\" % (name, note, " & ".join(cells)))
-    lines += ["\\hline", "\\end{tabular}"]
-    os.makedirs(os.path.join(ROOT, "paper", "tables"), exist_ok=True)
-    open(os.path.join(ROOT, "paper", "tables", "placement.tex"), "w").write("\n".join(lines) + "\n")
-
+    for t in "AB":
+        lines = ["\\begin{tabular}{ll" + "r" * 6 + "}", "\\hline",
+                 "Platform & Setting & S fl & S ram & T fl & T ram & lk1 & lk32\\\\", "\\hline"]
+        for pre, name, note in CONFIGS:
+            cells = [cell(by.get((pre, v, t), [])) for v in VARIANTS]
+            if all(c == "--" for c in cells):
+                continue
+            lines.append("%s & %s & %s\\\\" % (name, note, " & ".join(cells)))
+        lines += ["\\hline", "\\end{tabular}"]
+        os.makedirs(os.path.join(ROOT, "paper", "tables"), exist_ok=True)
+        open(os.path.join(ROOT, "paper", "tables", "placement_%s.tex" % t), "w").write("\n".join(lines) + "\n")
+        print("\n".join(lines))
     mbt = ["\\begin{tabular}{llrrrr}", "\\hline",
            " & & \\multicolumn{3}{c}{Flash} & RAM\\\\",
            "Platform & Setting & same block & other block & block size & any\\\\", "\\hline"]
@@ -206,7 +206,6 @@ def main():
         mbt.append("%s & %s & %d & %d & %s & %d\\\\" % (name, note, fl[3], fl[4], blk, ra[3]))
     mbt += ["\\hline", "\\end{tabular}"]
     open(os.path.join(ROOT, "paper", "tables", "microbench.tex"), "w").write("\n".join(mbt) + "\n")
-    print("\n".join(lines))
     print("\n".join(mbt))
     for r in mbrows:
         print(r)

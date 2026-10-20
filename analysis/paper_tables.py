@@ -165,7 +165,7 @@ def effect_table():
              and x["seed"] == "1" and "N1e7" not in x["log"]]
         return r[0] if r else None
     lines = ["\\begin{tabular}{lrrrrrr}", "\\hline",
-             " & \\multicolumn{4}{c}{Mean difference random $-$ fixed, Test A} & \\multicolumn{2}{c}{Detectable difference} \\\\",
+             " & \\multicolumn{4}{c}{Mean difference random $-$ fixed, Test A} & \\multicolumn{2}{c}{Mean-shift threshold} \\\\",
              "Platform & sm & fc & ct & lk & median & range\\\\", "\\hline"]
     for plat, short in names:
         cells = []

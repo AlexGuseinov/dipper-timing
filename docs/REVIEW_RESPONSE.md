@@ -18,3 +18,16 @@ Every point was checked against the code and the data, and none was found to be 
 | minor | memcheck is dynamic | Terminology changed. | paper §4, §5.1 |
 | minor | Supplementary statistics | Signed t, test index and class means/sd are in `results/summary/runs.csv`, `effect_size.csv`, `placement_runs.csv`. | repo |
 | minor | RPi deployment in Limitations | Removed from the paper; kept in `RESULTS.md` §6 as an experiment note. | paper |
+
+## Round 2 (ChatGPT, on commit dd75ca1)
+
+| # | Point | Action |
+|---|---|---|
+| 1 | Placement raw logs not in the repository | My mistake: the `.log` files were git-ignored and no `.xz` copies were committed. Added the 14 logs as `.log.xz` (17 MB), plus the symbol maps of all placement builds (`results/raw/nm/placement/`). Added `make verify`: placement gives 168/168 exact (`results/summary/recompute_placement.txt`). |
+| 2 | "16-byte buffer found" is too definite; microbenchmark code is not in RAM in the `ramfunc` build | Reworded to "16-byte block-dependent flash-read timing, consistent with a data read buffer". The paper now states that the microbenchmark code runs from flash in all builds. This is confirmed by the symbol map: `mb_pair` is at 0x1F50, the cipher functions at 0x2000xxxx. |
+| 3 | nRF effect differs between configurations | Text now says the verdicts are the same, so the I-cache is not necessary for the leak. It also says the size and sign change (−6.0 / +1.3 / −6.4 cycles), so instruction fetches still influence the timing. |
+| 4 | RP2040 mechanism not shown | Abstract, §5.4, Discussion and Conclusion now separate the three boards with a microbenchmark explanation from the RP2040, where only the placement dependence is shown. |
+| 5 | "Smallest detectable difference" is not power | Renamed to "mean-shift threshold" (the expected t reaches 4.5; detected about half of the time). The assumption of stable variance is stated. |
+| 6 | Damaged dumps in effect size | `effect_size.py` now uses only intact dumps (244 of 260). Table 4 is unchanged, because none of its runs had damage. |
+| 7 | "compensates", "bound where attacks are possible"; Table 5 too small | Changed to "reduces this risk but does not formally control it" and "identify potential timing-attack surfaces". The placement table is split into Test A and Test B. |
+| refs | ESP TRM years; Blackman–Vigna; ARMageddon; full titles; Nordic link; workshop links | ESP32 TRM v5.8 is now 2026 (PDF created July 2026) and ESP32-C6 TRM v1.2 is 2026 (March 2026), both checked in PDF metadata. Other changes: Article 36 added; ARMageddon pp. 549–564 (USENIX page); full GIFT and Fixslicing titles (Crossref); Nordic NVMC page URL; Hansen and Goodwill PDF URLs. |

@@ -1,0 +1,398 @@
+00000000 A _backup_ram_len
+00000000 A _backup_ram_start_addr
+00000000 00000040 T cortex_vector_base
+00000000 ? _ebackup_bss
+00000000 ? _ebackup_data
+00000000 ? _ebackup_noinit
+00000000 ? _eheap1
+00000000 T _isr_vectors
+00000000 A _rom_offset
+00000000 A _rom_start_addr
+00000000 ? _sbackup_bss
+00000000 ? _sbackup_data
+00000000 ? _sbackup_noinit
+00000000 T _sfixed
+00000000 ? _sheap1
+00000000 A _slot_aux_len
+00000000 A __tbss_size
+00000000 A __tdata_size
+00000000 A __tls_size
+00000040 000000c0 T vector_cpu
+00000100 00000030 T plat_print
+00000130 00000074 T plat_setup
+000001a4 00000040 T main
+000001e4 00000024 T auto_init
+00000208 00000002 W board_init
+0000020c 00000018 t main_trampoline
+00000224 00000034 T kernel_init
+00000258 0000000e T early_init
+00000268 00000002 W panic_app
+0000026c 0000003c T core_panic
+000002a8 0000006c T mutex_lock_internal
+00000314 0000004c T mutex_unlock
+00000360 00000088 T sched_run
+000003e8 000000cc T sched_set_status
+000004b4 0000003c T sched_switch
+000004f0 0000003c T sched_task_exit
+0000052c 00000022 T thread_add_to_list
+00000550 000000c4 T thread_create
+00000614 00000044 T cortexm_init
+00000658 00000002 T panic_arch
+0000065c 00000024 T pm_reboot
+00000680 00000070 T thread_stack_init
+000006f0 0000002c T cpu_switch_context_exit
+0000071c 0000004c T isr_pendsv
+0000074c t restore_context
+00000768 00000010 T isr_svc
+00000778 0000000c T sched_arch_idle
+00000784 00000010 W nmi_handler
+00000794 00000010 T hard_fault_default
+000007a4 00000010 T bus_fault_default
+000007b4 00000010 T usage_fault_default
+000007c4 00000010 T debug_mon_default
+000007d4 00000010 T dummy_handler_default
+000007d4 00000010 W isr_systick
+000007e4 00000002 W pre_startup
+000007e8 00000002 W post_startup
+000007ec 00000084 T reset_handler_default
+00000870 00000006 W mem_manage_handler
+00000878 00000018 T mem_manage_default
+00000890 00000002 T clock_init_hf
+00000894 00000034 T clock_start_lf
+000008c8 000000d4 T cpu_init
+0000099c 00000030 T isr_spi0_twi0
+000009cc 00000030 T isr_spi1_twi1
+000009fc 00000030 T isr_spi2
+00000a2c 00000030 T isr_spi3
+00000a5c 00000046 T dipper_ct_sbox_nibble
+00000aa4 00000048 t init_tables.part.0
+00000aec 000000e4 T dipper_expand_96
+00000bd0 000000e8 T dipper_expand_128
+00000cb8 00000120 T dipper_encrypt_block
+00000dd8 00000120 T dipper_decrypt_block
+00000ef8 0000010c T enc_small_tab
+00001004 00000070 T placement_init
+00001074 000000d8 T expand_128_tab
+0000114c 000000ea T enc_fast_tab
+00001238 00000038 T enc_leaky_n
+00001270 0000000c T pl_ks_flash
+0000127c 0000000c T pl_ks_ram
+00001288 0000000c T pl_small_flash
+00001294 0000000c T pl_small_ram
+000012a0 0000001c T pl_fast_flash
+000012bc 0000001c T pl_fast_ram
+000012d8 00000006 T pl_leaky1
+000012e0 00000006 T pl_leaky32
+000012e8 00000008 T pl_addr_s_flash
+000012f0 00000008 T pl_addr_s_ram
+000012f8 00000008 T pl_addr_pt_flash
+00001300 00000008 T pl_addr_pt_ram
+00001308 00000008 T pl_addr_code
+00001310 00000012 t cmp_u32
+00001328 00000120 t prepare
+00001448 00000178 t fmt_d
+000015c0 000000d4 t measure.isra.0
+00001694 00000012 t cmp_u32b
+000016a8 0000010c T dudect_welch
+000017b4 000000b0 T dudect_init
+00001868 000001dc T dudect_push
+00001a48 000000a8 T dudect_max_t
+00001af0 000000a0 t print_status
+00001b90 000006d0 T dudect_run_all
+00002260 00000058 t mb_pair
+000022b8 000001a4 t mb_region
+0000245c 0000005c T microbench_run
+000024b8 0000043c T dipper_selftest
+000028f4 00000042 t gcd32.part.0
+00002938 000000d0 T frac_init
+00002a08 00000008 t _out_buffer
+00002a10 00000002 t _out_null
+00002a14 0000009e t _out_rev
+00002ab4 00000284 t _ntoa_long
+00002d38 00000610 t _vsnprintf
+00003348 00000020 t write_all
+00003368 0000002c t _out_char
+00003394 00000040 T printf_
+00003394 00000040 T __wrap_printf
+000033d4 0000002c T sprintf_
+000033d4 0000002c T __wrap_sprintf
+00003400 00000028 T snprintf_
+00003400 00000028 T __wrap_snprintf
+00003428 00000030 T __wrap_puts
+00003458 00000034 T __wrap_fputs
+0000348c 00000002 T _init
+00003490 00000002 T _fini
+00003494 00000048 T _sbrk_r
+000034dc 00000008 T _read_r
+000034e4 00000008 T _write_r
+000034ec 0000000a T _close_r
+000034f8 0000000a T _lseek_r
+00003504 0000000a T _fstat_r
+00003510 00000012 T _isatty_r
+00003524 00000004 T dummy_handler
+00003524 00000004 W isr_ccm_aar
+00003524 00000004 W isr_cryptocell
+00003524 00000004 W isr_ecb
+00003524 00000004 W isr_fpu
+00003524 00000004 W isr_gpiote
+00003524 00000004 W isr_i2s
+00003524 00000004 W isr_lpcomp
+00003524 00000004 W isr_mwu
+00003524 00000004 W isr_nfct
+00003524 00000004 W isr_pdm
+00003524 00000004 W isr_power_clock
+00003524 00000004 W isr_pwm0
+00003524 00000004 W isr_pwm1
+00003524 00000004 W isr_pwm2
+00003524 00000004 W isr_pwm3
+00003524 00000004 W isr_qdec
+00003524 00000004 W isr_qspi
+00003524 00000004 W isr_radio
+00003524 00000004 W isr_rng
+00003524 00000004 W isr_rtc0
+00003524 00000004 W isr_rtc2
+00003524 00000004 W isr_saadc
+00003524 00000004 W isr_spi0
+00003524 00000004 W isr_spi1_twi0
+00003524 00000004 W isr_swi0
+00003524 00000004 W isr_swi1
+00003524 00000004 W isr_swi2
+00003524 00000004 W isr_swi3
+00003524 00000004 W isr_swi4
+00003524 00000004 W isr_swi5
+00003524 00000004 W isr_temp
+00003524 00000004 W isr_timer0
+00003524 00000004 W isr_timer1
+00003524 00000004 W isr_timer2
+00003524 00000004 W isr_timer3
+00003524 00000004 W isr_timer4
+00003524 00000004 W isr_twi0
+00003524 00000004 W isr_usbd
+00003524 00000004 W isr_wdt
+00003528 00000040 T gpio_init
+00003568 00000028 T rtt_init
+00003590 0000000c T rtt_get_counter
+0000359c 0000002c T rtt_set_alarm
+000035c8 00000010 T rtt_clear_alarm
+000035d8 0000000c T rtt_poweron
+000035e4 00000070 T isr_rtc1
+00003654 00000058 t irq_handler
+000036ac 000001fc T uart_init
+000038a8 00000074 T uart_write
+0000391c 00000006 T isr_uart0
+00003924 00000006 T isr_uarte1
+0000392c 00000026 W button_init
+00003954 00000048 W led_init
+0000399c 0000000e T periph_init
+000039ac 00000006 W stdio_read
+000039b4 0000000e T stdio_init
+000039c4 00000012 T stdio_write
+000039d8 00000042 t ztimer_convert_frac_op_now
+00003a1c 00000034 t ztimer_convert_frac_op_set
+00003a50 0000008c T ztimer_convert_frac_init
+00003adc 0000000a T ztimer_convert_cancel
+00003ae8 00000032 t _ztimer_update
+00003b1c 0000002e T _ztimer_now_extend
+00003b4c 00000046 t _ztimer_update_head_offset
+00003b94 00000072 T ztimer_remove
+00003c08 000000d2 T ztimer_set
+00003cdc 000000ac T ztimer_handler
+00003d88 00000028 T ztimer_init
+00003db0 00000004 t _ztimer_periph_rtt_cancel
+00003db4 00000004 t _ztimer_periph_rtt_now
+00003db8 00000034 t _ztimer_periph_rtt_set
+00003dec 00000004 t _ztimer_periph_rtt_callback
+00003df0 00000030 T ztimer_periph_rtt_init
+00003e20 00000004 t _callback_unlock_mutex
+00003e24 00000038 T ztimer_sleep
+00003e5c 00000074 T sqrt
+00003ed0 00000188 T __ieee754_sqrt
+00004058 T __aeabi_drsub
+00004060 0000027a T __aeabi_dsub
+00004060 0000027a T __subdf3
+00004064 00000276 T __adddf3
+00004064 00000276 T __aeabi_dadd
+000042dc 0000001e T __aeabi_ui2d
+000042dc 0000001e T __floatunsidf
+000042fc 00000022 T __aeabi_i2d
+000042fc 00000022 T __floatsidf
+00004320 00000042 T __aeabi_f2d
+00004320 00000042 T __extendsfdf2
+00004364 0000006a T __aeabi_ul2d
+00004364 0000006a T __floatundidf
+00004374 0000005a T __aeabi_l2d
+00004374 0000005a T __floatdidf
+000043d0 00000254 T __aeabi_dmul
+000043d0 00000254 T __muldf3
+00004624 000001d0 T __aeabi_ddiv
+00004624 000001d0 T __divdf3
+000047f4 0000008a T __gedf2
+000047f4 0000008a T __gtdf2
+000047fc 00000082 T __ledf2
+000047fc 00000082 T __ltdf2
+00004804 0000007a T __cmpdf2
+00004804 0000007a T __eqdf2
+00004804 0000007a T __nedf2
+00004880 00000020 T __aeabi_cdrcmple
+00004890 00000010 T __aeabi_cdcmpeq
+00004890 00000010 T __aeabi_cdcmple
+000048a0 00000012 T __aeabi_dcmpeq
+000048b4 00000012 T __aeabi_dcmplt
+000048c8 00000012 T __aeabi_dcmple
+000048dc 00000012 T __aeabi_dcmpge
+000048f0 00000012 T __aeabi_dcmpgt
+00004904 0000002c T __aeabi_dcmpun
+00004904 0000002c T __unorddf2
+00004930 00000040 T __aeabi_d2uiz
+00004930 00000040 T __fixunsdfsi
+00004970 0000000c T __errno
+0000497c 0000010c T __sflush_r
+00004a88 00000078 T _fflush_r
+00004b00 00000024 T fflush
+00004b24 00000048 t std
+00004b6c 0000000c T _cleanup_r
+00004b78 0000002c T __sfmoreglue
+00004ba4 0000000c T __sfp_lock_acquire
+00004bb0 0000000c T __sfp_lock_release
+00004bbc 0000000c T __sinit_lock_acquire
+00004bc8 0000000c T __sinit_lock_release
+00004bd4 00000070 T __sinit
+00004c44 0000008c T __sfp
+00004cd0 0000003e T _fwalk_reent
+00004d10 000000c0 T _fwrite_r
+00004dd0 0000001c T fwrite
+00004dec 00000048 T __libc_init_array
+00004e34 00000002 T __retarget_lock_init_recursive
+00004e36 00000002 T __retarget_lock_acquire_recursive
+00004e38 00000002 T __retarget_lock_release_recursive
+00004e3a 0000001c T memcmp
+00004e56 0000001c T memcpy
+00004e72 00000010 T memset
+00004e84 000000a0 T _free_r
+00004f24 000000b4 T _malloc_r
+00004fd8 00000032 t swapfunc
+0000500a 00000040 t med3.isra.0
+0000504a 000002a2 T qsort
+000052ec 00000022 T __sread
+0000530e 00000038 T __swrite
+00005346 00000024 T __sseek
+0000536a 00000008 T __sclose
+00005372 00000010 T strcpy
+00005382 00000010 T strlen
+00005394 000000a4 T __swbuf_r
+00005438 000000dc T __swsetup_r
+00005514 00000048 T __swhatbuf_r
+0000555c 00000080 T __smakebuf_r
+000055dc 0000000c T __malloc_lock
+000055e8 0000000c T __malloc_unlock
+00005738 00000010 t S
+00005748 00000010 t SI
+00005768 00000800 t PTC
+00005f68 00000200 t SB2C
+00006180 00000010 t S_FLASH
+000063b8 00000010 t FIXED_KEY
+00007480 00001000 t MB_FLASH
+00008558 00000010 t S.6330
+00008568 00000004 T dipper_n_variants
+0000856c 00000060 T dipper_variants
+000085d4 00000010 t uart_config
+000085e4 0000000c t ztimer_convert_frac_ops
+000085f0 00000004 T ZTIMER_MSEC
+000085f4 0000000c t _ztimer_periph_rtt_ops
+00008600 00000020 T __sf_fake_stderr
+00008620 00000020 T __sf_fake_stdin
+00008640 00000020 T __sf_fake_stdout
+00008660 00000004 T _global_impure_ptr
+00008664 T auto_init_xfa
+00008664 00000004 T auto_init_xfa_ztimer_init
+00008668 T auto_init_xfa_end
+00008668 T _efixed
+00008668 B _etext
+00008668 T __fini_array_end
+00008668 T __fini_array_start
+00008668 T __init_array_end
+00008668 T __init_array_start
+00008668 T __preinit_array_end
+00008668 T __preinit_array_start
+00008668 T __tbss_end
+00008668 T __tdata_end
+00008668 A __tdata_source
+00008668 T __tdata_start
+000086dc A _sbackup_data_load
+00040000 A _ram_length
+00100000 A _fw_rom_length
+00100000 A _rom_length
+00100000 A _slot_aux_offset
+20000000 00000200 B isr_stack
+20000000 A _ram_start_addr
+20000000 B _sram
+20000000 B _sstack
+20000200 B _estack
+20000200 00000004 D plat_name_str
+20000200 D _srelocate
+20000204 00000004 d heap_top
+20000208 00000001 D __fdlib_version
+2000020c 00000004 D _impure_ptr
+20000210 00000060 d impure_data
+20000270 00000001 D max_threads
+20000274 D _erelocate
+20000280 00000080 b name_buf
+20000280 B _sbss
+20000280 B _szero
+20000300 00000004 B plat_irq_state
+20000304 00001000 b main_stack
+20001304 00000004 b crashed
+20001308 00000004 b runqueue_bitcache
+2000130c 00000002 B sched_active_pid
+20001310 00000004 B sched_active_thread
+20001314 00000004 B sched_context_switch_request
+20001318 00000004 B sched_num_threads
+2000131c 00000040 B sched_runqueues
+2000135c 00000084 B sched_threads
+200013e0 00000001 b clock_lf_running
+200013e4 00000010 b _irq
+200013f4 00000010 b _irq_arg
+20001404 00000040 b P
+20001444 00000040 b PI
+20001484 00000004 b tables_ready
+200014c0 00000800 b PT_RAM
+20001cc0 00000040 b P_PUB
+20001d00 00000200 b SB2_RAM
+20001f00 00000010 b S_RAM
+20001f10 00000100 b b_cls
+20002010 00000400 b b_d
+20002410 00001000 b b_key
+20003410 00000800 b b_pt
+20003c10 00009c40 b cal_buf
+2000d850 0000004c b raw.10266
+2000d89c 00000004 b rn.10267
+2000d8a0 00000008 b sink
+2000d8a8 00000278 b st
+2000db40 00001000 b MB_RAM
+2000eb40 00000004 b mb_sink
+2000eb44 00000004 b alarm_arg
+2000eb48 00000004 b alarm_cb
+2000eb4c 00000004 b overflow_arg
+2000eb50 00000004 b overflow_cb
+2000eb54 00000010 b isr_ctx
+2000eb64 00000002 b rx_buf
+2000eb68 00000048 b _ztimer_convert_frac_msec
+2000ebb0 00000020 b _ztimer_periph_timer_rtt
+2000ebd0 00000004 B __malloc_free_list
+2000ebd4 00000004 B __malloc_sbrk_start
+2000ebd8 00000001 B __lock___atexit_recursive_mutex
+2000ebd9 00000001 B __lock___arc4random_mutex
+2000ebda 00000001 B __lock___env_recursive_mutex
+2000ebdb 00000001 B __lock___sinit_recursive_mutex
+2000ebdc 00000001 B __lock___malloc_recursive_mutex
+2000ebdd 00000001 B __lock___at_quick_exit_mutex
+2000ebde 00000001 B __lock___dd_hash_mutex
+2000ebdf 00000001 B __lock___tz_mutex
+2000ebe0 00000001 B __lock___sfp_recursive_mutex
+2000ebe4 B _ebss
+2000ebe4 B _ezero
+2000ebe4 ? __noinit_end
+2000ebe4 ? __noinit_start
+2000ebe4 B _sheap
+20040000 B _eheap
+20040000 B _eram

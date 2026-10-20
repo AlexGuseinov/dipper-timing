@@ -81,7 +81,7 @@ scripts/iotlab/collect.sh saclay
 
 **IoT-LAB ESP32-C6 / LoPy4.** These boards cannot be flashed when the experiment starts. Build with `pio run -e esp32c6` (or `lopy4`), merge the image into one `.bin` at 0x0 with esptool `merge_bin` (offsets in `.pio/build/<env>/flasher_args.json`), submit without firmware, then run `start_run.sh` with the `.bin`.
 
-**Analysis.** `make analysis` runs the whole chain below, and `make paper-zip` packs `paper/` for Overleaf.
+**Analysis.** `make analysis` runs the whole chain below, `make verify` recomputes the device statistics from every raw dump (main and placement experiments), and `make paper-zip` packs `paper/` for Overleaf.
 ```bash
 python3 analysis/recompute.py results/raw/*.log
 python3 analysis/summarize.py

@@ -2,14 +2,15 @@
 """Effect size and sensitivity from the raw dumps (first 131072 samples of
 every run; damaged dump lines are skipped).
 
+Only intact dumps are used (no damaged line and the full 131072 samples).
 For each run: per-class mean and standard deviation (uncropped), the mean
 difference d = mean(random) - mean(fixed) in timer units with a 95% interval,
 and the minimum mean difference that the uncropped Welch test would flag at
 |t| = 4.5 with the run's full N (half the samples per class):
     MDE = 4.5 * sqrt(s0^2/(N/2) + s1^2/(N/2)).
-The cropped tests used in the verdicts are at least as sensitive for
-differences in the lower part of the distribution, so MDE is an upper bound
-on what the reported max |t| can detect for a pure shift.
+This is the estimated mean-shift threshold of the uncropped test (the shift
+at which its expected t reaches 4.5), not a detection-power figure; it
+assumes that the variances of the first 131072 samples hold for the full run.
 
 Output: results/summary/effect_size.csv
 Usage:  python3 analysis/effect_size.py
@@ -41,7 +42,8 @@ def main():
         plat = platform_of(p)
         for run in runs(p):
             raw = run["raw"]
-            if not raw:
+            # only dumps that arrived intact (no damaged line, full length) are used
+            if not raw or run["bad"] or len(raw) != int(run["run"]["nraw"]):
                 continue
             # samples outside [cal min / 2, 100 x cal max] are impossible here
             # and come from digits lost on the serial link (damaged dumps only)
