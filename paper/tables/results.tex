@@ -1,0 +1,20 @@
+\begin{tabular}{llccccc|ccccc}
+\hline
+ & & \multicolumn{5}{c|}{Test A (fixed vs random plaintext)} & \multicolumn{5}{c}{Test B (fixed vs random key)}\\
+Platform & Memory feature & sm & fa & fc & ct & lk & sm & fa & fc & ct & lk\\
+\hline
+STM32F103 (M3) & none & $=$ & $=$ & $=$ & $=$ & $\blacksquare$ & $=$ & $=$ & $=$ & $=$ & $\blacksquare$\\
+nRF52840 (M4F) & I-cache only & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\circ$ & $\blacksquare$\\
+SAMR21 (M0+) & NVM cache 64\,B & $\blacksquare$ & $=$ & $\blacksquare$ & $=$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $=$ & $\blacksquare$\\
+STM32L475 (M4F) & ART, D-cache 256\,B & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$\\
+RP2040 (M0+) & XIP cache 16\,KB & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$\\
+ESP32 NodeMCU & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
+ESP32 NodeMCU, Wi-Fi & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
+ESP32 rev\,1 (LoPy4) & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
+ESP32-C6 & cache 32\,KB & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$\\
+Cortex-A8 (Linux) & L1D 16\,KB, L2 & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & ? & $\circ$ & $\blacksquare$\\
+Cortex-A8, $N=10^7$ & L1D 16\,KB, L2 & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\blacksquare$\\
+x86-64 (KVM) & L1D 32\,KB, L2, L3 & $\circ$ & $\blacktriangle$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\circ$ & ? & $\circ$ & $\blacksquare$\\
+x86-64, $N=10^7$ & L1D 32\,KB, L2, L3 & $\circ$ & $\blacktriangle$ & $\blacktriangle$ & $\circ$ & $\blacksquare$ & $\circ$ & $\blacktriangle$ & $\circ$ & $\circ$ & $\blacksquare$\\
+\hline
+\end{tabular}

@@ -17,3 +17,4 @@ firmware/esp-idf/sdkconfig.*
 firmware/esp-idf/merged/
 results/raw/*.log
 results/dev/*.log
+paper_overleaf.zip

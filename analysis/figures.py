@@ -62,9 +62,10 @@ def main_logs():
     return logs
 
 
-def fig_maxt(logs, test):
+def fig_maxt(logs, test, only=None, cols=4, name=None, fmt="png", note=True):
     plats = [p for p in ORDER if p in logs and any(k[1] == test for ser in logs[p].values() for k in ser)]
-    cols = 4
+    if only:
+        plats = [p for p in only if p in plats]
     rows = (len(plats) + cols - 1) // cols
     fig, axes = plt.subplots(rows, cols, figsize=(7.2, 1.9 * rows + 0.6), sharex=True, sharey=True)
     axes = axes.flatten()
@@ -105,17 +106,18 @@ def fig_maxt(logs, test):
         ax.set_xlabel("measurements N")
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, loc="upper center", ncol=5, frameon=False, bbox_to_anchor=(0.5, 1.0))
-    fig.text(0.5, 0.005, "Test %s. Solid: first run, dashed: second run (new seed, other node or CPU; ESP32 Wi-Fi on: seeds 3/4 on the same board). Dotted lines: thresholds 4.5 and 10.\n"
-             "Runs in which every sample had the same cycle count (zero variance) are drawn at %.2f." % (test, FLOOR),
-             ha="center", fontsize=7, color=INK2)
-    fig.tight_layout(rect=(0, 0.05, 1, 0.95))
-    out = os.path.join(FIG, "maxt_vs_N_test%s.png" % test)
+    if note:
+        fig.text(0.5, 0.005, "Test %s. Solid: first run, dashed: second run (new seed, other node or CPU; ESP32 Wi-Fi on: seeds 3/4 on the same board). Dotted lines: thresholds 4.5 and 10.\n"
+                 "Runs in which every sample had the same cycle count (zero variance) are drawn at %.2f." % (test, FLOOR),
+                 ha="center", fontsize=7, color=INK2)
+    fig.tight_layout(rect=(0, 0.05 if note else 0, 1, 0.95))
+    out = os.path.join(FIG, (name or "maxt_vs_N_test%s" % test) + "." + fmt)
     fig.savefig(out, dpi=200)
     plt.close(fig)
     return out
 
 
-def fig_cost():
+def fig_cost(fmt="png"):
     import csv
     rows = list(csv.DictReader(open(os.path.join(ROOT, "results", "summary", "cost.csv"))))
     plats = []
@@ -140,7 +142,7 @@ def fig_cost():
     ax.grid(True, axis="x", color=GRID, lw=0.6, zorder=0)
     ax.legend(loc="lower right", frameon=False, ncol=3)
     fig.tight_layout()
-    out = os.path.join(FIG, "cost_relative.png")
+    out = os.path.join(FIG, "cost_relative." + fmt)
     fig.savefig(out, dpi=200)
     plt.close(fig)
     return out
@@ -152,6 +154,10 @@ def main():
     for t in "AB":
         print(fig_maxt(logs, t))
     print(fig_cost())
+    # paper versions (vector): six representative platforms, Test A
+    print(fig_maxt(logs, "A", only=["m3", "nrf52840dk", "samr21", "st-iotnode", "esp32", "x86"], cols=3,
+                   name="paper_fig1_maxt_testA", fmt="pdf", note=False))
+    print(fig_cost(fmt="pdf"))
 
 
 if __name__ == "__main__":
