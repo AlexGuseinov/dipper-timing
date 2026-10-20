@@ -149,3 +149,37 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def effect_table():
+    """Size of the detected leaks and sensitivity (main experiment, first run)."""
+    rows = list(csv.DictReader(open(os.path.join(SUM, "effect_size.csv"))))
+    names = [("STM32F103 (IoT-LAB m3)", "STM32F103"), ("nRF52840 (IoT-LAB nrf52840dk)", "nRF52840"),
+             ("SAMR21G18A (IoT-LAB samr21)", "SAMR21"), ("STM32L475VG (IoT-LAB st-iotnode)", "STM32L475"),
+             ("RP2040 (IoT-LAB rpi-pico)", "RP2040"), ("ESP32 NodeMCU-32S, Wi-Fi off", "ESP32"),
+             ("ESP32-C6 (IoT-LAB esp32-c6c1)", "ESP32-C6"),
+             ("TI AM3505 Cortex-A8 (IoT-LAB a8, Linux)", "Cortex-A8$^{\\dagger}$"),
+             ("x86-64 (KVM guest, AMD EPYC Zen 1)", "x86-64$^{\\ddagger}$")]
+    def pick(plat, v, t):
+        r = [x for x in rows if x["platform"] == plat and x["variant"] == v and x["test"] == t
+             and x["seed"] == "1" and "N1e7" not in x["log"]]
+        return r[0] if r else None
+    lines = ["\\begin{tabular}{lrrrrrr}", "\\hline",
+             " & \\multicolumn{4}{c}{Mean difference random $-$ fixed, Test A} & \\multicolumn{2}{c}{Detectable difference} \\\\",
+             "Platform & sm & fc & ct & lk & median & range\\\\", "\\hline"]
+    for plat, short in names:
+        cells = []
+        for v in ("small", "fast_const", "ct", "leaky"):
+            r = pick(plat, v, "A")
+            cells.append("%+.1f" % float(r["diff_random_minus_fixed"]) if r else "--")
+        mdes = sorted(float(x["mde_uncropped_at_N"]) for x in rows if x["platform"] == plat and x["seed"] == "1"
+                      and "N1e7" not in x["log"])
+        med = mdes[len(mdes) // 2]
+        lines.append("%s & %s & %.2f & %.2f--%.2f\\\\" % (short, " & ".join(cells), med, mdes[0], mdes[-1]))
+    lines += ["\\hline", "\\end{tabular}"]
+    return "\n".join(lines) + "\n"
+
+
+if __name__ == "__main__":
+    open(os.path.join(OUT, "effect.tex"), "w").write(effect_table())
+    print(effect_table())

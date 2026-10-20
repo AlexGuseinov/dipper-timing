@@ -59,6 +59,6 @@ Placement comes from `nm` of the linked image, `results/raw/nm/`.
 |---|---|---|---|
 | x86-64 | `.rodata` 0x5410, inside one 64 B line | `.bss` | `.rodata` |
 | ESP32 | DROM 0x3F405D68, inside one 32 B cache line | DRAM 0x3FFB… | DROM 0x3F405D98 / 0x3F406598 |
-| Cortex-M (RIOT) | flash (e.g. m3 0x08006300) | RAM 0x2000… | flash |
+| Cortex-M (RIOT) | flash (e.g. m3 0x080063A0, nRF52840 0x63D8: offset 8 in a 16-byte block) | RAM 0x2000… | flash |
 | RP2040 | XIP flash 0x10008058 | SRAM 0x2000… | XIP flash |
 | a8 | `.rodata` 0x4144, inside one 64 B line | `.bss` | `.rodata` |

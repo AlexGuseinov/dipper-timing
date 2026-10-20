@@ -101,3 +101,10 @@
 - Host recompute: 260 runs. 240 bit-identical, 2 to 1e-3, 18 serial-damaged; 0 unexplained.
 - `RESULTS.md`, `ENVIRONMENT.md`, tables and figures updated.
 - Open for Ali: target journal (AMA Herald or JMTE), then the paper.
+
+## 2026-10-20 ~19:15 Baku: review revision
+- Every point of the ChatGPT review was addressed; see `docs/REVIEW_RESPONSE.md`.
+- Welch zero-variance bug fixed; no impact on the reported data.
+- Placement experiment (exp 455791 and 455792, stopped) and lookup microbenchmark done.
+- Effect sizes added.
+- Paper rewritten. `RESULTS.md` §8–10 added.

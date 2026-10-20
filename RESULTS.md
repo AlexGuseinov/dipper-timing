@@ -231,3 +231,57 @@ Source: `results/summary/footprint_riot_raw.txt`.
 
 - `figures/maxt_vs_N_testA.png`, `figures/maxt_vs_N_testB.png`: max |t| against N, one panel per platform, for the N = 10^6 runs.
 - `figures/cost_relative.png`: encryption cost relative to `small`.
+
+## 8. Controlled placement experiment (added 20 Oct, after review)
+
+**Setup.** The same encryption and key-schedule functions read their tables through a pointer, and they are not inlined. RAM and flash variants therefore run byte-identical code and differ only in the address passed (`impl/dipper_placement.c`).
+
+**Runs.**
+- 14 runs on 14 IoT-LAB nodes (exp 455791 Saclay, 455792 Grenoble).
+- 168 series, all bit-identical in the host recompute.
+- nRF52840 also ran with the I-cache off and with the cipher code in RAM (`.ramfunc`).
+- Raw logs: `results/raw/placement/`. Tables: `results/summary/placement_runs.csv`, `placement_mb.csv`.
+
+**Results** (LaTeX source of the paper table: `paper/tables/placement.tex`):
+- Every RAM column is clean or constant, including the key schedule.
+- From flash, the large tables leak on the nRF52840, the SAMR21, the STM32L475 and, weakly, the RP2040.
+- The 64-byte-aligned 16-byte S-box leaks from flash only on the SAMR21.
+- On the nRF52840 the results are the same with the I-cache off and with the code in RAM.
+- `lk1`, a difference of 3–7 cycles, is detected on all five boards with |t| ≥ 103.
+
+**Mechanism: lookup microbenchmark** (`paper/tables/microbench.tex`). It measures the time of two flash loads, comparing a second load in the same aligned block as the first with one in another block.
+
+| board | same block | other block | block size | RAM |
+|---|---|---|---|---|
+| STM32F103 | 11 | 11 | none | 9 |
+| nRF52840 (also I-cache off, also code in RAM) | 8 | 11 | 16 B | 5 |
+| SAMR21 | 10 | 12 | 8 B | 9 |
+| STM32L475 | 9 | 13 | 8 B | 5 |
+| RP2040 | 8 | 8 | not visible (XIP 16 KB hit) | 8 |
+
+**Explanation of the main experiment.** In the nRF52840 build, `small`'s S-box was at 0x63D8, eight bytes into a 16-byte block, so the secret index chose between two blocks and the lookup leaked. Aligned to 64 bytes, the same S-box does not leak. On the SAMR21 every 16-byte table spans two 8-byte blocks.
+
+## 9. Effect size and sensitivity (added 20 Oct)
+
+These come from `analysis/effect_size.py` and `results/summary/effect_size.csv`, using the first 131072 samples of every run.
+
+**Effect size.** The leaks are a few cycles per encryption:
+- nRF52840 `small`: +8.8 cycles
+- SAMR21 `small`: −6.0, `fast_const`: −9.5
+- STM32L475 `fast_const`: +20.5
+- RP2040 `fast_const`: +4.7
+
+**Sensitivity.** The smallest mean shift the uncropped test flags at N = 10^6:
+- MCUs and ESP32: median 0.05–1.04 cycles (at most 2.7)
+- x86: 11–28 TSC ticks
+- Cortex-A8: 16–337 ns
+
+## 10. Correction: zero-variance Welch t (added 20 Oct)
+
+The external review found the bug. `dudect_welch()` returned t = 0 when both classes had zero variance, even if their means differed. It now returns ±∞ in that case; `tests/test_welch_zero_variance.c` is the regression test.
+
+A recomputation of all 244 comparable raw dumps found:
+- 180 tests with zero variance and equal means, where t = 0 is correct;
+- **0** tests with zero variance and different means.
+
+No reported verdict changes.

@@ -191,9 +191,9 @@ def main():
     os.makedirs(os.path.join(ROOT, "paper", "tables"), exist_ok=True)
     open(os.path.join(ROOT, "paper", "tables", "placement.tex"), "w").write("\n".join(lines) + "\n")
 
-    mbt = ["\\begin{tabular}{llrrrrr}", "\\hline",
-           "Platform & Setting & \\multicolumn{3}{c}{Flash: pair latency (cycles)} & RAM & \\\\",
-           " & & same block & other block & block size & & \\\\", "\\hline"]
+    mbt = ["\\begin{tabular}{llrrrr}", "\\hline",
+           " & & \\multicolumn{3}{c}{Flash} & RAM\\\\",
+           "Platform & Setting & same block & other block & block size & any\\\\", "\\hline"]
     seen = set()
     for pre, name, note in CONFIGS:
         rows = [r for r in mbrows if r[0] == pre]
@@ -203,7 +203,7 @@ def main():
         fl = [r for r in rows if r[2] == "flash"][0]
         ra = [r for r in rows if r[2] == "ram"][0]
         blk = ("%d\\,B" % fl[5]) if fl[5] else "--"
-        mbt.append("%s & %s & %d & %d & %s & %d & \\\\" % (name, note, fl[3], fl[4], blk, ra[3]))
+        mbt.append("%s & %s & %d & %d & %s & %d\\\\" % (name, note, fl[3], fl[4], blk, ra[3]))
     mbt += ["\\hline", "\\end{tabular}"]
     open(os.path.join(ROOT, "paper", "tables", "microbench.tex"), "w").write("\n".join(mbt) + "\n")
     print("\n".join(lines))

@@ -9,6 +9,8 @@ analysis:
 	$(PY) analysis/recompute.py $$($(PY) -c "import sys; sys.path.insert(0,'analysis'); from summarize import raw_logs; print(' '.join(sorted(raw_logs())))") > results/summary/recompute.txt; tail -1 results/summary/recompute.txt
 	$(PY) analysis/summarize.py > /dev/null
 	$(PY) analysis/footprint.py > /dev/null
+	$(PY) analysis/effect_size.py
+	$(PY) analysis/placement.py > /dev/null
 	$(PYPLOT) analysis/figures.py
 	$(PY) analysis/paper_tables.py > /dev/null
 	rm -f paper/figures/*.pdf && cp figures/paper_fig1_maxt_testA.pdf figures/paper_fig2_cost.pdf paper/figures/
